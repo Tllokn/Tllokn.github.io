@@ -749,6 +749,18 @@ ol.nested>li:before {
   .flex-item-stretch-5 {
     flex: 5;
   }
+  .block img {
+        float: left;
+        margin-right: 10px;
+        width: 300px;
+        /*height: 400px;*/
+    }
+    .block p {
+        /*width: 700px;*/
+        height: 200px;
+        line-height: 20px;
+        overflow: hidden;
+    }
 }
 
 @media screen and (max-width: 750px) {
