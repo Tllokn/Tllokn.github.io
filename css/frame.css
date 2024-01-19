@@ -755,6 +755,12 @@ ol.nested>li:before {
         width: 300px;
         /*height: 400px;*/
     }
+  .block video {
+        float: left;
+        margin-right: 10px;
+        width: 300px;
+        /*height: 400px;*/
+    }
     .block p {
         /*width: 700px;*/
         height: 200px;

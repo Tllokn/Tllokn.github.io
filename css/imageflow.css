@@ -2,22 +2,9 @@ body{
         margin: 0;
         padding: 0px;
     }
-figure {
-            border: 0px #4257f5 solid;
-            padding: 0px;
-            margin: auto;
-            }
-figcaption {
-            background-color:grey;
-            color: black;
-            font-style: italic;
-            font-size: 30px;
-            padding: 2px;
-            text-align: center;
-            }
     #carousel{
         margin: auto; /* 居中 */
-        width: 900px; /* 设置宽度 */
+        width: 900px; /* 设置高度 */
         position: relative; /* 相对定位 */
         overflow: hidden; /* 超出隐藏 */
     }
