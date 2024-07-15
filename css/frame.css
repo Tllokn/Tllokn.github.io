@@ -461,6 +461,18 @@ ol.publication.A-list li p:before {
   content: "[A"counter(A-counter)"]";
 }
 
+ol.publication.S-list {
+  counter-reset: S-counter;
+}
+
+ol.publication.S-list li p {
+  counter-increment: S-counter;
+}
+
+ol.publication.S-list li p:before {
+  content: "[S"counter(S-counter)"]";
+}
+
 ol.nested {
   list-style: none;
   counter-reset: item;
