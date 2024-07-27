@@ -2,502 +2,435 @@
 <html>
 
 <head>
-  <title>Luzhe Sun</title>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/imageflow.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-  <link href="https://at.alicdn.com/t/font_1582902_u0zm91pv15i.css" rel="stylesheet" type="text/css">
-  <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-103598896-1', 'auto');
-    ga('send', 'pageview');
-  </script>
+    <title>Luzhe Sun</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/imageflow.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="https://at.alicdn.com/t/font_1582902_u0zm91pv15i.css" rel="stylesheet" type="text/css">
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-103598896-1', 'auto');
+        ga('send', 'pageview');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('div[id]');
+            const navLinks = document.querySelectorAll('#nav a');
+
+            window.addEventListener('scroll', function () {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+
+    </script>
 </head>
 
 <body>
-  <div class="menu-container">
-    <div class="menu"><!--导航栏-->
-      <div class="menu-table flex-row-space-between">
-        <div class="logo flex-row-center">
-          <a href="index.html">Luzhe Sun 孙鲁喆 </a>
+<div class="menu-container">
+    <div class="menu">
+        <div class="menu-table flex-row-space-between">
+            <div class="logo flex-row-center">
+                <a href="index.html">Luzhe Sun 孙鲁喆</a>
+            </div>
+            <a class="menu-button" tabindex="0" href="javascript:void(0)">
+                <img src="img/menu.png" alt="Menu">
+            </a>
+            <div class="menu-items flex-row-center flex-item">
+                <a href="index.html" class="menu-index">Overview</a>
+                <a href="doc/CV.pdf" class="menu-widget">CV</a>
+                <a href="https://github.com/Tllokn">GitHub</a>
+                <a href="https://scholar.google.com/citations?hl=en&user=UH_AxUQAAAAJ">Google Scholar</a>
+            </div>
         </div>
-        <a class="menu-button" tabindex="0" href="javascript:void(0)">
-          <img src="img/menu.png">
-        </a>
-        <div class="menu-items flex-row-center flex-item">
-          <a href="index.html" class="menu-index">Overview</a>
-          <a href="doc/CV.pdf" class="menu-widget">CV</a>
-<!--          <a href="embedding.html" class="menu-embedding">Embedding</a>-->
-          <a href="https://github.com/Tllokn">GitHub</a>
-          <a href="https://scholar.google.com/citations?hl=en&user=UH_AxUQAAAAJ">Google Scholar</a>
-<!--            <a href="output/index.html">Photography</a>-->
-        </div>
-      </div>
     </div>
-  </div>
-</body>
+</div>
 
-<body>
-    <!-- 轮播图容器 -->
-    <div id="carousel">
-        <ul> <!-- 图片容器 -->
-            <li>
-                <img src="img/activity/2023SouthSideFestival.JPG">
-            </li>
-            <li>
-                <img src="img/activity/2023RSS.JPG">
-            </li>
-            <li>
-                <img src="img/activity/2023RSS_2.JPG">
-            </li>
-            <li>
-                <img src="img/activity/2023MSI.JPG">
-            </li>
-            <li>
-                <img src="img/activity/MSGradMatt.JPG">
-            </li>
-            <li>
-                <img src="img/activity/MSGradBrady.JPG">
-            </li>
-            <li>
-                <img src="img/activity/ManuelBlum.JPG">
-            </li>
-        </ul>
-        <!-- 按钮组 -->
-        <div id="leftArrow" class="iconfont icon-arrow-lift"></div> <!-- 左箭头切换按钮 -->
-        <div id="rightArrow" class="iconfont icon-arrow-right"></div> <!-- 右箭头切换按钮 -->
-        <div id="sliderBtn"></div> <!-- 切换按钮组 -->
+<div class="content-container">
+    <div id="nav">
+        <a href="#overview">Overview<span class="dot"></span></a>
+<!--        <a href="#news">News<span class="dot"></span></a>-->
+        <a href="#biography">Biography<span class="dot"></span></a>
+        <a href="#publications">Publications<span class="dot"></span></a>
+        <a href="#service">Service and Volunteer<span class="dot"></span></a>
+        <a href="#awards">Awards and Honors<span class="dot"></span></a>
+        <a href="#research">Research<span class="dot"></span></a>
+        <a href="#projects">Projects<span class="dot"></span></a>
     </div>
-</body>
-    <script type="text/javascript">
-        var imgArr = []; // 图片数组
-        var curIndex = 0; // 当前显示图片
-        var timer = null; // 定时器
-        var clickAllow = true; // 锁，是否允许用户点击
-        var btnList = []; // 右下角切换按钮组
 
-        function slide(slideContainer , targetIndex = curIndex + 1){
-            var width = 0; // 计算切换图片要滑动的距离
-            if(targetIndex > curIndex){
-                for(let i=curIndex;i<targetIndex;++i) width+=imgArr[i].width; // 正向切换则计算本图片到后续图片宽度
-            }else{
-                if(targetIndex === -1) width = imgArr[imgArr.length-1].width; // 特殊处理第一张图片
-                else for(let i=targetIndex;i<curIndex;++i) width+=imgArr[i].width; // 逆向切换处理宽度
-            }
-            clickAllow = false; // 不允许用户点击
-            var step = width/60; // 动态设置步长
-            step = targetIndex > curIndex ? step : -step; // 正向逆向切换
-            var curConLeft = slideContainer.offsetLeft; // 获取ul的left
-            var distanceMoved = 0; // 已经移动的距离
-            var slideInterval = setInterval(function (){ // 此定时器是为了实现切换动画
-                if(Math.abs(width - distanceMoved) > Math.abs(step)){ // 边界判定，判断已移动距离以及应移动距离的差与步长关系
-                     curConLeft -= step; // 大于步长则不断移动
-                    slideContainer.style.left = `${curConLeft - step}px`; // 移动
-                    distanceMoved += Math.abs(step); // 已移动距离加步长
-                }else{
-                    clearInterval(slideInterval); // 若最后移动距离不足步长，则清除动画定时器
-                    var directMove = step > 0 ? (curConLeft - width + distanceMoved) : (curConLeft + width - distanceMoved); // 正向移动与逆向移动的计算方式不同
-                    slideContainer.style.left = `${directMove}px`; // 直接完成此次动画
-                    distanceMoved = 0; // 重设移动距离为0
-                    curIndex = targetIndex; // 设置当前index
-                    if(curIndex === imgArr.length){ // index加1，判断是否为最后一张来作边缘处理
-                        curIndex = 0; // 最后一张则重置index
-                        slideContainer.style.left = `-${imgArr[0].width}px`;  // 重置ul
-                    }else if (curIndex === -1) {
-                        curIndex = imgArr.length-1; // 第一张重置index
-                        slideContainer.style.left = `-${slideContainer.offsetWidth - imgArr[imgArr.length-1].width - imgArr[0].width}px`;  // 重置ul
-                    }
-                    switchBtnActive(); // 右下角按钮的切换
-                    clickAllow = true; // 允许点击
-                }
-            }, 10);
-        }
-
-        function switchBtnActive(){
-            btnList.forEach((v) => {
-                v.className = "unitBtn"; // 设置其他按钮为灰色
-            })
-            btnList[curIndex] .className = "unitBtn active"; // 设置当前按钮为蓝色
-        }
-
-        function createBtnGroup(carousel,slideContainer,config){
-            document.getElementById("leftArrow").addEventListener('click',(e) => {
-                clearInterval(timer); // 清除定时器，避免手动切换时干扰
-                if(clickAllow) slide(slideContainer,curIndex-1); // 允许点击则切换上一张
-                timer = setInterval(() => {slide(slideContainer)},config.interval); // 重设定时器
-            })
-            document.getElementById("rightArrow").addEventListener('click',(e) => {
-                clearInterval(timer); // 清除定时器，避免手动切换时干扰
-                if(clickAllow) slide(slideContainer,curIndex+1); // 允许点击则切换下一张
-                timer = setInterval(() => {slide(slideContainer)},config.interval); // 重设定时器
-            })
-            var sliderBtn = document.getElementById("sliderBtn"); // 获取按钮容器的引用
-            imgArr.forEach((v,i) => {
-                let btn = document.createElement("div"); // 制作按钮
-                btn.className = i === 0 ?  "unitBtn active" : "unitBtn"; // 初设蓝色与灰色按钮样式
-                btn.addEventListener('click',(e) => {
-                    clearInterval(timer); // 清除定时器，避免手动切换时干扰
-                    if(clickAllow) slide(slideContainer,i); // // 允许点击则切换
-                    timer = setInterval(() => {slide(slideContainer)},config.interval); // 重设定时器
-                })
-                btnList.push(btn); // 添加按钮到按钮组
-                sliderBtn.appendChild(btn); // 追加按钮到按钮容器
-            })
-        }
-
-
-        function edgeDispose(slideContainer){
-            var li = document.createElement("li"); // 创建<li>
-            var img = document.createElement("img"); // 创建新的<img>
-            img.src = imgArr[0].src; // 设置图片src
-            li.appendChild(img); // 追加<img>到<li>
-            slideContainer.appendChild(li); // 将第一张图片追加到轮播图的最后，作边缘处理
-            var li2 = document.createElement("li"); // 创建<li>
-            var img2 = document.createElement("img"); // 创建新的<img>
-            img2.src = imgArr[imgArr.length-1].src; // 设置图片src
-            li2.appendChild(img2); // 追加<img>到<li>
-            slideContainer.insertBefore(li2,slideContainer.firstChild); // 将最后一张图片追加到轮播图的最前，作边缘处理
-            slideContainer.style.left = `-${imgArr[0].width}px`; // 重设ul位置
-        }
-
-        function eventDispose(carousel,slideContainer,config){
-            document.addEventListener('visibilitychange',function(){ // 浏览器切换页面会导致动画出现问题，监听页面切换
-                if(document.visibilityState=='hidden') clearInterval(timer); // 页面隐藏清除定时器
-                else timer = setInterval(() => {slide(slideContainer)},config.interval); // 重设定时器
-            });
-            carousel.addEventListener('mouseover',function(){ // 鼠标移动到容器则不切换动画，停止计时器
-                clearInterval(timer); // 页面隐藏清除定时器
-            });
-            carousel.addEventListener('mouseleave',function(){ // 鼠标移出容器则开始动画
-                timer = setInterval(() => {slide(slideContainer)},config.interval); // 重设定时器
-            });
-        }
-
-
-        (function start() {
-            var config = {
-                height: "500px", // 配置高度
-                interval: 5000 // 配置轮播时间间隔
-            }
-            var carousel = document.getElementById("carousel"); //获取容器对象的引用
-            carousel.style.height = config.height; // 将轮播容器高度设定
-            document.querySelectorAll("#carousel img").forEach(v => imgArr.push(v)); // 获取所有图片组成数组
-            var slideContainer = document.querySelector("#carousel > ul"); // 获取ul也就是一行图片的容器
-            edgeDispose(slideContainer); // 对边缘处理
-            eventDispose(carousel,slideContainer,config); // 对一些浏览器事件处理
-            createBtnGroup(carousel,slideContainer,config); // 按钮组的处理
-            timer = setInterval(() => {slide(slideContainer)},config.interval); // 设置定时器定时切换
-        })();
-    </script>
-
-<body>
-  <div class="content-container">
-    <div class="content">
-      <div class="content-table flex-column">
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <img class="image" id="me" src="img/life-photo.JPG" width="300" height="300">
-          </div>
-          <div class="flex-item flex-column">
-            <h2>Luzhe Sun(孙鲁喆)</h2>
-            <p class="text">
-              Ph.D. Student AT <a href="https://www.ttic.edu/">Toyota Technological Institute at Chicago</a><br>
-              Master of Computer Science AT <a href="https://masters.cs.uchicago.edu/">University of Chicago</a><br>
-              Bachelor of Engineering AT <a href="https://informatics.xmu.edu.cn/en/index.htm">Xiamen University</a>(Graduates With Honor)<br>
-              Email: luzhesun@ttic.edu /  luzhesun@uchicago.edu<br>
-              Interest: Robotics Perception Algorithm, diffusion model,Graph Theory<br><br><br>
-              Currently I am a PhD Student at  <a href="https://www.ttic.edu/">TTIC</a>
-              <a href="https://ttic.edu/ripl/"> Robot Intelligence<br> through Perception Lab</a>
-              supervised by Professor <a href="https://home.ttic.edu/~mwalter/">Matthew Walter</a>
-              </p>
-          </div>
+    <div id="overview" class="content">
+        <div id="carousel">
+            <ul>
+                <li><img src="img/activity/2023SouthSideFestival.JPG" alt="2023 South Side Festival"></li>
+                <li><img src="img/activity/2023RSS.JPG" alt="2023 RSS"></li>
+                <li><img src="img/activity/2023RSS_2.JPG" alt="2023 RSS 2"></li>
+                <li><img src="img/activity/2023MSI.JPG" alt="2023 MSI"></li>
+                <li><img src="img/activity/MSGradMatt.JPG" alt="MS Grad Matt"></li>
+                <li><img src="img/activity/MSGradBrady.JPG" alt="MS Grad Brady"></li>
+                <li><img src="img/activity/ManuelBlum.JPG" alt="Manuel Blum"></li>
+            </ul>
+            <div id="leftArrow" class="iconfont icon-arrow-lift"></div>
+            <div id="rightArrow" class="iconfont icon-arrow-right"></div>
+            <div id="sliderBtn"></div>
         </div>
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <h2>Biography</h2>
-            <hr>
-            <p class="text">
-              I'm Luzhe Sun,a first-year Ph.D. student at TTIC. My research focuses on Robotics Planning and Diffusion Model.
-              Prior to joining TTIC, I completed my <a href="https://masters.cs.uchicago.edu/">Masters Program in Computer Science</a> at the <a href="https://www.uchicago.edu/en">University of Chicago</a>.
-            </p>
-            <p class="text">
-              I studied at the School of Information Science at Xiamen University as an undergraduate,
-              where I conducted research on graph theory with Professor <a href="https://informatics.xmu.edu.cn/info/1019/15293.htm">Zhihong Zhang</a>.
-<!--              I worked with Xing Ai to complete a <a href="https://arxiv.org/abs/2201.05158">paper</a> on quantum neural networks for graph-->
-<!--              classification under the supervision of <a href="https://www.cs.york.ac.uk/people/erh">Edwin Hancock</a>.-->
-<!--              This has greatly increased my interest in graph theory and machine learning.-->
-            </p>
-            <p class="text">
-              In the summer of 2020, I spent seven months with Professor <a href="https://www.math.purdue.edu/~lin491/">Guang Lin</a>
-              at Purdue University learning about multi-fidelity data prediction and building the <a href="https://github.com/Tllokn/Deep-Multi-Fidelity-Gaussian-Process-Prediction">Deep Multi-Fidelity Gaussian Process
-              Prediction framework</a>.
-            </p>
-
-             <p class="text">
-              In my free time I really enjoy photography and painting Chinese paintings, so if you're interested I can
-               teach you how to get started. I also play the erhu, but not as distinguished as painting.
-            </p>
-
-
-            <h2>Publications</h2>
-            <hr>
-            <!--This list is reversed on the website due to reverse number listing-->
-            <ol class="publication P-list">
-              <li>
-                <p class="text-small-margin">
-                  Xing Ai, <b>Luzhe Sun</b>, Zhihong Zhang, Junchi Yan, Edwin Hancock
-                  <b><a href="https://arxiv.org/abs/2201.05158">Decompositional Quantum Graph Neural Network</a></b>
-<!--                  <a href="file/timelapse-editor.pdf" target="_blank">PDF</a>-->
-<!--                  &nbsp;&nbsp;|&nbsp;&nbsp;-->
-<!--                  <a href="https://vimeo.com/136251467" target="_blank">Source</a>-->
-<!--                  &nbsp;&nbsp;|&nbsp;&nbsp;-->
-<!--                  <a href="https://yenchiah.wordpress.com/2016/05/14/a-web-based-large-scale-timelapse-editor-for-creating-and-sharing-guided-video-tours-and-interactive-slideshows-ieee-vis-2015-poster/" target="_blank">Blog</a>-->
-<!--                  &nbsp;&nbsp;|&nbsp;&nbsp;-->
-<!--                  <a href="https://github.com/CMU-CREATE-Lab/timemachine-viewer" target="_blank">Code and Data</a>-->
-                </p>
-              </li>
-              <li>
-<!--                <p class="text-small-margin">-->
-<!--                  <b>Luzhe Sun*</b>, Takuma Yoneda*, Matthew R. Walter, Ge Yang, and Bradly Stadie-->
-<!--                  <b>One paper posted to</b> RSS 2023, under review-->
-<!--                </p>-->
-                <p class="text-small-margin">
-                  Takuma Yoneda, <b>Luzhe Sun</b>, Ge Yang, Bradly Stadie, Matthew R. Walter
-                  </br> <b><a href="https://diffusion-for-shared-autonomy.github.io/">To the Noise and Back: Diffusion for Shared Autonomy</a></b> <b><a href="https://roboticsconference.org/">[RSS 2023]</a></b> <a href="https://diffusion-for-shared-autonomy.github.io/">[Website Link]</a>
-                </p>
-              </li>
-            </ol>
-
-
-           <h2>Service and Volunteer</h2>
-            <hr>
-            <ol class="publication S-list">
-                <li>
-                <p class="text-small-margin">
-                    <b>Volunteer</b> of <a href="https://ttic.edu/mwrw/">Midwest Robotics Workshop</a> TTIC, Chicago, IL.
-                </p>
-              </li>
-                <li>
-                <p class="text-small-margin">
-                  <b>Organizer</b> of <a href="https://sites.google.com/view/multimodal-ai-ttic-2024/home"> Multimodal Artificial Intelligence</a> TTIC, Chicago, IL.
-                </p>
-              </li>
-            </ol>
-
-
-            <h2>Awards and Honors</h2>
-            <hr>
-            <!--This list is reversed on the website due to reverse number listing-->
-            <ol class="publication A-list">
-              <li>
-                <p class="text-small-margin">
-                  Xiamen University Outstanding Student Worker Scholarship
-                  2018. <br>Xiamen University. China.
-                </p>
-              </li>
-              <li>
-                <p class="text-small-margin">
-                  Xiamen University "Xilie Huang" Annual Scholarship(2/200)
-                  2018. <br>Xiamen University. China.
-                </p>
-              </li>
-              <li>
-                <p class="text-small-margin">
-                  <a target="_blank" href="http://www.fwwb.org.cn/">
-                  National Third Prize of China Students Service Outsourcing competition</a>.
-                  2018. <br>Ministry of Education of the People's Republic of China, Ministry of Commerce of the People's Republic of China, China.
-                </p>
-              </li>
-
-              <li>
-                <p class="text-small-margin">
-                  <a target="_blank" href="http://www.mcm.edu.cn/">National Second Prize of Contemporary Undergraduate Mathematical Contest in Modeling</a>.
-                  2019. <br>China Society for Industrial and Applied Mathematics, China.
-                </p>
-              </li>
-
-              <li>
-                <p class="text-small-margin">
-                  China National Scholarship(Highest scholarship given by Chinese government Top 0.1%)
-                  2019. <br>Chinese Ministry of Education. China.
-                </p>
-              </li>
-
-              <li>
-                <p class="text-small-margin">
-                  China National Scholarship(Highest scholarship given by Chinese government Top 0.1%)
-                  2020. <br>Chinese Ministry of Education. China.
-                </p>
-              </li>
-
-                <li>
-                <p class="text-small-margin">
-                  Honored Graduates Student,
-                  2021. <br>Xiamen University. China
-                </p>
-              </li>
-            </ol>
-          </div>
-
-          <!--Start Projects-->
-          <div class="flex-row full-width">
-            <div class="flex-item flex-column full-width">
-              <h2>Research</h2>
-              <hr>
+        <div class="content-table flex-column">
+            <div class="flex-row">
+                <div class="flex-item flex-column">
+                    <img class="image" id="me" src="img/life-photo.JPG" width="300" height="300">
+                </div>
+                <div class="flex-item flex-column">
+                    <h2>Luzhe Sun(孙鲁喆)</h2>
+                    <p class="text">
+                        Ph.D. Student AT <a href="https://www.ttic.edu/">Toyota Technological Institute at
+                        Chicago</a><br>
+                        Master of Computer Science AT <a href="https://masters.cs.uchicago.edu/">University of
+                        Chicago</a><br>
+                        Bachelor of Engineering AT <a href="https://informatics.xmu.edu.cn/en/index.htm">Xiamen
+                        University</a>(Graduates With Honor)<br>
+                        Email: luzhesun@ttic.edu / luzhesun@uchicago.edu<br>
+                        Interest: Robotics Perception Algorithm, diffusion model, Graph Theory<br><br><br>
+                        Currently I am a PhD Student at <a href="https://www.ttic.edu/">TTIC</a>
+                        <a href="https://ttic.edu/ripl/"> Robot Intelligence<br> through Perception Lab</a>
+                        supervised by Professor <a href="https://home.ttic.edu/~mwalter/">Matthew Walter</a>
+                    </p>
+                </div>
             </div>
-          </div>
 
-          <div class="flex-row">
-            <div class="block">
-                <video width="400" preload="auto" autoplay controls loop> <source src="video/diffusion-shared-autonomy.webm"> </video>
-<!--              <img class="image max-width-400" src="img/shared-autonomy.jpg" >-->
-              <p>
-                  <span class="highlight-text">To the Noise and Back: Diffusion for Shared Autonomy [RSS 2023]</span><br>
-                  <span><a href="https://ttic.edu/ripl/" target="_blank">Robot Intelligence through Perception Lab</a>, TTIC</span><br>
-                Using diffusion model to correct user input, thus achieving shared-autonomy. This model aims to help
-                  user finish hard operations swiftly and stably.
-                User intent is preserved by controlling the number of diffusion steps in the diffusion model.
-                The experiment is successful on hard control problems like the LunarLander and Block Push environment.
-              </p>
+<!--            <div id="news">-->
+<!--                <div class="flex-item flex-column">-->
+<!--                    <h2>News</h2>-->
+<!--                    <hr>-->
+<!--                    <div>[2024.07.08] I am hosting Multimodal AI workshop.</div>-->
+<!--                    <div>[2024.04.03] I volunteered at Midwest robotics workshop</div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <div id="biography" class="flex-row">
+                <div class="flex-item flex-column">
+                    <h2>Biography</h2>
+                    <hr>
+                    <p class="text">
+                        I'm Luzhe Sun, a first-year Ph.D. student at TTIC. My research focuses on Robotics Planning and
+                        Diffusion Model.
+                        Prior to joining TTIC, I completed my <a href="https://masters.cs.uchicago.edu/">Masters Program
+                        in Computer Science</a> at the <a href="https://www.uchicago.edu/en">University of Chicago</a>.
+                        I studied at the School of Information Science at Xiamen University as an undergraduate,
+                        where I conducted research on graph theory with Professor <a
+                            href="https://informatics.xmu.edu.cn/info/1019/15293.htm">Zhihong Zhang</a>.
+                    </p>
+                    <!--            <p class="text">-->
+                    <!--              In the summer of 2020, I spent seven months with Professor <a href="https://www.math.purdue.edu/~lin491/">Guang Lin</a>-->
+                    <!--              at Purdue University learning about multi-fidelity data prediction and building the <a href="https://github.com/Tllokn/Deep-Multi-Fidelity-Gaussian-Process-Prediction">Deep Multi-Fidelity Gaussian Process-->
+                    <!--              Prediction framework</a>.-->
+                    <!--            </p>-->
+                    <p class="text">
+                        In my free time, I really enjoy photography and painting Chinese paintings. I also play the
+                        erhu, but not as distinguished as painting.
+                    </p>
+                </div>
             </div>
-          </div>
 
-          <div class="flex-row">
-            <div class="block">
-              <video width="400" preload="auto" autoplay controls loop> <source src="video/diffusion-trajectory.mp4" type="video/mp4"> </video>
-              <p>
-                  <span class="highlight-text">Trajectory Planning via Diffusion Model 2022</span><br>
-                  <span><a href="https://ttic.edu/ripl/" target="_blank">Robot Intelligence through Perception Lab</a>, TTIC</span><br>
-                Using the diffusion model to predict the trajectory of the manipulator. At the same time explored
-                the properties of the diffusion model on trajectory stitching and conditional sampling to achieve trajectory inpainting.
-                The experiment was simulated in Maze2D and Ravens environment.
-              </p>
+            <div id="publications">
+                <div class="flex-item flex-column">
+                    <h2>Publications</h2>
+                    <hr>
+                    <div class="publication-item">
+                        <img src="img/publication/diff-sha.png" alt="Publication Image">
+                        <div class="publication-details">
+                            <div class="publication-title"><a href="https://diffusion-for-shared-autonomy.github.io/">To
+                                the Noise and Back: Diffusion for Shared Autonomy</a></div>
+                            <div class="publication-authors">Takuma Yoneda, <b>Luzhe Sun</b>, Ge Yang, Bradly Stadie, Matthew
+                                R. Walter
+                            </div>
+                            <div class="publication-buttons">
+                                <a href="https://roboticsconference.org/" style="color: #8b0000;">RSS 2023 [Oral]</a>
+                                <a href="https://diffusion-for-shared-autonomy.github.io/">Website</a>
+                                <a href="https://arxiv.org/abs/2302.12244">Arxiv</a>
+                                <a href="https://github.com/ripl/diffusion-for-shared-autonomy">Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="publication-item">
+                        <img src="img/publication/quant-compute.jpg" alt="Publication Image">
+                        <div class="publication-details">
+                            <div class="publication-title"><a href="https://arxiv.org/abs/2201.05158">Decompositional
+                                Quantum Graph Neural Network</a></div>
+                            <div class="publication-authors">Xing Ai, <b>Luzhe Sun</b>, Zhihong Zhang, Junchi Yan, Edwin
+                                Hancock
+                            </div>
+                            <div class="publication-buttons">
+                                <a href="https://arxiv.org/abs/2201.05158">Arxiv</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-          </div>
 
-                      <div class="flex-row">
-            <div class="block">
-              <img class="image max-width-400" src="img/Multi.png" >
-              <p>
-                <span class="highlight-text">Deep Multi-Fidelity Gaussian Process (Purdue University)</span><br>
-                In daily life, we often encounter situations where it is difficult to
-                obtain high-fidelity data during the training phase of some data
-                predictions, such as changes in the earth’s atmosphere and heat
-                conduction data. But for these experiments, we can use artificially
-                simulated physical models to obtain a large amount of data. But these
-                artificially simulated data often have a gap with the real situation,
-                that is, low-fidelity data. How to train a model with a large number
-                of low-fidelity data obtained by simulation combined with very few high-precision
-                high-fidelity data so that the model has a high correct rate of prediction for
-                high-fidelity data has become a problem worthy of research.
-                (<a href="https://github.com/Tllokn/Deep-Multi-Fidelity-Gaussian-Process-Prediction" target="_blank">website link</a>)
-              </p>
+            <div id="service">
+                <div class="flex-item flex-column">
+                    <h2>Service and Volunteer</h2>
+                    <hr>
+                    <ol class="publication S-list">
+                        <li>
+                            <p class="text-small-margin">
+                                <b>Volunteer</b> of <a href="https://ttic.edu/mwrw/">Midwest Robotics Workshop</a> TTIC,
+                                Chicago, IL.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-small-margin">
+                                <b>Organizer</b> of <a
+                                    href="https://sites.google.com/view/multimodal-ai-ttic-2024/home"> Multimodal
+                                Artificial Intelligence</a> TTIC, Chicago, IL.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
             </div>
-          </div>
 
-          <div class="flex-row">
-            <div class="block">
-              <img class="image max-width-400" src="img/Quant.png" >
-              <p>
-                <span class="highlight-text">Quantum Graph Classification Neural Network (Xiamen University, Data Mining Lab)</span><br>
-                Quantum machine learning is a fast emerging field that aims to tackle
-                machine learning using quantum algorithms and quantum computing.
-                We propose a novel hybrid quantum-classical algorithm for graph-structured data, which we refer to as the
-                Decompositional Quantum Graph Neural Network (DQGNN).
-                DQGNN implements the GNN theoretical framework using the tensor product and unity
-                matrices representation, which greatly reduces the number of model parameters required.
-                (<a href="https://arxiv.org/abs/2201.05158" target="_blank">website link</a>)
-              </p>
+            <div id="awards">
+                <div class="flex-item flex-column">
+                    <h2>Awards and Honors</h2>
+                    <hr>
+                    <ol class="publication A-list">
+                        <li>
+                            <p class="text-small-margin">
+                                Xiamen University Outstanding Student Worker Scholarship
+                                2018. <br>Xiamen University. China.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-small-margin">
+                                Xiamen University "Xilie Huang" Annual Scholarship(2/200)
+                                2018. <br>Xiamen University. China.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-small-margin">
+                                <a target="_blank" href="http://www.fwwb.org.cn/">
+                                    National Third Prize of China Students Service Outsourcing competition</a>.
+                                2018. <br>Ministry of Education of the People's Republic of China, Ministry of Commerce
+                                of the People's Republic of China, China.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-small-margin">
+                                <a target="_blank" href="http://www.mcm.edu.cn/">National Second Prize of Contemporary
+                                    Undergraduate Mathematical Contest in Modeling</a>.
+                                2019. <br>China Society for Industrial and Applied Mathematics, China.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-small-margin">
+                                China National Scholarship(Highest scholarship given by Chinese government Top 0.1%)
+                                2019. <br>Chinese Ministry of Education. China.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-small-margin">
+                                China National Scholarship(Highest scholarship given by Chinese government Top 0.1%)
+                                2020. <br>Chinese Ministry of Education. China.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-small-margin">
+                                Honored Graduates Student,
+                                2021. <br>Xiamen University. China
+                            </p>
+                        </li>
+                    </ol>
+                </div>
             </div>
-          </div>
+        </div>
 
-<!--          </div>-->
-            <div class="flex-row full-width">
-            <div class="flex-item flex-column full-width">
-              <h2>Projects</h2>
+        <div id="research" class="flex-row">
+            <div class="flex-item flex-column">
+                <h2>Research</h2>
                 <hr>
-                 <iframe width="750" height="400" src="https://www.youtube.com/embed/ldNHdsU3KME"></iframe>
-                <div class="flex-row">
-            <div class="block">
-<!--              <img class="image max-width-400" src="img/activity/2023MSI_2.jpg" >-->
-          <p>
-                <span class="highlight-text">Embodies ChatGPT | Invited demonstration at MSI(Chicago) Robot Block Party 2023</span><br>
-                we implemented the Code as Policies algorithm on the UR5 robot. The robot is able to respond to the user’s
-                  voice command and execute the corresponding task. The project was presented during the 2023 National
-                  Robotics Week at the Museum of Science and Industry in Chicago, and at the University of Chicago for
-                  the 2023 South Side Science Festival.
-<!--              </p>-->
+                <div class="research-item">
+                    <video width="45%" height="auto" preload="auto" autoplay controls loop>
+                        <source src="video/diffusion-shared-autonomy.webm">
+                    </video>
+                    <div class="research-details">
+                        <div class="research-title">To the Noise and Back: Diffusion for Shared Autonomy</div>
+                        <div class="research-authors">Robot Intelligence through Perception Lab, TTIC</div>
+                        <p>Using diffusion model to correct user input, thus achieving shared-autonomy. This model aims
+                            to help
+                            user finish hard operations swiftly and stably. User intent is preserved by controlling the
+                            number of
+                            diffusion steps in the diffusion model. The experiment is successful on hard control
+                            problems like the LunarLander and Block Push environment.</p>
+                    </div>
+                </div>
+                <div class="research-item">
+                    <video width="45%" height="auto" preload="auto" autoplay controls loop>
+                        <source src="video/diffusion-trajectory.mp4" type="video/mp4">
+                    </video>
+                    <div class="research-details">
+                        <div class="research-title">Trajectory Planning via Diffusion Model</div>
+                        <div class="research-authors">Robot Intelligence through Perception Lab, TTIC</div>
+                        <p>Using the diffusion model to predict the trajectory of the manipulator. At the same time
+                            explored
+                            the properties of the diffusion model on trajectory stitching and conditional sampling to
+                            achieve trajectory inpainting. The experiment was simulated in Maze2D and Ravens
+                            environment.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-
-                <p>
-                <iframe width="750" height="400" src="https://www.youtube.com/embed/UL26MJ7HQgY"></iframe>
-          <div class="flex-row">
-            <div class="block">
-<!--              <img class="image max-width-400" src="img/FWWB.png" >-->
-<!--              <p>-->
-                <span class="highlight-text">AI Transnational Free Travel Assistant APP 2019 (Xiamen University)</span><br>
-                With the economic development and the improvement of living standards, people's demand for spiritual culture has further increased.
-                Tourism has become people's basic way of life and one of the best choices for people to use leisure time. In recent years, the booming
-                transnational free travel has gradually entered the scope of public acceptance. The accompanying problem is that there are inconveniences in tourism,
-                accommodation consumption and other fields due to the relationship of language. The "Self-Travel Assistant" APP is designed based on this situation
-                and is an auxiliary application for tourists from China and Japan to travel independently. Using modern AI technology to assist tourists,
-                provide and recommend information on local attractions, restaurants, accommodation, transportation, etc.
-                (<a href="https://github.com/Tllokn/AI-Transnational-Free-Travel-Assistant-APP" target="_blank">website link</a>)
-<!--              </p>-->
+            <div class="research-item">
+                <img src="img/Multi.png" alt="Deep Multi-Fidelity Gaussian Process">
+                <div class="research-details">
+                    <div class="research-title">Deep Multi-Fidelity Gaussian Process (Purdue University)</div>
+                    <div class="research-authors">In daily life, we often encounter situations where it is difficult to
+                        obtain high-fidelity data during the training phase of some data predictions, such as changes in
+                        the earth’s atmosphere and heat conduction data. But for these experiments, we can use
+                        artificially simulated physical models to obtain a large amount of data. But these artificially
+                        simulated data often have a gap with the real situation, that is, low-fidelity data. How to
+                        train a model with a large number of low-fidelity data obtained by simulation combined with very
+                        few high-precision high-fidelity data so that the model has a high correct rate of prediction
+                        for high-fidelity data has become a problem worthy of research.
+                    </div>
+                    <div class="research-buttons">
+                        <a href="https://github.com/Tllokn/Deep-Multi-Fidelity-Gaussian-Process-Prediction">Website</a>
+                    </div>
+                </div>
             </div>
-          </div>
-
-
-
-<!--          <div class="flex-row">-->
-<!--            <div class="block">-->
-<!--              <img class="image max-width-400" src="img/pocket.jpeg" >-->
-<!--              <p>-->
-<!--                <span class="highlight-text">iOS Application For Bill Record 2022 (University of Chicago, Computer Science Department)</span><br>-->
-<!--                Many of my friends have a good habit to manage their money.-->
-<!--                They will buy a notebook or create a note in phone to record every bill.-->
-<!--                I am going to create an app which can help us record our incomes and expense.-->
-<!--                (<a href="https://github.com/Tllokn/PocketBook-iOS-application" target="_blank">website link</a>)-->
-<!--              </p>-->
-<!--            </div>-->
-<!--          </div>-->
-
-
-
-
-<!--          <div class="flex-row">-->
-<!--              <hr>-->
-<!--            <div class="block">-->
-<!--              <img class="image max-width-400" src="img/math.png" >-->
-<!--              <p>-->
-<!--                <span class="highlight-text">CUMCM-2019-Problem-B-Chinese 2019 (Xiamen University)</span><br>-->
-<!--                "One Heart, One Mind" (also known as "One Heart Drum") is a teamwork ability development project.-->
-<!--                Try to develop a mathematical model to solve some problems.-->
-<!--                (<a href="https://github.com/Tllokn/CUMCM-2019-Problem-B-Chinese" target="_blank">website link</a>)-->
-<!--              </p>-->
-<!--            </div>-->
-<!--          </div>-->
-          <!--End Projects-->
         </div>
-      </div>
+        <div id="projects" class="flex-row">
+            <div class="flex-item flex-column">
+                <h2>Projects</h2>
+                <hr>
+                <div class="project-item">
+                    <iframe class="project-video" src="https://www.youtube.com/embed/ldNHdsU3KME"></iframe>
+                    <div class="project-details">
+                        <div class="project-title">Embodies ChatGPT | Invited demonstration at MSI(Chicago) Robot Block
+                            Party 2023
+                        </div>
+                        <p>We implemented the Code as Policies algorithm on the UR5 robot. The robot is able to respond
+                            to
+                            the user’s voice command and execute the corresponding task. The project was presented
+                            during
+                            the 2023 National Robotics Week at the Museum of Science and Industry in Chicago, and at the
+                            University of Chicago for the 2023 South Side Science Festival.</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <iframe class="project-video" src="https://www.youtube.com/embed/UL26MJ7HQgY"></iframe>
+                    <div class="project-details">
+                        <div class="project-title">AI Transnational Free Travel Assistant APP 2019 (Xiamen University)
+                        </div>
+                        <p>With the economic development and the improvement of living standards, people's demand for
+                            spiritual culture has further increased.
+                            Tourism has become people's basic way of life and one of the best choices for people to use
+                            leisure time. In recent years, the booming
+                            transnational free travel has gradually entered the scope of public acceptance. The
+                            accompanying
+                            problem is that there are inconveniences in tourism,
+                            accommodation consumption and other fields due to the relationship of language. The
+                            "Self-Travel
+                            Assistant" APP is designed based on this situation
+                            and is an auxiliary application for tourists from China and Japan to travel independently.
+                            Using
+                            modern AI technology to assist tourists,
+                            provide and recommend information on local attractions, restaurants, accommodation,
+                            transportation, etc.</p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/Tllokn/AI-Transnational-Free-Travel-Assistant-APP">Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+
+</div>
+</div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const imgArr = document.querySelectorAll('#carousel img');
+        const ul = document.querySelector('#carousel ul');
+        const btnList = [];
+        let curIndex = 0;
+        const config = {interval: 5000};
+        let timer = null;
+
+        function switchSlide(targetIndex) {
+            ul.style.transform = `translateX(-${targetIndex * 100}%)`;
+            btnList[curIndex].classList.remove('active');
+            curIndex = targetIndex;
+            btnList[curIndex].classList.add('active');
+        }
+
+        function createBtnGroup() {
+            const sliderBtn = document.getElementById('sliderBtn');
+            imgArr.forEach((img, index) => {
+                const btn = document.createElement('div');
+                btn.className = 'unitBtn' + (index === 0 ? ' active' : '');
+                btn.addEventListener('click', () => {
+                    clearInterval(timer);
+                    switchSlide(index);
+                    timer = setInterval(nextSlide, config.interval);
+                });
+                btnList.push(btn);
+                sliderBtn.appendChild(btn);
+            });
+        }
+
+        function nextSlide() {
+            const nextIndex = (curIndex + 1) % imgArr.length;
+            switchSlide(nextIndex);
+        }
+
+        document.getElementById('leftArrow').addEventListener('click', () => {
+            clearInterval(timer);
+            const prevIndex = (curIndex - 1 + imgArr.length) % imgArr.length;
+            switchSlide(prevIndex);
+            timer = setInterval(nextSlide, config.interval);
+        });
+
+        document.getElementById('rightArrow').addEventListener('click', () => {
+            clearInterval(timer);
+            nextSlide();
+            timer = setInterval(nextSlide, config.interval);
+        });
+
+        createBtnGroup();
+        timer = setInterval(nextSlide, config.interval);
+    });
+</script>
 </body>
 
 </html>

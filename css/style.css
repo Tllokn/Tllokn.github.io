@@ -1,0 +1,243 @@
+body {
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#nav {
+  position: fixed;
+  top: 200px; /* 调整这个值以改变导航栏的垂直位置 */
+  left: 200px; /* 调整这个值以改变导航栏的水平位置 */
+  background: transparent;
+  color: #265bb9;
+  z-index: 1000;
+}
+
+#nav a {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #265bb9;
+  font-family: 'YourCustomFont', sans-serif; /* 使用自定义字体 */
+  position: relative;
+  padding-right: 20px;
+}
+
+#nav a .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #265bb9;
+  border-radius: 50%;
+  margin-left: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#nav a.active .dot {
+  opacity: 1;
+}
+
+#nav::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: #265bb9;
+}
+
+.content-container {
+  margin-left: 220px;
+  padding: 20px;
+  flex: 1;
+}
+
+.menu-container {
+  background: #f4f4f4;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.menu-table {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu-items a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+#carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 840px;
+  margin: 0 auto;
+  margin-top: 100px; /* 确保轮播图不会被导航栏遮挡 */
+}
+
+#carousel ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+  left: 0;
+  width: 100%;
+}
+
+#carousel li {
+  list-style: none;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+#carousel img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.iconfont {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+#leftArrow {
+  left: 10px;
+}
+
+#rightArrow {
+  right: 10px;
+}
+
+#sliderBtn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.unitBtn {
+  width: 10px;
+  height: 10px;
+  background-color: grey;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.unitBtn.active {
+  background-color: #265bb9;
+}
+
+.publication-item,
+.research-item,
+.project-item {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.publication-item img,
+.research-item img,
+.project-item img {
+  width: 30%; /* 修改为合适的宽度 */
+  height: auto; /* 也可以设置固定高度，例如 height: 300px; */
+  margin-right: 20px;
+}
+
+.publication-item video,
+.research-item video,
+.project-item video {
+  width: 30%;
+  height: auto;
+  margin-right: 20px;
+}
+
+.project-item iframe {
+  width: 30%;
+  aspect-ratio: 1; /* 确保视频为正方形 */
+  margin-right: 20px;
+}
+
+.publication-details,
+.research-details,
+.project-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.publication-title,
+.research-title,
+.project-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+
+.publication-authors,
+.research-authors,
+.project-authors {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.publication-buttons a,
+.research-buttons a,
+.project-buttons a {
+  margin-right: 10px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.publication-item img {
+  width: 250px;
+  height: auto;
+  border-radius: 5px;
+  position: relative;
+}
+
+.publication-title a {
+  color: black;
+  text-decoration: none;
+}
+
+.publication-title a:hover {
+  text-decoration: underline;
+}
+
+/*#service, #awards {*/
+/*  width: 100%; !* 确保水平线长度一致 *!*/
+/*}*/
