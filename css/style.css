@@ -6,7 +6,7 @@ body {
 #nav {
   position: fixed;
   top: 200px; /* 调整这个值以改变导航栏的垂直位置 */
-  left: 100px; /* 调整这个值以改变导航栏的水平位置 */
+  left: 50px; /* 调整这个值以改变导航栏的水平位置 */
   /*display: flex;*/
   /*flex-direction: column;*/
   background: transparent;
