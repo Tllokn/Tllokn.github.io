@@ -812,6 +812,91 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
+        /* Mobile Menu Styles */
+        .mobile-nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            transition: right 0.3s ease-in-out;
+            padding-top: 80px;
+        }
+        
+        .mobile-nav-menu.active {
+            right: 0;
+        }
+        
+        .mobile-nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .mobile-nav-menu li {
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .mobile-nav-menu a {
+            display: block;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .mobile-nav-menu a:hover {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .mobile-nav-menu a.active {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-close:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -1011,11 +1096,30 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="doc/LuzheSun_CV_20250902.pdf" target="_blank">CV</a></li>
             </ul>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu" id="mobileNavMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="#overview" class="mobile-nav-link">Overview</a></li>
+            <li><a href="#news" class="mobile-nav-link">News</a></li>
+            <li><a href="#publications" class="mobile-nav-link">Publications</a></li>
+            <li><a href="#service" class="mobile-nav-link">Service</a></li>
+            <li><a href="#awards" class="mobile-nav-link">Awards</a></li>
+            <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+            <li><a href="doc/LuzheSun_CV_20250902.pdf" target="_blank" class="mobile-nav-link">CV</a></li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -1266,6 +1370,15 @@
             <h2 class="section-title">Service and Volunteer</h2>
             
             <div class="service-item">
+                <div class="service-role">Conference Reviewer</div>
+                <div class="service-details">
+                    <a href="https://www.ieee-iros.org/">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</a>, 
+                    <a href="https://www.ieee-icra.org/">IEEE International Conference on Robotics and Automation (ICRA)</a>, 
+                    <a href="https://www.corl.org/">Conference on Robot Learning (CoRL)</a>
+                </div>
+            </div>
+            
+            <div class="service-item">
                 <div class="service-role">Organizer</div>
                 <div class="service-details">
                     <a href="https://sites.google.com/view/multimodal-ai-ttic-2024/home">Multimodal Artificial Intelligence Workshop</a> at TTIC, Chicago, IL (2024)
@@ -1451,6 +1564,62 @@
                 icon.className = 'fas fa-chevron-up';
                 text.textContent = 'Show less';
             }
+        });
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNavMenu = document.getElementById('mobileNavMenu');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            // Open mobile menu
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNavMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+
+            // Close mobile menu
+            function closeMobileMenu() {
+                mobileNavMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+
+            // Close menu when clicking close button
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+            // Close menu when clicking overlay
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+            // Close menu when clicking a navigation link
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    closeMobileMenu();
+                    
+                    // Update active state
+                    document.querySelectorAll('.nav-links a').forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        const correspondingNavLink = document.querySelector(`.nav-links a[href="${href}"]`);
+                        if (correspondingNavLink) {
+                            correspondingNavLink.classList.add('active');
+                        }
+                    }
+                });
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileNavMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
         });
 
         // Carousel functionality
