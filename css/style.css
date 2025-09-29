@@ -243,3 +243,99 @@ body {
 /*#service, #awards {*/
 /*  width: 100%; !* 确保水平线长度一致 *!*/
 /*}*/
+
+/* Profile photo styling for all screen sizes */
+#me {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+  /* Fix carousel for mobile */
+  #carousel {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  #carousel img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 300px;
+    object-fit: cover;
+  }
+  
+  /* Fix profile photo for mobile */
+  #me {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 250px !important;
+    max-height: 250px !important;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  /* Adjust content layout for mobile */
+  .content-container {
+    margin-left: 0;
+    padding: 10px;
+  }
+  
+  #nav {
+    display: none; /* Hide navigation on mobile for cleaner look */
+  }
+  
+  /* Make flex items stack vertically on mobile */
+  .flex-row {
+    flex-direction: column;
+  }
+  
+  .flex-item {
+    margin: 10px 0;
+  }
+  
+  /* Adjust publication items for mobile */
+  .publication-item,
+  .research-item,
+  .project-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .publication-item img,
+  .research-item img,
+  .project-item img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 15px auto;
+  }
+  
+  .project-item iframe {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 15px auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Extra small mobile devices */
+  #carousel img {
+    max-height: 200px;
+  }
+  
+  #me {
+    max-width: 200px !important;
+    max-height: 200px !important;
+  }
+  
+  .content-container {
+    padding: 5px;
+  }
+}

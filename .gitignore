@@ -1,3 +1,5 @@
 .gitignore
-*.DS_Store
+*/.DS_Store
 index-test.html
+*.DS_Store
+old-index.html
