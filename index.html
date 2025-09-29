@@ -831,7 +831,8 @@
             }
             
             .hero-section {
-                padding: 4rem 1rem 2rem;
+                padding: 5rem 1rem 2rem;
+                min-height: 80vh;
             }
             
             .hero-content {
@@ -864,11 +865,14 @@
             }
             
             .hero-subtitle {
-                font-size: 0.9rem;
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+                line-height: 1.4;
             }
             
             .hero-description {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
             }
             
             .hero-education,
@@ -962,6 +966,32 @@
             #visitors {
                 width: 120px;
                 transform: scale(0.7);
+            }
+        }
+
+        /* Extra small mobile devices */
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 6rem 1rem 2rem;
+                min-height: 85vh;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-description {
+                font-size: 0.85rem;
+            }
+            
+            .nav-container {
+                padding: 0.8rem;
             }
         }
     </style>
