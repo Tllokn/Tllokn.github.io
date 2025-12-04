@@ -28,8 +28,10 @@
             --background: #ffffff;
             --surface: #f8fafc;
             --border: #e5e7eb;
-            --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            --border-radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
@@ -40,15 +42,17 @@
             overflow-x: hidden;
         }
 
-        /* Simple Navigation */
+        /* Modern Navigation */
         .modern-nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
+            transition: var(--transition);
         }
 
         .nav-container {
@@ -65,6 +69,11 @@
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            color: var(--primary-dark);
         }
 
         .nav-links {
@@ -79,17 +88,21 @@
             color: var(--text-secondary);
             font-weight: 500;
             padding: 0.5rem 0.8rem;
-            border-radius: 6px;
+            border-radius: 8px;
+            transition: var(--transition);
+            position: relative;
             white-space: nowrap;
             font-size: 0.95rem;
         }
 
         .nav-links a:hover {
             color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.1);
         }
 
         .nav-links a.active {
             color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.1);
         }
 
         /* Mobile Menu */
@@ -102,113 +115,123 @@
             cursor: pointer;
         }
 
-        /* Hero Section - Simplified */
+        /* Hero Section */
         .hero-section {
-            padding: 5rem 2rem 1.5rem;
-            background: white;
-            color: var(--text-primary);
+            padding: 6rem 2rem 3rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 50%, #06b6d4 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,0 1000,100 1000,0"/></svg>') no-repeat center center;
+            background-size: cover;
         }
 
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
             text-align: left;
         }
 
         .hero-text {
-            overflow: hidden;
+            flex: 1;
         }
 
-        .hero-text::after {
-            content: "";
-            display: table;
-            clear: both;
+        .hero-image {
+            flex: 0 0 300px;
+            display: flex;
+            justify-content: center;
         }
 
         .profile-photo {
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--border);
-            float: right;
-            margin: 0 0 1rem 2rem;
-            shape-outside: circle(50%);
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeInScale 1s ease-out 1s forwards;
         }
 
-        .hero-title {
-            display: none;
-        }
-
-        .hero-subtitle {
-            font-size: 1rem;
-            margin-bottom: 0.6rem;
-            color: var(--text-secondary);
-        }
-
-        .hero-description {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
+        .profile-photo:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         .hero-education,
         .hero-contact,
         .hero-biography {
             margin: 0.5rem 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.2s forwards;
         }
 
         .bio-section-title {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--text-primary);
+            color: white;
             margin-bottom: 0.4rem;
+            opacity: 0.95;
         }
 
         .bio-text {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.4rem;
         }
 
         .bio-text.highlight-text {
-            background: var(--surface);
+            background: rgba(255, 255, 255, 0.1);
             padding: 0.5rem;
             border-radius: 6px;
-            border: 1px solid var(--border);
-            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
             font-weight: 500;
             margin-top: 0.4rem;
         }
 
         .bio-text.highlight-text strong {
-            color: var(--primary-color);
+            color: #fbbf24;
             font-weight: 600;
-        }
-
-        .bio-text a {
-            color: var(--primary-color);
-            text-decoration: underline;
         }
 
         .education-toggle {
             background: none;
             border: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
             cursor: pointer;
             margin-top: 0.3rem;
             padding: 0.2rem 0.5rem;
             border-radius: 4px;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 0.3rem;
         }
 
         .education-toggle:hover {
-            color: var(--primary-color);
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .education-more {
@@ -218,69 +241,132 @@
         }
 
         .education-more.expanded {
-            max-height: 500px;
+            max-height: 300px;
         }
 
         .education-item {
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
             padding-left: 0.6rem;
-            border-left: 2px solid var(--border);
+            border-left: 2px solid rgba(255, 255, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .education-item:hover {
+            border-left-color: rgba(255, 255, 255, 0.6);
+            transform: translateX(2px);
         }
 
         .edu-degree {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.2rem;
+            color: white;
+            margin-bottom: 0.1rem;
         }
 
         .edu-school {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 0.1rem;
         }
 
         .edu-year {
-            font-size: 0.8rem;
-            color: var(--text-light);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+            opacity: 0.9;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+        }
+
+        .hero-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 0.8rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
         }
 
         .hero-cta {
             display: flex;
             gap: 1rem;
-            justify-content: flex-start;
+            justify-content: center;
             flex-wrap: wrap;
-            margin-top: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.8s forwards;
         }
 
         .cta-button {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border);
-            background: white;
-            color: var(--text-secondary);
+            padding: 0.4rem 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
         }
 
         .cta-button:hover {
+            background: white;
             color: var(--primary-color);
-            border-color: var(--primary-color);
+            transform: translateY(-2px);
         }
 
         .cta-button.primary {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
+            background: white;
+            color: var(--primary-color);
         }
 
         .cta-button.primary:hover {
-            background: var(--primary-dark);
-            border-color: var(--primary-dark);
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Photo Gallery Section */
+        .gallery-section {
+            padding: 2rem 2rem;
+            background: var(--surface);
         }
 
         .section-container {
@@ -292,13 +378,95 @@
             font-size: 1.8rem;
             font-weight: 600;
             text-align: center;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             color: var(--text-primary);
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            background: white;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            background: #f8fafc;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .carousel-controls:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 20px;
+        }
+
+        .carousel-next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-indicator.active {
+            background: white;
+            transform: scale(1.2);
         }
 
         /* Publications Section */
         .publications-section {
-            padding: 1.5rem 2rem;
+            padding: 2.5rem 2rem;
             background: white;
         }
 
@@ -306,12 +474,17 @@
             display: flex;
             align-items: flex-start;
             gap: 2rem;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
-        .publication-item:last-child {
-            border-bottom: none;
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .publication-image {
@@ -319,7 +492,8 @@
             width: 200px;
             height: 150px;
             object-fit: cover;
-            border-radius: 4px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .publication-content {
@@ -336,11 +510,11 @@
         .publication-title a {
             color: var(--text-primary);
             text-decoration: none;
+            transition: var(--transition);
         }
 
         .publication-title a:hover {
             color: var(--primary-color);
-            text-decoration: underline;
         }
 
         .publication-authors {
@@ -361,6 +535,7 @@
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 500;
+            transition: var(--transition);
             border: 1px solid var(--border);
         }
 
@@ -372,6 +547,7 @@
 
         .publication-btn.venue:hover {
             background: var(--primary-dark);
+            border-color: var(--primary-dark);
         }
 
         .publication-btn:not(.venue) {
@@ -386,17 +562,23 @@
 
         /* Awards Section */
         .awards-section {
-            padding: 1.5rem 2rem;
-            background: white;
+            padding: 2.5rem 2rem;
+            background: var(--surface);
         }
 
         .award-item {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
+            background: white;
+            padding: 1rem;
+            margin-bottom: 0.6rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 3px solid var(--accent-color);
+            transition: var(--transition);
         }
 
-        .award-item:last-child {
-            border-bottom: none;
+        .award-item:hover {
+            transform: translateX(3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .award-title {
@@ -414,7 +596,7 @@
 
         /* Projects Section */
         .projects-section {
-            padding: 1.5rem 2rem;
+            padding: 2.5rem 2rem;
             background: white;
         }
 
@@ -422,19 +604,24 @@
             display: flex;
             align-items: flex-start;
             gap: 2rem;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
-        .project-item:last-child {
-            border-bottom: none;
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .project-video {
             flex: 0 0 300px;
             width: 300px;
             height: 200px;
-            border-radius: 4px;
+            border-radius: 8px;
             border: none;
         }
 
@@ -445,7 +632,7 @@
         .project-title {
             font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             color: var(--text-primary);
             line-height: 1.4;
         }
@@ -463,22 +650,24 @@
         }
 
         .project-btn {
-            padding: 0.4rem 0.8rem;
+            padding: 0.5rem 1rem;
             background: var(--primary-color);
             color: white;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
 
         .project-btn:hover {
             background: var(--primary-dark);
+            transform: translateY(-1px);
         }
 
         /* News Section */
         .news-section {
-            padding: 1.5rem 2rem;
+            padding: 2rem 2rem;
             background: white;
         }
 
@@ -531,25 +720,33 @@
             border-radius: 6px;
             font-weight: 500;
             font-size: 0.9rem;
+            transition: var(--transition);
         }
 
         .view-all-btn:hover {
             background: var(--primary-dark);
+            transform: translateY(-1px);
         }
 
         /* Service Section */
         .service-section {
-            padding: 1.5rem 2rem;
-            background: white;
+            padding: 2.5rem 2rem;
+            background: var(--surface);
         }
 
         .service-item {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
+            background: white;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 3px solid var(--accent-color);
+            transition: var(--transition);
         }
 
-        .service-item:last-child {
-            border-bottom: none;
+        .service-item:hover {
+            transform: translateX(3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .service-role {
@@ -603,6 +800,7 @@
             margin: 0 auto;
             border-radius: 6px;
             overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             transform: scale(0.8);
         }
 
@@ -624,9 +822,11 @@
             right: -100%;
             width: 280px;
             height: 100vh;
-            background: white;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
             box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
             z-index: 1001;
+            transition: right 0.3s ease-in-out;
             padding-top: 80px;
         }
         
@@ -651,6 +851,7 @@
             color: var(--text-primary);
             font-weight: 500;
             font-size: 1.1rem;
+            transition: var(--transition);
         }
         
         .mobile-nav-menu a:hover {
@@ -673,6 +874,7 @@
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
+            transition: all 0.3s ease-in-out;
         }
         
         .mobile-menu-overlay.active {
@@ -691,6 +893,11 @@
             cursor: pointer;
             padding: 0.5rem;
             border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-close:hover {
+            background: rgba(0, 0, 0, 0.1);
         }
 
         /* Responsive Design */
@@ -703,6 +910,9 @@
                 display: block;
             }
             
+            .hero-title {
+                font-size: 2.5rem;
+            }
             
             .nav-container {
                 padding: 1rem;
@@ -710,43 +920,105 @@
             
             .hero-section {
                 padding: 5rem 1rem 2rem;
+                min-height: 80vh;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: left;
+                gap: 1.5rem;
+            }
+            
+            .hero-image {
+                flex: none;
+                align-self: center;
             }
             
             .profile-photo {
-                float: none;
-                width: 200px;
-                height: 200px;
-                margin: 0 auto 1.5rem;
-                display: block;
+                width: 250px;
+                height: 250px;
             }
             
             .hero-cta {
                 justify-content: center;
             }
             
+            .carousel-slide img {
+                height: 250px;
+                object-fit: contain;
+            }
+            
             .section-title {
                 font-size: 1.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+                line-height: 1.4;
+            }
+            
+            .hero-description {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-education,
+            .hero-contact,
+            .hero-biography {
+                margin: 0.4rem 0;
+            }
+            
+            .bio-section-title {
+                font-size: 0.9rem;
+            }
+            
+            .bio-text {
+                font-size: 0.8rem;
+            }
+            
+            .bio-text.highlight-text {
+                padding: 0.5rem;
+                margin-top: 0.5rem;
+            }
+            
+            .education-item {
+                margin-bottom: 0.4rem;
+            }
+            
+            .edu-degree {
+                font-size: 0.8rem;
+            }
+            
+            .edu-school {
+                font-size: 0.75rem;
+            }
+            
+            .edu-year {
+                font-size: 0.7rem;
             }
             
             .publication-item,
             .project-item {
                 flex-direction: column;
+                text-align: center;
+            }
+            
+            .publication-image,
+            .project-video {
+                flex: none;
+                align-self: center;
+                margin-bottom: 1rem;
             }
             
             .publication-image {
-                flex: none;
-                align-self: flex-start;
-                margin-bottom: 1rem;
                 width: 100%;
                 max-width: 300px;
             }
             
             .project-video {
-                flex: none;
-                align-self: flex-start;
-                margin-bottom: 1rem;
                 width: 100%;
-                max-width: 300px;
+                max-width: 350px;
                 height: 200px;
             }
             
@@ -766,13 +1038,45 @@
             .news-content {
                 font-size: 0.85rem;
             }
+            
+            .footer-section {
+                padding: 1rem 0.5rem;
+            }
+            
+            .footer-container {
+                max-width: 300px;
+            }
+            
+            .visitor-title {
+                font-size: 0.8rem;
+            }
+            
+            #visitors {
+                width: 120px;
+                transform: scale(0.7);
+            }
         }
 
+        /* Extra small mobile devices */
         @media (max-width: 480px) {
             .hero-section {
                 padding: 6rem 1rem 2rem;
+                min-height: 85vh;
             }
             
+            .hero-title {
+                font-size: 2rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-description {
+                font-size: 0.85rem;
+            }
             
             .nav-container {
                 padding: 0.8rem;
@@ -782,7 +1086,7 @@
 </head>
 
 <body>
-    <!-- Simple Navigation -->
+    <!-- Modern Navigation -->
     <nav class="modern-nav">
         <div class="nav-container">
             <a href="#" class="logo">Luzhe Sun 孙鲁喆</a>
@@ -794,7 +1098,7 @@
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="doc/LuzheSun_CV_20250902.pdf" target="_blank">CV</a></li>
-                <li><a href="index-full.html">Full</a></li>
+                <li><a href="index.html">Simple</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -817,16 +1121,15 @@
             <li><a href="#service" class="mobile-nav-link">Service</a></li>
             <li><a href="#awards" class="mobile-nav-link">Awards</a></li>
             <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
-            <li><a href="index.html" class="mobile-nav-link">Full</a></li>
+            <li><a href="index-simple.html" class="mobile-nav-link">Simple</a></li>
             <li><a href="doc/LuzheSun_CV_20250902.pdf" target="_blank" class="mobile-nav-link">CV</a></li>
         </ul>
     </div>
 
     <!-- Hero Section -->
-    <section class="hero-section" id="overview">
+    <section class="hero-section">
         <div class="hero-content">
             <div class="hero-text">
-                <img src="img/profile.jpg" alt="Luzhe Sun" class="profile-photo">
                 <p class="hero-subtitle">Ph.D. Candidate @ TTIC</p>
                 <p class="hero-description">
                     Specializing in Robotics Planning and Diffusion Models
@@ -841,14 +1144,20 @@
                 <div class="hero-biography">
                     <h3 class="bio-section-title">Biography</h3>
                     <p class="bio-text">
-                        I'm a Ph.D. candidate at TTIC focusing on Robotics Planning and Diffusion Models, advised by Professor <a href="https://home.ttic.edu/~mwalter/">Matthew R. Walter</a> working in the <a href="https://ttic.edu/ripl/">Robot Intelligence through Perception Lab (RIPL)</a>.
+                        I'm a Ph.D. candidate at TTIC focusing on Robotics Planning and Diffusion Models, advised by Professor <a href="https://home.ttic.edu/~mwalter/" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">Matthew R. Walter</a> working in the <a href="https://ttic.edu/ripl/" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">Robot Intelligence through Perception Lab (RIPL)</a>.
                     </p>
-                    <p class="bio-text">
-                        Prior to joining TTIC, I completed my <a href="https://masters.cs.uchicago.edu/">Masters Program in Computer Science</a> at the <a href="https://www.uchicago.edu/en">University of Chicago</a>. I studied at the <a href="https://informatics.xmu.edu.cn/en/index.htm">School of Information Science at Xiamen University</a> as an undergraduate, where I conducted research on graph theory with Professor <a href="https://informatics.xmu.edu.cn/info/1019/15293.htm">Zhihong Zhang</a>.
-                    </p>
-                    <p class="bio-text">
-                        In my free time, I really enjoy photography, painting Chinese paintings and playing the Erhu.
-                    </p>
+                    <button class="education-toggle" id="biographyToggle">
+                        <i class="fas fa-chevron-down"></i>
+                        <span>Show more</span>
+                    </button>
+                    <div class="education-more" id="biographyMore">
+                        <p class="bio-text">
+                            Prior to joining TTIC, I completed my <a href="https://masters.cs.uchicago.edu/" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">Masters Program in Computer Science</a> at the <a href="https://www.uchicago.edu/en" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">University of Chicago</a>. I studied at the <a href="https://informatics.xmu.edu.cn/en/index.htm" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">School of Information Science at Xiamen University</a> as an undergraduate, where I conducted research on graph theory with Professor <a href="https://informatics.xmu.edu.cn/info/1019/15293.htm" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">Zhihong Zhang</a>.
+                        </p>
+                        <p class="bio-text">
+                            In my free time, I really enjoy photography, painting Chinese paintings and playing the Erhu.
+                        </p>
+                    </div>
                     <p class="bio-text highlight-text">
                         🤝 <strong>Open to collaborations</strong> | 🔍 <strong>Seeking summer 2026 internships</strong> | Feel free to reach out!
                     </p>
@@ -889,6 +1198,48 @@
                     <a href="https://scholar.google.com/citations?hl=en&user=UH_AxUQAAAAJ" class="cta-button" target="_blank">
                         <i class="fas fa-graduation-cap"></i> Scholar
                     </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="img/profile.jpg" alt="Luzhe Sun" class="profile-photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-container">
+            <div class="carousel">
+                <div class="carousel-container" id="carouselContainer">
+                    <div class="carousel-slide">
+                        <img src="img/activity/2023SouthSideFestival.JPG" alt="2023 South Side Festival">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/activity/2023RSS.JPG" alt="2023 RSS">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/activity/2023RSS_2.JPG" alt="2023 RSS 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/activity/2023MSI.JPG" alt="2023 MSI">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/activity/MSGradMatt.JPG" alt="MS Grad Matt">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/activity/MSGradBrady.JPG" alt="MS Grad Brady">
+                    </div>
+                </div>
+                
+                <button class="carousel-controls carousel-prev" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-controls carousel-next" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="carousel-indicators" id="indicators">
+                    <!-- Indicators will be generated by JavaScript -->
                 </div>
             </div>
         </div>
@@ -956,12 +1307,12 @@
                     <div class="publication-authors">
                         <b>Luzhe Sun</b>, Jingtian Ji, Xiangshan(Vincent) Tan, Matthew R. Walter
                     </div>
-                    <div class="publication-buttons">
-                        <a href="https://arxiv.org/pdf/2505.16892" class="publication-btn venue">CoRL 2025</a>
-                        <a href="https://arxiv.org/abs/2505.16892" class="publication-btn">arXiv</a>
-                        <a href="https://ripl.github.io/CSA-website/" class="publication-btn">Website</a>
-                        <a href="https://zhuanlan.zhihu.com/p/1952228115234414777" class="publication-btn">Blog(知乎)</a>
-                    </div>
+                            <div class="publication-buttons">
+                                <a href="https://arxiv.org/pdf/2505.16892" class="publication-btn venue">CoRL 2025</a>
+                                <a href="https://arxiv.org/abs/2505.16892" class="publication-btn">arXiv</a>
+                                <a href="https://ripl.github.io/CSA-website/" class="publication-btn">Website</a>
+                                <a href="https://zhuanlan.zhihu.com/p/1952228115234414777" class="publication-btn">Blog(知乎)</a>
+                            </div>
                 </div>
             </div>
 
@@ -974,12 +1325,12 @@
                     <div class="publication-authors">
                         <b>Luzhe Sun*</b>, Takuma Yoneda*, Samuel W. Wheeler, Tianchong Jiang, Matthew R. Walter
                     </div>
-                    <div class="publication-buttons">
-                        <a href="tmp-paper-pdf/StackGen-Final-v4.pdf" class="publication-btn venue">IROS 2025 [Oral]</a>
-                        <a href="https://arxiv.org/abs/2409.18098" class="publication-btn">arXiv</a>
-                        <a href="https://ripl.github.io/StackGen/" class="publication-btn">Website</a>
-                        <a href="https://zhuanlan.zhihu.com/p/1946751889225024585" class="publication-btn">Blog(知乎)</a>
-                    </div>
+                            <div class="publication-buttons">
+                                <a href="tmp-paper-pdf/StackGen-Final-v4.pdf" class="publication-btn venue">IROS 2025 [Oral]</a>
+                                <a href="https://arxiv.org/abs/2409.18098" class="publication-btn">arXiv</a>
+                                <a href="https://ripl.github.io/StackGen/" class="publication-btn">Website</a>
+                                <a href="https://zhuanlan.zhihu.com/p/1946751889225024585" class="publication-btn">Blog(知乎)</a>
+                            </div>
                 </div>
             </div>
 
@@ -1024,12 +1375,12 @@
             <h2 class="section-title">Service and Volunteer</h2>
             
             <div class="service-item">
-                <div class="service-role">Reviewer</div>
+                <div class="service-role">Conference Reviewer</div>
                 <div class="service-details">
                     <a href="https://www.ieee-iros.org/">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</a>, 
                     <a href="https://www.ieee-icra.org/">IEEE International Conference on Robotics and Automation (ICRA)</a>, 
-                    <a href="https://www.corl.org/">Conference on Robot Learning (CoRL)</a>,
-                    <a href="https://www.ieee-ras.org/publications/ra-l">IEEE Robotics and Automation Letters(RA-L)</a>
+                    <a href="https://www.corl.org/">Conference on Robot Learning (CoRL)</a>
+                    <a href="https://www.ieee-ras.org/publications/ra-l">IEEE Robotics and Automation Letters</a>
                 </div>
             </div>
             
@@ -1173,6 +1524,18 @@
             });
         });
 
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.modern-nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = 'var(--shadow)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
         // Education toggle functionality
         document.getElementById('educationToggle').addEventListener('click', function() {
             const moreSection = document.getElementById('educationMore');
@@ -1183,14 +1546,31 @@
             if (moreSection.classList.contains('expanded')) {
                 moreSection.classList.remove('expanded');
                 icon.className = 'fas fa-chevron-down';
-                text.textContent = 'Show details';
+                text.textContent = 'Show more';
             } else {
                 moreSection.classList.add('expanded');
                 icon.className = 'fas fa-chevron-up';
-                text.textContent = 'Hide details';
+                text.textContent = 'Show less';
             }
         });
 
+        // Biography toggle functionality
+        document.getElementById('biographyToggle').addEventListener('click', function() {
+            const moreSection = document.getElementById('biographyMore');
+            const toggleBtn = document.getElementById('biographyToggle');
+            const icon = toggleBtn.querySelector('i');
+            const text = toggleBtn.querySelector('span');
+            
+            if (moreSection.classList.contains('expanded')) {
+                moreSection.classList.remove('expanded');
+                icon.className = 'fas fa-chevron-down';
+                text.textContent = 'Show more';
+            } else {
+                moreSection.classList.add('expanded');
+                icon.className = 'fas fa-chevron-up';
+                text.textContent = 'Show less';
+            }
+        });
 
         // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1204,14 +1584,14 @@
             mobileMenuBtn.addEventListener('click', function() {
                 mobileNavMenu.classList.add('active');
                 mobileMenuOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
             });
 
             // Close mobile menu
             function closeMobileMenu() {
                 mobileNavMenu.classList.remove('active');
                 mobileMenuOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = 'auto'; // Restore scrolling
             }
 
             // Close menu when clicking close button
@@ -1247,8 +1627,68 @@
                 }
             });
         });
+
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('carouselContainer');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicatorsContainer = document.getElementById('indicators');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            
+            // Create indicators
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = 'carousel-indicator';
+                if (i === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => goToSlide(i));
+                indicatorsContainer.appendChild(indicator);
+            }
+            
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            
+            function updateCarousel() {
+                container.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentSlide);
+                });
+            }
+            
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateCarousel();
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Auto-play carousel
+            let autoPlay = setInterval(nextSlide, 5000);
+            
+            // Pause auto-play on hover
+            const carousel = document.querySelector('.carousel');
+            carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+            carousel.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(nextSlide, 5000);
+            });
+        });
     </script>
 </body>
 
 </html>
-
