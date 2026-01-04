@@ -19,9 +19,12 @@
         }
 
         :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --accent-color: #06b6d4;
+            --primary-color: #4b5563;
+            --primary-dark: #374151;
+            --primary-link: #406AE2;
+            --button-color: #99caf0;
+            --button-hover: #6bb8d9;
+            --accent-color: #406AE2;
             --text-primary: #1f2937;
             --text-secondary: #6b7280;
             --text-light: #9ca3af;
@@ -63,7 +66,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--text-primary);
             text-decoration: none;
         }
 
@@ -85,11 +88,11 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--text-primary);
         }
 
         .nav-links a.active {
-            color: var(--primary-color);
+            color: var(--text-primary);
         }
 
         /* Mobile Menu */
@@ -104,7 +107,7 @@
 
         /* Hero Section - Simplified */
         .hero-section {
-            padding: 5rem 2rem 1.5rem;
+            padding: 5rem 2rem 1.2rem;
             background: white;
             color: var(--text-primary);
         }
@@ -184,12 +187,12 @@
         }
 
         .bio-text.highlight-text strong {
-            color: var(--primary-color);
+            color: var(--text-primary);
             font-weight: 600;
         }
 
         .bio-text a {
-            color: var(--primary-color);
+            color: var(--primary-link);
             text-decoration: underline;
         }
 
@@ -208,7 +211,7 @@
         }
 
         .education-toggle:hover {
-            color: var(--primary-color);
+            color: var(--text-primary);
         }
 
         .education-more {
@@ -268,19 +271,19 @@
         }
 
         .cta-button:hover {
-            color: var(--primary-color);
-            border-color: var(--primary-color);
+            color: var(--text-primary);
+            border-color: var(--text-secondary);
         }
 
         .cta-button.primary {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
+            background: var(--button-color);
+            color: var(--text-primary);
+            border-color: var(--button-color);
         }
 
         .cta-button.primary:hover {
-            background: var(--primary-dark);
-            border-color: var(--primary-dark);
+            background: var(--button-hover);
+            border-color: var(--button-hover);
         }
 
         .section-container {
@@ -289,24 +292,24 @@
         }
 
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 600;
             text-align: center;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             color: var(--text-primary);
         }
 
         /* Publications Section */
         .publications-section {
-            padding: 1.5rem 2rem;
+            padding: 1.2rem 2rem;
             background: white;
         }
 
         .publication-item {
             display: flex;
             align-items: flex-start;
-            gap: 2rem;
-            padding: 1.5rem 0;
+            gap: 1.5rem;
+            padding: 1.2rem 0;
             border-bottom: 1px solid var(--border);
         }
 
@@ -327,10 +330,10 @@
         }
 
         .publication-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
         }
 
         .publication-title a {
@@ -339,14 +342,14 @@
         }
 
         .publication-title a:hover {
-            color: var(--primary-color);
+            color: var(--primary-link);
             text-decoration: underline;
         }
 
         .publication-authors {
             color: var(--text-secondary);
-            margin-bottom: 1rem;
-            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
         }
 
         .publication-buttons {
@@ -365,13 +368,14 @@
         }
 
         .publication-btn.venue {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
+            background: var(--button-color);
+            color: var(--text-primary);
+            border-color: var(--button-color);
+            font-weight: 600;
         }
 
         .publication-btn.venue:hover {
-            background: var(--primary-dark);
+            background: var(--button-hover);
         }
 
         .publication-btn:not(.venue) {
@@ -380,18 +384,18 @@
         }
 
         .publication-btn:not(.venue):hover {
-            color: var(--primary-color);
-            border-color: var(--primary-color);
+            color: var(--text-primary);
+            border-color: var(--text-secondary);
         }
 
         /* Awards Section */
         .awards-section {
-            padding: 1.5rem 2rem;
+            padding: 1.2rem 2rem;
             background: white;
         }
 
         .award-item {
-            padding: 0.5rem 0;
+            padding: 0.4rem 0;
             border-bottom: 1px solid var(--border);
         }
 
@@ -414,15 +418,15 @@
 
         /* Projects Section */
         .projects-section {
-            padding: 1.5rem 2rem;
+            padding: 1.2rem 2rem;
             background: white;
         }
 
         .project-item {
             display: flex;
             align-items: flex-start;
-            gap: 2rem;
-            padding: 1.5rem 0;
+            gap: 1.5rem;
+            padding: 1.2rem 0;
             border-bottom: 1px solid var(--border);
         }
 
@@ -443,17 +447,18 @@
         }
 
         .project-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: var(--text-primary);
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .project-description {
             color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
         }
 
         .project-buttons {
@@ -464,8 +469,8 @@
 
         .project-btn {
             padding: 0.4rem 0.8rem;
-            background: var(--primary-color);
-            color: white;
+            background: var(--button-color);
+            color: var(--text-primary);
             text-decoration: none;
             border-radius: 6px;
             font-weight: 500;
@@ -473,12 +478,12 @@
         }
 
         .project-btn:hover {
-            background: var(--primary-dark);
+            background: var(--button-hover);
         }
 
         /* News Section */
         .news-section {
-            padding: 1.5rem 2rem;
+            padding: 1.2rem 2rem;
             background: white;
         }
 
@@ -486,8 +491,8 @@
             display: flex;
             align-items: flex-start;
             gap: 0.8rem;
-            padding: 0.5rem 0;
-            margin-bottom: 0.3rem;
+            padding: 0.4rem 0;
+            margin-bottom: 0.2rem;
             border-bottom: 1px solid var(--border);
         }
 
@@ -496,8 +501,8 @@
         }
 
         .news-date {
-            flex: 0 0 80px;
-            font-size: 0.8rem;
+            flex: 0 0 75px;
+            font-size: 0.75rem;
             color: var(--text-light);
             font-weight: 500;
             text-align: right;
@@ -505,46 +510,40 @@
 
         .news-content {
             flex: 1;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .news-highlight {
-            color: var(--primary-color);
+            color: var(--primary-link);
             font-weight: 600;
         }
 
         .view-all-news {
             text-align: center;
-            margin-top: 1rem;
+            margin-top: 0.8rem;
         }
 
         .view-all-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            background: var(--primary-color);
-            color: white;
+            color: var(--primary-link);
             text-decoration: none;
-            border-radius: 6px;
+            font-size: 0.85rem;
             font-weight: 500;
-            font-size: 0.9rem;
         }
 
         .view-all-btn:hover {
-            background: var(--primary-dark);
+            text-decoration: underline;
         }
 
         /* Service Section */
         .service-section {
-            padding: 1.5rem 2rem;
+            padding: 1.2rem 2rem;
             background: white;
         }
 
         .service-item {
-            padding: 0.5rem 0;
+            padding: 0.4rem 0;
             border-bottom: 1px solid var(--border);
         }
 
@@ -566,7 +565,7 @@
         }
 
         .service-details a {
-            color: var(--primary-color);
+            color: var(--primary-link);
             text-decoration: none;
         }
 
@@ -898,42 +897,9 @@
     <section class="news-section" id="news">
         <div class="section-container">
             <h2 class="section-title">Latest News</h2>
-            
-            <div class="news-item">
-                <div class="news-date">Sep 2025</div>
-                <div class="news-content">
-                    <span class="news-highlight">Paper Accepted!</span> Our paper "FlashBack: Consistency Model-Accelerated Shared Autonomy" has been accepted to CoRL 2025.
-                </div>
+            <div id="news-container">
+                <!-- News items will be loaded dynamically from news.html -->
             </div>
-            
-            <div class="news-item">
-                <div class="news-date">Sep 2025</div>
-                <div class="news-content">
-                    <span class="news-highlight">Oral Presentation!</span> Our paper "StackGen: Generating Stable Structures from Silhouettes via Diffusion" will be presented as an oral at IROS 2025.
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-date">Jul 2024</div>
-                <div class="news-content">
-                    <span class="news-highlight">Workshop Organizer</span> Successfully organized the Multimodal Artificial Intelligence Workshop at TTIC.
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-date">Apr 2024</div>
-                <div class="news-content">
-                    <span class="news-highlight">Demo Invitation</span> Invited to demonstrate our embodied AI system at the 2024 Robot Block Party at Museum of Science and Industry.
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-date">Jun 2023</div>
-                <div class="news-content">
-                    <span class="news-highlight">RSS 2023 Oral</span> Our work "To the Noise and Back: Diffusion for Shared Autonomy" was accepted as an oral presentation at RSS 2023.
-                </div>
-            </div>
-            
             <div class="view-all-news">
                 <a href="news.html" class="view-all-btn">
                     <i class="fas fa-archive"></i> View All News
@@ -946,6 +912,25 @@
     <section class="publications-section" id="publications">
         <div class="section-container">
             <h2 class="section-title">Publications</h2>
+
+            <div class="publication-item">
+                <img src="img/publication/2026-ACL-hallucination.png" alt="ACL 2026(Oral)" class="publication-image">
+                <div class="publication-content">
+                    <div class="publication-title">
+                        <a href="https://arxiv.org/abs/2409.18098">Detecting Hallucinations in Vision-Language Models without Generating a Single Token</a>
+                    </div>
+                    <div class="publication-authors">
+                        Sai Akhil Kogilathota, Sripadha Vallabha E G, <b>Luzhe Sun</b>, Jiawei Zhou
+                    </div>
+                    <div class="publication-buttons">
+                        <a href="https://arxiv.org/pdf/2505.16892" class="publication-btn venue">ACL 2026 Main (Oral)</a>
+                        <!-- <a href="https://arxiv.org/abs/2505.16892" class="publication-btn">arXiv</a>
+                        <a href="https://ripl.github.io/CSA-website/" class="publication-btn">Website</a>
+                        <a href="https://zhuanlan.zhihu.com/p/1952228115234414777" class="publication-btn">Blog(知乎)</a>
+                        <a href="https://www.bilibili.com/video/BV1dqWSzCEZQ?t=4.1" class="publication-btn">Livestream(Chinese)</a> -->
+                    </div>
+                </div>
+            </div>
             
             <div class="publication-item">
                 <img src="img/publication/2025-cm-sha.png" alt="FlashBack Paper" class="publication-image">
@@ -957,7 +942,7 @@
                         <b>Luzhe Sun</b>, Jingtian Ji, Xiangshan(Vincent) Tan, Matthew R. Walter
                     </div>
                     <div class="publication-buttons">
-                        <a href="https://arxiv.org/pdf/2505.16892" class="publication-btn venue">CoRL 2025</a>
+                        <a href="https://arxiv.org/pdf/2505.16892" class="publication-btn venue">CoRL 2025 (Spotlight)</a>
                         <a href="https://arxiv.org/abs/2505.16892" class="publication-btn">arXiv</a>
                         <a href="https://ripl.github.io/CSA-website/" class="publication-btn">Website</a>
                         <a href="https://zhuanlan.zhihu.com/p/1952228115234414777" class="publication-btn">Blog(知乎)</a>
@@ -1248,6 +1233,70 @@
                 }
             });
         });
+
+        // Load news from news.html
+        async function loadNewsFromArchive() {
+            try {
+                const response = await fetch('news.html');
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // Get all news items (excluding "coming-soon")
+                const newsItems = doc.querySelectorAll('.news-archive-item');
+                const newsContainer = document.getElementById('news-container');
+                
+                if (!newsContainer) return;
+                
+                // Clear existing content
+                newsContainer.innerHTML = '';
+                
+                // Take first 5 news items
+                const maxItems = Math.min(5, newsItems.length);
+                
+                for (let i = 0; i < maxItems; i++) {
+                    const item = newsItems[i];
+                    const date = item.querySelector('.news-archive-date').textContent.trim();
+                    const content = item.querySelector('.news-archive-content').innerHTML;
+                    
+                    // Convert date format (e.g., "January 2026" -> "Jan 2026", "October 2025" -> "Oct 2025")
+                    const monthMap = {
+                        'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr',
+                        'May': 'May', 'June': 'Jun', 'July': 'Jul', 'August': 'Aug',
+                        'September': 'Sep', 'October': 'Oct', 'November': 'Nov', 'December': 'Dec'
+                    };
+                    
+                    let shortDate = date;
+                    const dateParts = date.split(' ');
+                    if (dateParts.length >= 2 && monthMap[dateParts[0]]) {
+                        shortDate = monthMap[dateParts[0]] + ' ' + dateParts[1];
+                    } else if (dateParts.length === 1) {
+                        // If it's already in short format, use as is
+                        shortDate = date;
+                    }
+                    
+                    // Create news item element
+                    const newsItem = document.createElement('div');
+                    newsItem.className = 'news-item';
+                    newsItem.innerHTML = `
+                        <div class="news-date">${shortDate}</div>
+                        <div class="news-content">${content}</div>
+                    `;
+                    
+                    newsContainer.appendChild(newsItem);
+                }
+            } catch (error) {
+                console.error('Error loading news:', error);
+                // Fallback: show a message if loading fails
+                const newsContainer = document.getElementById('news-container');
+                if (newsContainer) {
+                    newsContainer.innerHTML = '<div class="news-item"><div class="news-content">Unable to load news. Please visit <a href="news.html">news.html</a> for the latest updates.</div></div>';
+                }
+            }
+        }
+
+        // Load news when page loads
+        document.addEventListener('DOMContentLoaded', loadNewsFromArchive);
     </script>
 </body>
 
