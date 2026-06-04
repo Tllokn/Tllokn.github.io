@@ -2,570 +2,436 @@
 <html lang="en">
 
 <head>
-    <title>Luzhe Sun</title>
+    <title>Luzhe Sun - Compact</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- External Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+    <meta name="description" content="Luzhe Sun, Ph.D. candidate at TTIC. Robotics planning, diffusion models, publications, news, awards, service, and projects.">
+    <link rel="preload" as="image" href="img/optimized/profile-360.jpg" fetchpriority="high">
     <style>
-        /* Modern CSS Reset */
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         :root {
-            --primary-color: #4b5563;
-            --primary-dark: #374151;
-            --primary-link: #406AE2;
-            --button-color: #99caf0;
-            --button-hover: #6bb8d9;
-            --accent-color: #406AE2;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --text-light: #9ca3af;
-            --background: #ffffff;
+            --accent: #4f86bd;
+            --accent-dark: #356695;
+            --accent-soft: #eaf4ff;
+            --accent-blue-2: #6f98c7;
+            --accent-blue-soft: #f0f7ff;
+            --text: #202733;
+            --muted: #5f6b7a;
+            --quiet: #8b96a5;
+            --line: #d9e2e7;
             --surface: #f8fafc;
-            --border: #e5e7eb;
-            --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            --border-radius: 8px;
+            --background: #fbfcfd;
+            --radius: 6px;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
+            margin: 0;
+            color: var(--text);
             background: var(--background);
-            overflow-x: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.45;
         }
 
-        /* Simple Navigation */
-        .modern-nav {
-            position: fixed;
+        a {
+            color: var(--accent-dark);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        a:hover {
+            color: #1d3850;
+        }
+
+        .site-header {
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
+            z-index: 20;
+            background: rgba(251, 252, 253, 0.97);
+            border-bottom: 1px solid var(--line);
+            box-shadow: 0 2px 14px rgba(32, 39, 51, 0.04);
         }
 
-        .nav-container {
-            max-width: 1200px;
+        .nav-wrap {
+            max-width: 1120px;
+            min-height: 52px;
             margin: 0 auto;
+            padding: 0 24px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            gap: 18px;
         }
 
-        .logo {
-            font-size: 1.5rem;
+        .brand {
+            flex: 0 0 auto;
+            color: var(--text);
+            font-size: 1rem;
             font-weight: 700;
-            color: var(--text-primary);
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
-            list-style: none;
-            gap: 1.5rem;
-            flex-wrap: nowrap;
+            align-items: center;
+            gap: 2px;
+            margin-left: auto;
         }
 
         .nav-links a {
+            color: var(--muted);
+            font-size: 0.86rem;
+            font-weight: 520;
             text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            padding: 0.5rem 0.8rem;
-            border-radius: 6px;
+            padding: 0.32rem 0.56rem;
+            border-radius: var(--radius);
             white-space: nowrap;
-            font-size: 0.95rem;
         }
 
-        .nav-links a:hover {
-            color: var(--text-primary);
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--accent-dark);
+            background: var(--accent-soft);
         }
 
-        .nav-links a.active {
-            color: var(--text-primary);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
+        .menu-button {
             display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-primary);
+            margin-left: auto;
+            width: 38px;
+            height: 34px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--background);
+            color: var(--text);
             cursor: pointer;
         }
 
-        /* Hero Section - Simplified */
-        .hero-section {
-            padding: 5rem 2rem 1.2rem;
-            background: white;
-            color: var(--text-primary);
+        .menu-button span {
+            display: block;
+            width: 16px;
+            height: 2px;
+            margin: 4px auto;
+            background: currentColor;
         }
 
-        .hero-content {
-            max-width: 1200px;
+        .page {
+            max-width: 1120px;
             margin: 0 auto;
-            text-align: left;
+            padding: 18px 24px 32px;
         }
 
-        .hero-text {
-            overflow: hidden;
-        }
-
-        .hero-text::after {
-            content: "";
-            display: table;
-            clear: both;
+        .hero {
+            display: grid;
+            grid-template-columns: 156px minmax(0, 1fr);
+            gap: 18px;
+            align-items: start;
+            padding: 16px 0 18px;
+            background: var(--background);
         }
 
         .profile-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
+            width: 156px;
+            height: 156px;
             object-fit: cover;
-            border: 2px solid var(--border);
-            float: right;
-            margin: 0 0 1rem 2rem;
-            shape-outside: circle(50%);
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: var(--surface);
         }
 
-        .hero-title {
-            display: none;
+        .hero h1 {
+            margin: 0 0 2px;
+            color: var(--text);
+            font-size: clamp(1.45rem, 2.4vw, 2rem);
+            line-height: 1.1;
+            letter-spacing: 0;
         }
 
         .hero-subtitle {
-            font-size: 1rem;
-            margin-bottom: 0.6rem;
-            color: var(--text-secondary);
-        }
-
-        .hero-description {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-        }
-
-        .hero-education,
-        .hero-contact,
-        .hero-biography {
-            margin: 0.5rem 0;
-        }
-
-        .bio-section-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.4rem;
-        }
-
-        .bio-text {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .bio-text.highlight-text {
-            background: var(--surface);
-            padding: 0.5rem;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            font-weight: 500;
-            margin-top: 0.4rem;
-        }
-
-        .bio-text.highlight-text strong {
-            color: var(--text-primary);
+            margin: 0 0 8px;
+            color: var(--muted);
+            font-size: 0.92rem;
             font-weight: 600;
         }
 
-        .bio-text a {
-            color: var(--primary-link);
-            text-decoration: underline;
+        .hero p {
+            margin: 0 0 7px;
         }
 
-        .education-toggle {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            cursor: pointer;
-            margin-top: 0.3rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
+        .hero-copy {
+            color: var(--muted);
+            font-size: 0.93rem;
+        }
+
+        .hero-copy strong {
+            color: var(--text);
+        }
+
+        .notice {
+            display: inline-block;
+            margin: 3px 0 9px;
+            padding: 5px 8px;
+            border: 1px solid #d4e2ef;
+            border-radius: var(--radius);
+            background: var(--accent-blue-soft);
+            color: var(--text);
+            font-size: 0.88rem;
+            font-weight: 560;
+        }
+
+        .action-row {
             display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .education-toggle:hover {
-            color: var(--text-primary);
-        }
-
-        .education-more {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .education-more.expanded {
-            max-height: 500px;
-        }
-
-        .education-item {
-            margin-bottom: 0.6rem;
-            padding-left: 0.6rem;
-            border-left: 2px solid var(--border);
-        }
-
-        .edu-degree {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.2rem;
-        }
-
-        .edu-school {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.1rem;
-        }
-
-        .edu-year {
-            font-size: 0.8rem;
-            color: var(--text-light);
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-start;
             flex-wrap: wrap;
-            margin-top: 1rem;
+            gap: 6px;
+            margin-top: 8px;
         }
 
-        .cta-button {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border);
-            background: white;
-            color: var(--text-secondary);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 0.9rem;
+        .button {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.35rem;
+            min-height: 30px;
+            padding: 0.28rem 0.58rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--background);
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
         }
 
-        .cta-button:hover {
-            color: var(--text-primary);
-            border-color: var(--text-secondary);
+        .button.primary {
+            border-color: #cbddec;
+            background: var(--accent-soft);
+            color: var(--accent-dark);
         }
 
-        .cta-button.primary {
-            background: var(--button-color);
-            color: var(--text-primary);
-            border-color: var(--button-color);
+        .button:hover {
+            border-color: #bcc7d1;
+            color: var(--text);
+            background: var(--surface);
         }
 
-        .cta-button.primary:hover {
-            background: var(--button-hover);
-            border-color: var(--button-hover);
+        .button-icon {
+            width: 13px;
+            height: 13px;
+            flex: 0 0 auto;
+            display: inline-block;
         }
 
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .section {
+            padding: 12px 0 14px;
+            border-top: 1px solid var(--line);
+        }
+
+        .section:first-of-type {
+            border-top: 0;
         }
 
         .section-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            margin: 0 0 8px;
+            color: var(--text);
+            font-size: 1.04rem;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
-        /* Publications Section */
-        .publications-section {
-            padding: 1.2rem 2rem;
-            background: white;
+        .news-list,
+        .awards-list,
+        .mentorship-list,
+        .service-list {
+            display: grid;
+            gap: 0;
+        }
+
+        .news-item {
+            display: grid;
+            grid-template-columns: 76px minmax(0, 1fr);
+            gap: 10px;
+            padding: 6px 0;
+            border-bottom: 1px solid #edf0f3;
+            border-radius: var(--radius);
+        }
+
+        .news-item:last-child {
+            border-bottom: 0;
+        }
+
+        .news-item:hover {
+            background: var(--accent-blue-soft);
+        }
+
+        .news-date {
+            color: var(--quiet);
+            font-size: 0.76rem;
+            font-weight: 650;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .news-content {
+            color: var(--muted);
+            font-size: 0.82rem;
+            line-height: 1.44;
+        }
+
+        .news-highlight {
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        .view-all-news {
+            margin-top: 7px;
+        }
+
+        .view-all-news a {
+            color: var(--accent-dark);
+            font-size: 0.82rem;
+            font-weight: 650;
+            text-decoration: none;
         }
 
         .publication-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 154px minmax(0, 1fr);
+            gap: 14px;
+            align-items: start;
+            padding: 10px 8px 10px 0;
+            border-bottom: 1px solid #edf0f3;
+            border-radius: var(--radius);
         }
 
         .publication-item:last-child {
-            border-bottom: none;
+            border-bottom: 0;
+        }
+
+        .publication-item:hover {
+            background: #f7faff;
+        }
+
+        .publication-group {
+            margin-top: 8px;
+        }
+
+        .publication-group + .publication-group {
+            margin-top: 14px;
+        }
+
+        .publication-group-title {
+            margin: 0 0 2px;
+            color: var(--accent-dark);
+            font-size: 0.9rem;
+            font-weight: 720;
+            line-height: 1.25;
         }
 
         .publication-image {
-            flex: 0 0 200px;
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
+            display: block;
+            width: 154px;
+            height: auto;
+            border: 1px solid var(--line);
             border-radius: 4px;
-        }
-
-        .publication-content {
-            flex: 1;
+            background: var(--surface);
+            object-fit: contain;
         }
 
         .publication-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            line-height: 1.3;
+            margin: 0 0 3px;
+            color: var(--text);
+            font-size: 0.98rem;
+            font-weight: 700;
+            line-height: 1.28;
         }
 
         .publication-title a {
-            color: var(--text-primary);
+            color: inherit;
             text-decoration: none;
         }
 
         .publication-title a:hover {
-            color: var(--primary-link);
+            color: var(--accent-dark);
             text-decoration: underline;
         }
 
         .publication-authors {
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
+            margin-bottom: 6px;
+            color: var(--muted);
+            font-size: 0.84rem;
+            line-height: 1.35;
         }
 
-        .publication-buttons {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .publication-btn {
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid var(--border);
-        }
-
-        .publication-btn.venue {
-            background: var(--button-color);
-            color: var(--text-primary);
-            border-color: var(--button-color);
-            font-weight: 600;
-        }
-
-        .publication-btn.venue:hover {
-            background: var(--button-hover);
-        }
-
-        .publication-btn:not(.venue) {
-            background: white;
-            color: var(--text-secondary);
-        }
-
-        .publication-btn:not(.venue):hover {
-            color: var(--text-primary);
-            border-color: var(--text-secondary);
-        }
-
-        /* Awards Section */
-        .awards-section {
-            padding: 1.2rem 2rem;
-            background: white;
-        }
-
-        .award-item {
-            padding: 0.4rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .award-item:last-child {
-            border-bottom: none;
-        }
-
-        .award-title {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.3rem;
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-
-        .award-details {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        /* Projects Section */
-        .projects-section {
-            padding: 1.2rem 2rem;
-            background: white;
-        }
-
-        .project-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .project-item:last-child {
-            border-bottom: none;
-        }
-
-        .project-video {
-            flex: 0 0 300px;
-            width: 300px;
-            height: 200px;
-            border-radius: 4px;
-            border: none;
-        }
-
-        .project-content {
-            flex: 1;
-        }
-
-        .project-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            color: var(--text-primary);
-            line-height: 1.3;
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-        }
-
+        .publication-buttons,
         .project-buttons {
             display: flex;
-            gap: 0.75rem;
             flex-wrap: wrap;
+            gap: 5px;
         }
 
-        .project-btn {
-            padding: 0.4rem 0.8rem;
-            background: var(--button-color);
-            color: var(--text-primary);
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            min-height: 24px;
+            padding: 0.18rem 0.48rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--background);
+            color: var(--muted);
+            font-size: 0.76rem;
+            font-weight: 640;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 0.85rem;
         }
 
-        .project-btn:hover {
-            background: var(--button-hover);
+        .pill.venue {
+            border-color: #cbddec;
+            background: var(--accent-soft);
+            color: var(--accent-dark);
         }
 
-        /* News Section */
-        .news-section {
-            padding: 1.2rem 2rem;
-            background: white;
+        .pill:hover {
+            border-color: #bcc7d1;
+            color: var(--text);
+            background: var(--surface);
         }
 
-        .news-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            padding: 0.4rem 0;
-            margin-bottom: 0.2rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .news-item:last-of-type {
-            border-bottom: none;
-        }
-
-        .news-date {
-            flex: 0 0 75px;
-            font-size: 0.75rem;
-            color: var(--text-light);
-            font-weight: 500;
-            text-align: right;
-        }
-
-        .news-content {
-            flex: 1;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
-        .news-highlight {
-            color: var(--primary-link);
-            font-weight: 600;
-        }
-
-        .view-all-news {
-            text-align: center;
-            margin-top: 0.8rem;
-        }
-
-        .view-all-btn {
-            color: var(--primary-link);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .view-all-btn:hover {
-            text-decoration: underline;
-        }
-
-        /* Service Section */
-        .service-section {
-            padding: 1.2rem 2rem;
-            background: white;
+        .service-list {
+            grid-template-columns: 1fr;
         }
 
         .service-item {
-            padding: 0.4rem 0;
-            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 96px minmax(0, 1fr);
+            gap: 12px;
+            padding: 7px 0;
+            border-bottom: 1px solid #edf0f3;
+            border-radius: var(--radius);
         }
 
-        .service-item:last-child {
-            border-bottom: none;
+        .service-item:hover {
+            background: #f6fafc;
         }
 
         .service-role {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.3rem;
-            font-size: 0.95rem;
+            color: #426f8f;
+            font-size: 0.82rem;
+            font-weight: 700;
         }
 
         .service-details {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.5;
+            color: var(--muted);
+            font-size: 0.82rem;
+            line-height: 1.44;
         }
 
         .service-details a {
-            color: var(--primary-link);
             text-decoration: none;
         }
 
@@ -573,758 +439,687 @@
             text-decoration: underline;
         }
 
-        /* Footer Section */
-        .footer-section {
-            background: var(--text-primary);
-            color: white;
-            padding: 1.2rem 1rem;
+        .awards-list {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 24px;
+        }
+
+        .award-item {
+            padding: 5px 0;
+            border-bottom: 1px solid #edf0f3;
+            border-radius: var(--radius);
+        }
+
+        .award-item:hover {
+            background: var(--accent-blue-soft);
+        }
+
+        .award-title {
+            margin: 0 0 1px;
+            color: var(--accent-dark);
+            font-size: 0.84rem;
+            font-weight: 700;
+            line-height: 1.28;
+        }
+
+        .award-details {
+            color: var(--muted);
+            font-size: 0.76rem;
+            line-height: 1.3;
+        }
+
+        .mentorship-item {
+            padding: 6px 0;
+            border-bottom: 1px solid #edf0f3;
+            color: var(--muted);
+            font-size: 0.84rem;
+            line-height: 1.44;
+        }
+
+        .mentorship-item:last-child {
+            border-bottom: 0;
+        }
+
+        .mentorship-item a {
+            color: var(--accent-dark);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .mentorship-item a:hover {
+            text-decoration: underline;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .project-card {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--accent-blue-2);
+            border-radius: var(--radius);
+            background: var(--background);
+            overflow: hidden;
+        }
+
+        .video-shell {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, #eef4fb, #f8fbfe);
+            display: grid;
+            place-items: center;
+            color: var(--accent-dark);
+        }
+
+        .video-shell iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-load {
+            border: 1px solid #cbddec;
+            border-radius: var(--radius);
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 0.42rem 0.68rem;
+        }
+
+        .video-load:hover {
+            background: #e4eef8;
+        }
+
+        .project-body {
+            padding: 9px 10px 10px;
+        }
+
+        .project-title {
+            margin: 0 0 4px;
+            color: var(--text);
+            font-size: 0.92rem;
+            font-weight: 750;
+            line-height: 1.25;
+        }
+
+        .project-description {
+            margin: 0 0 8px;
+            color: var(--muted);
+            font-size: 0.8rem;
+            line-height: 1.36;
+        }
+
+        .education-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            min-height: 28px;
+            margin-top: 2px;
+            padding: 0.2rem 0.5rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--background);
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 650;
+        }
+
+        .education-toggle:hover {
+            color: var(--text);
+            background: var(--surface);
+        }
+
+        .education-more {
+            display: none;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .education-more.expanded {
+            display: grid;
+        }
+
+        .education-item {
+            padding: 6px 8px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+        }
+
+        .edu-degree {
+            color: var(--text);
+            font-size: 0.78rem;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .edu-school,
+        .edu-year {
+            color: var(--muted);
+            font-size: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .footer {
+            border-top: 1px solid var(--line);
+            color: var(--quiet);
+            font-size: 0.78rem;
+            padding: 16px 24px 24px;
             text-align: center;
         }
 
-        .footer-container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
         .visitor-map {
-            margin-bottom: 0.8rem;
+            margin: 0 auto 10px;
         }
 
         .visitor-title {
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: rgba(255, 255, 255, 0.8);
+            margin: 0 0 6px;
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 700;
         }
 
         #visitors {
             width: 150px;
+            min-height: 100px;
             margin: 0 auto;
-            border-radius: 6px;
             overflow: hidden;
-            transform: scale(0.8);
+            border-radius: var(--radius);
         }
 
-        .footer-copyright {
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            padding-top: 0.8rem;
-        }
-
-        .footer-copyright p {
-            margin: 0;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Mobile Menu Styles */
-        .mobile-nav-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 280px;
-            height: 100vh;
-            background: white;
-            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-            z-index: 1001;
-            padding-top: 80px;
-        }
-        
-        .mobile-nav-menu.active {
-            right: 0;
-        }
-        
-        .mobile-nav-menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .mobile-nav-menu li {
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .mobile-nav-menu a {
+        #visitors iframe {
+            width: 150px;
+            height: 100px;
+            border: 0;
             display: block;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-        
-        .mobile-nav-menu a:hover {
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--primary-color);
-        }
-        
-        .mobile-nav-menu a.active {
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--primary-color);
-        }
-        
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .mobile-menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .mobile-menu-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 50%;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 860px) {
+            .nav-wrap {
+                padding: 0 16px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
             .nav-links {
+                position: absolute;
+                top: 52px;
+                left: 0;
+                right: 0;
                 display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 6px 16px 12px;
+                background: var(--background);
+                border-bottom: 1px solid var(--line);
             }
-            
-            .mobile-menu-btn {
-                display: block;
+
+            .nav-links.open {
+                display: flex;
             }
-            
-            
-            .nav-container {
-                padding: 1rem;
+
+            .nav-links a {
+                padding: 0.58rem 0.62rem;
             }
-            
-            .hero-section {
-                padding: 5rem 1rem 2rem;
+
+            .page {
+                padding: 14px 16px 28px;
             }
-            
+
+            .hero {
+                grid-template-columns: 118px minmax(0, 1fr);
+                gap: 14px;
+            }
+
             .profile-photo {
-                float: none;
-                width: 200px;
-                height: 200px;
-                margin: 0 auto 1.5rem;
-                display: block;
+                width: 118px;
+                height: 118px;
             }
-            
-            .hero-cta {
-                justify-content: center;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .publication-item,
-            .project-item {
-                flex-direction: column;
-            }
-            
-            .publication-image {
-                flex: none;
-                align-self: flex-start;
-                margin-bottom: 1rem;
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .project-video {
-                flex: none;
-                align-self: flex-start;
-                margin-bottom: 1rem;
-                width: 100%;
-                max-width: 300px;
-                height: 200px;
-            }
-            
-            .news-item {
-                flex-direction: column;
-                gap: 0.2rem;
-                padding: 0.4rem 0;
-                margin-bottom: 0.2rem;
-            }
-            
-            .news-date {
-                flex: none;
-                text-align: left;
-                font-size: 0.75rem;
-            }
-            
-            .news-content {
-                font-size: 0.85rem;
+
+            .service-list,
+            .awards-list,
+            .mentorship-list,
+            .project-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 480px) {
-            .hero-section {
-                padding: 6rem 1rem 2rem;
+        @media (max-width: 620px) {
+            body {
+                font-size: 14px;
             }
-            
-            
-            .nav-container {
-                padding: 0.8rem;
+
+            .hero,
+            .publication-item,
+            .news-item,
+            .service-item {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-photo {
+                width: 112px;
+                height: 112px;
+            }
+
+            .publication-image {
+                width: 100%;
+                height: auto;
+            }
+
+            .news-date {
+                text-align: left;
+            }
+
+            .education-more {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Simple Navigation -->
-    <nav class="modern-nav">
-        <div class="nav-container">
-            <a href="#" class="logo">Luzhe Sun 孙鲁喆</a>
-            <ul class="nav-links">
-                <li><a href="#overview" class="active">Overview</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#service">Service</a></li>
-                <li><a href="#awards">Awards</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="doc/LuzheSun_CV_20250902.pdf" target="_blank">CV</a></li>
-                <li><a href="index-full.html">Full</a></li>
-            </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
+    <header class="site-header">
+        <div class="nav-wrap">
+            <a href="#overview" class="brand">Luzhe Sun 孙鲁喆</a>
+            <button class="menu-button" id="menuButton" type="button" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
+            <nav class="nav-links" id="siteNav" aria-label="Primary">
+                <a href="#overview">Overview</a>
+                <a href="#news">News</a>
+                <a href="#publications">Publications</a>
+                <a href="#service">Service</a>
+                <a href="#awards">Awards</a>
+                <a href="#mentoring">Mentoring</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-    
-    <!-- Mobile Navigation Menu -->
-    <div class="mobile-nav-menu" id="mobileNavMenu">
-        <button class="mobile-menu-close" id="mobileMenuClose">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul>
-            <li><a href="#overview" class="mobile-nav-link">Overview</a></li>
-            <li><a href="#news" class="mobile-nav-link">News</a></li>
-            <li><a href="#publications" class="mobile-nav-link">Publications</a></li>
-            <li><a href="#service" class="mobile-nav-link">Service</a></li>
-            <li><a href="#awards" class="mobile-nav-link">Awards</a></li>
-            <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
-            <li><a href="index.html" class="mobile-nav-link">Full</a></li>
-            <li><a href="doc/LuzheSun_CV_20250902.pdf" target="_blank" class="mobile-nav-link">CV</a></li>
-        </ul>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero-section" id="overview">
-        <div class="hero-content">
-            <div class="hero-text">
-                <img src="img/profile.jpg" alt="Luzhe Sun" class="profile-photo">
-                <p class="hero-subtitle">Ph.D. Candidate @ TTIC</p>
-                <p class="hero-description">
-                    Specializing in Robotics Planning and Diffusion Models
+    <main class="page">
+        <section class="hero" id="overview">
+            <img src="img/optimized/profile-360.jpg" alt="Luzhe Sun" class="profile-photo" width="156" height="156" decoding="async" fetchpriority="high">
+            <div>
+                <h1>Luzhe Sun</h1>
+                <p class="hero-subtitle">Ph.D. Candidate @ TTIC - Robotics Planning and Diffusion Models</p>
+                <p class="hero-copy">
+                    I'm a Ph.D. candidate at TTIC advised by Professor <a href="https://home.ttic.edu/~mwalter/">Matthew R. Walter</a> in the <a href="https://ttic.edu/ripl/">Robot Intelligence through Perception Lab (RIPL)</a>.
+                    Before TTIC, I completed my master's in Computer Science at the <a href="https://masters.cs.uchicago.edu/">University of Chicago</a> and my undergraduate studies at <a href="https://informatics.xmu.edu.cn/en/index.htm">Xiamen University</a>.
                 </p>
-                
-                <div class="hero-contact">
-                    <p class="bio-text">
-                        <i class="fas fa-envelope" style="margin-right: 0.4rem; opacity: 0.8;"></i>luzhesun@ttic.edu | luzhesun@uchicago.edu
-                    </p>
-                </div>
-                
-                <div class="hero-biography">
-                    <h3 class="bio-section-title">Biography</h3>
-                    <p class="bio-text">
-                        I'm a Ph.D. candidate at TTIC focusing on Robotics Planning and Diffusion Models, advised by Professor <a href="https://home.ttic.edu/~mwalter/">Matthew R. Walter</a> working in the <a href="https://ttic.edu/ripl/">Robot Intelligence through Perception Lab (RIPL)</a>.
-                    </p>
-                    <p class="bio-text">
-                        Prior to joining TTIC, I completed my <a href="https://masters.cs.uchicago.edu/">Masters Program in Computer Science</a> at the <a href="https://www.uchicago.edu/en">University of Chicago</a>. I studied at the <a href="https://informatics.xmu.edu.cn/en/index.htm">School of Information Science at Xiamen University</a> as an undergraduate, where I conducted research on graph theory with Professor <a href="https://informatics.xmu.edu.cn/info/1019/15293.htm">Zhihong Zhang</a>.
-                    </p>
-                    <p class="bio-text">
-                        In my free time, I really enjoy photography, painting Chinese paintings and playing the Erhu.
-                    </p>
-                    <p class="bio-text highlight-text">
-                        🤝 <strong>Open to collaborations</strong> | 🔍 <strong>Seeking <s>Summer</s> Autumn & Winter 2026 internships</strong> | Feel free to reach out!
-                    </p>
-                </div>
-                
-                <div class="hero-education">
-                    <h3 class="bio-section-title">Education</h3>
-                    <button class="education-toggle" id="educationToggle">
-                        <i class="fas fa-chevron-down"></i>
-                        <span>Show details</span>
+                <p class="hero-copy">
+                    Research interests: robotics planning, shared autonomy, diffusion/consistency models, and embodied AI. I also enjoy photography, Chinese painting, and playing the Erhu.
+                </p>
+                <div class="notice">Open to collaborations - seeking Autumn &amp; Winter 2026 internships</div>
+                <p class="hero-copy"><strong>Email:</strong> luzhesun@ttic.edu | luzhesun@uchicago.edu</p>
+                <div class="action-row">
+                    <a href="#publications" class="button primary">
+                        <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7 4h8l4 4v12H7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                            <path d="M15 4v4h4M10 12h6M10 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span>Publications</span>
+                    </a>
+                    <a href="https://github.com/Tllokn" class="button" target="_blank" rel="noopener">
+                        <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2.5A9.5 9.5 0 0 0 9 21c.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.1-3.4-1.1-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.7-1.4-2.2-.3-4.6-1.1-4.6-5A3.9 3.9 0 0 1 7 8.3c-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1a9.7 9.7 0 0 1 5.2 0c2-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1.1 2.8c0 3.8-2.3 4.7-4.6 5 .4.3.7 1 .7 2v2.4c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5z" fill="currentColor"></path>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://scholar.google.com/citations?hl=en&amp;user=UH_AxUQAAAAJ" class="button" target="_blank" rel="noopener">
+                        <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M3 9.5 12 5l9 4.5-9 4.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                            <path d="M7 12v4c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                        </svg>
+                        <span>Scholar</span>
+                    </a>
+                    <button class="education-toggle" id="educationToggle" type="button" aria-expanded="false" aria-controls="educationMore">
+                        <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 5h7a3 3 0 0 1 3 3v11a3 3 0 0 0-3-3H4zM20 5h-7a3 3 0 0 0-3 3v11a3 3 0 0 1 3-3h7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="education-toggle-text">Show education</span>
                     </button>
-                    <div class="education-more" id="educationMore">
-                        <div class="education-item">
-                            <div class="edu-degree">Ph.D. in Computer Science</div>
-                            <div class="edu-school">Toyota Technological Institute at Chicago</div>
-                            <div class="edu-year">2023 - Present</div>
-                        </div>
-                        <div class="education-item">
-                            <div class="edu-degree">Master of Computer Science</div>
-                            <div class="edu-school">University of Chicago</div>
-                            <div class="edu-year">2021 - 2022</div>
-                        </div>
-                        <div class="education-item">
-                            <div class="edu-degree">B.Eng in Information Science (Graduates With Honor)</div>
-                            <div class="edu-school">Xiamen University</div>
-                            <div class="edu-year">2017 - 2021</div>
-                        </div>
+                </div>
+                <div class="education-more" id="educationMore">
+                    <div class="education-item">
+                        <div class="edu-degree">Ph.D. in Computer Science</div>
+                        <div class="edu-school">Toyota Technological Institute at Chicago</div>
+                        <div class="edu-year">2023 - Present</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="edu-degree">Master of Computer Science</div>
+                        <div class="edu-school">University of Chicago</div>
+                        <div class="edu-year">2021 - 2022</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="edu-degree">B.Eng in Information Science, Graduated With Honor</div>
+                        <div class="edu-school">Xiamen University</div>
+                        <div class="edu-year">2017 - 2021</div>
                     </div>
                 </div>
-                
-                <div class="hero-cta">
-                    <a href="#publications" class="cta-button primary">
-                        <i class="fas fa-file-alt"></i> Publications
-                    </a>
-                    <a href="https://github.com/Tllokn" class="cta-button" target="_blank">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                    <a href="https://scholar.google.com/citations?hl=en&user=UH_AxUQAAAAJ" class="cta-button" target="_blank">
-                        <i class="fas fa-graduation-cap"></i> Scholar
-                    </a>
+            </div>
+        </section>
+
+        <section class="section" id="news">
+            <h2 class="section-title">Latest News</h2>
+            <div class="news-list">
+                <div class="news-item">
+                    <div class="news-date">May 2026</div>
+                    <div class="news-content"><span class="news-highlight">Gold Reviewer!</span> I'm ranked as a Gold Reviewer for <span class="news-highlight">ICML 2026</span>.</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">Mar 2026</div>
+                    <div class="news-content"><span class="news-highlight">Paper Accepted!</span> Our paper "Seeing without Looking: Do Vision-Language Benchmarks Really Test Vision?" has been accepted to <span class="news-highlight">CVPR 2026 GRAIL-V Workshop</span>.</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">Mar 2026</div>
+                    <div class="news-content"><span class="news-highlight">Code Released!</span> We released the code for <span class="news-highlight">FlashBack</span> on CoRL 2025.</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">Jan 2026</div>
+                    <div class="news-content"><span class="news-highlight">Paper Accepted!</span> Our paper "Detecting Hallucinations in Vision-Language Models without Generating a Single Token" has been accepted to <span class="news-highlight">EACL 2026 Main (Oral)</span>.</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">Oct 2025</div>
+                    <div class="news-content"><span class="news-highlight">Invited Livestream!</span> Our paper "FlashBack" was invited for livestream presentation at <strong>CVlife</strong> and <strong>3dcver</strong>.</div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="view-all-news"><a href="news.html">View all news</a></div>
+        </section>
 
-    <!-- News Section -->
-    <section class="news-section" id="news">
-        <div class="section-container">
-            <h2 class="section-title">Latest News</h2>
-            <div id="news-container">
-                <!-- News items will be loaded dynamically from news.html -->
-            </div>
-            <div class="view-all-news">
-                <a href="news.html" class="view-all-btn">
-                    <i class="fas fa-archive"></i> View All News
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section class="publications-section" id="publications">
-        <div class="section-container">
+        <section class="section" id="publications">
             <h2 class="section-title">Publications</h2>
 
-            <div class="publication-item">
-                <img src="img/publication/2026-CVPR-workshop.jpg" alt="CVPR 2026" class="publication-image">
-                <div class="publication-content">
-                    <div class="publication-title">
-                        <a href="">Seeing without Looking: Do Vision-Language Benchmarks Really Test Vision?</a>
+            <div class="publication-group">
+                <h3 class="publication-group-title">Selected Publications</h3>
+
+                <article class="publication-item">
+                    <img src="img/optimized/2026-seeing-without-looking.jpg" alt="CVPR 2026 workshop paper thumbnail" class="publication-image" loading="lazy" decoding="async" width="154">
+                    <div>
+                        <h3 class="publication-title"><a href="https://arxiv.org/abs/2605.22903">Seeing without Looking: Do Vision-Language Benchmarks Really Test Vision?</a></h3>
+                        <div class="publication-authors">Zixuan Lan*, <b>Luzhe Sun*</b>, Matthew R. Walter, Jiawei Zhou</div>
+                        <div class="publication-buttons">
+                            <a href="https://openreview.net/forum?id=BBnoQFzIQi" class="pill venue">CVPR 2026 GRAIL-V Workshop</a>
+                            <a href="https://arxiv.org/abs/2605.22903" class="pill">arXiv</a>
+                        </div>
                     </div>
-                    <div class="publication-authors">
-                       Zixuan Lan*, <b>Luzhe Sun*</b>, Matthew R. Walter, Jiawei Zhou
+                </article>
+
+                <article class="publication-item">
+                    <video class="publication-image" width="154" autoplay muted loop playsinline preload="metadata" poster="img/optimized/2025-flashback.jpg" aria-label="FlashBack video preview">
+                        <source src="video/2025-flashback.webm" type="video/webm">
+                    </video>
+                    <div>
+                        <h3 class="publication-title"><a href="https://arxiv.org/abs/2505.16892">FlashBack: Consistency Model-Accelerated Shared Autonomy</a></h3>
+                        <div class="publication-authors"><b>Luzhe Sun</b>, Jingtian Ji, Xiangshan(Vincent) Tan, Matthew R. Walter</div>
+                        <div class="publication-buttons">
+                            <a href="https://openreview.net/forum?id=zk4fRmHF0Q" class="pill venue">CoRL 2025 [Spotlight]</a>
+                            <a href="https://arxiv.org/abs/2505.16892" class="pill">arXiv</a>
+                            <a href="https://ripl.github.io/CSA-website/" class="pill">Website</a>
+                            <a href="https://github.com/ripl/FlashBackSharedAutonomy" class="pill">Code</a>
+                            <a href="https://zhuanlan.zhihu.com/p/1952228115234414777" class="pill">Blog(知乎)</a>
+                            <a href="https://www.bilibili.com/video/BV1dqWSzCEZQ?t=4.1" class="pill">Livestream</a>
+                        </div>
                     </div>
-                    <div class="publication-buttons">
-                        <a href="https://grailworkshops.github.io/" class="publication-btn venue">CVPR 2026 GRAIL-V Workshop</a>
-                        <a href="https://arxiv.org/abs/2605.22903" class="publication-btn">arXiv</a>
-                        <!-- <a href="https://github.com/Zesearch/HALP" class="publication-btn">Code</a> -->
+                </article>
+
+                <article class="publication-item">
+                    <video class="publication-image" width="154" autoplay muted loop playsinline preload="metadata" poster="img/optimized/2025-stackgen.jpg" aria-label="StackGen video preview">
+                        <source src="video/2025-stackgen.webm" type="video/webm">
+                    </video>
+                    <div>
+                        <h3 class="publication-title"><a href="https://arxiv.org/abs/2409.18098">StackGen: Generating Stable Structures from Silhouettes via Diffusion</a></h3>
+                        <div class="publication-authors"><b>Luzhe Sun*</b>, Takuma Yoneda*, Samuel W. Wheeler, Tianchong Jiang, Matthew R. Walter</div>
+                        <div class="publication-buttons">
+                            <a href="https://doi.org/10.1109/IROS60139.2025.11247239" class="pill venue">IROS 2025 [Oral]</a>
+                            <a href="https://arxiv.org/abs/2409.18098" class="pill">arXiv</a>
+                            <a href="https://ripl.github.io/StackGen/" class="pill">Website</a>
+                            <a href="https://zhuanlan.zhihu.com/p/1946751889225024585" class="pill">Blog(知乎)</a>
+                        </div>
                     </div>
-                </div>
+                </article>
+
+                <article class="publication-item">
+                    <video class="publication-image" width="154" autoplay muted loop playsinline preload="metadata" poster="img/optimized/2023-to-the-noise-and-back.jpg" aria-label="To the Noise and Back video preview">
+                        <source src="video/2023-to-the-noise-and-back.webm" type="video/webm">
+                    </video>
+                    <div>
+                        <h3 class="publication-title"><a href="https://arxiv.org/abs/2302.12244">To the Noise and Back: Diffusion for Shared Autonomy</a></h3>
+                        <div class="publication-authors">Takuma Yoneda, <b>Luzhe Sun</b>, Ge Yang, Bradly Stadie, Matthew R. Walter</div>
+                        <div class="publication-buttons">
+                            <a href="https://roboticsconference.org/2023/program/papers/014/" class="pill venue">RSS 2023 [Oral]</a>
+                            <a href="https://diffusion-for-shared-autonomy.github.io/" class="pill">Website</a>
+                            <a href="https://arxiv.org/abs/2302.12244" class="pill">arXiv</a>
+                            <a href="https://github.com/ripl/diffusion-for-shared-autonomy" class="pill">Code</a>
+                        </div>
+                    </div>
+                </article>
             </div>
 
-            <div class="publication-item">
-                <img src="img/publication/2026-ACL-hallucination.png" alt="EACL 2026[Oral]" class="publication-image">
-                <div class="publication-content">
-                    <div class="publication-title">
-                        <a href="">Detecting Hallucinations in Vision-Language Models without Generating a Single Token</a>
-                    </div>
-                    <div class="publication-authors">
-                        Sai Akhil Kogilathota, Sripadha Vallabha E G, <b>Luzhe Sun</b>, Jiawei Zhou
-                    </div>
-                    <div class="publication-buttons">
-                        <a href="https://2026.eacl.org/program/main-accepted/" class="publication-btn venue">EACL 2026 Main [Oral]</a>
-                        <a href="https://arxiv.org/abs/2603.05465" class="publication-btn">arXiv</a>
-                        <a href="https://github.com/Zesearch/HALP" class="publication-btn">Code</a>
-                        <!-- <a href="https://arxiv.org/abs/2505.16892" class="publication-btn">arXiv</a>
-                        <a href="https://ripl.github.io/CSA-website/" class="publication-btn">Website</a>
-                        <a href="https://zhuanlan.zhihu.com/p/1952228115234414777" class="publication-btn">Blog(知乎)</a>
-                        <a href="https://www.bilibili.com/video/BV1dqWSzCEZQ?t=4.1" class="publication-btn">Livestream(Chinese)</a> -->
-                    </div>
-                </div>
-            </div>
-            
-            <div class="publication-item">
-                <img src="img/publication/2025-cm-sha.png" alt="FlashBack Paper" class="publication-image">
-                <div class="publication-content">
-                    <div class="publication-title">
-                        <a href="https://ripl.github.io/CSA-website/">FlashBack: Consistency Model-Accelerated Shared Autonomy</a>
-                    </div>
-                    <div class="publication-authors">
-                        <b>Luzhe Sun</b>, Jingtian Ji, Xiangshan(Vincent) Tan, Matthew R. Walter
-                    </div>
-                    <div class="publication-buttons">
-                        <a href="https://2025.corl.org/" class="publication-btn venue">CoRL 2025 [Spotlight]</a>
-                        <a href="https://arxiv.org/abs/2505.16892" class="publication-btn">arXiv</a>
-                        <a href="https://ripl.github.io/CSA-website/" class="publication-btn">Website</a>
-                        <a href="https://github.com/ripl/FlashBackSharedAutonomy" class="publication-btn">Code</a>   
-                        <a href="https://zhuanlan.zhihu.com/p/1952228115234414777" class="publication-btn">Blog(知乎)</a>
-                        <a href="https://www.bilibili.com/video/BV1dqWSzCEZQ?t=4.1" class="publication-btn">Livestream(Chinese)</a>
-                    </div>
-                </div>
-            </div>
+            <div class="publication-group">
+                <h3 class="publication-group-title">More Publications</h3>
 
-            <div class="publication-item">
-                <img src="img/publication/3-StackGen.jpg" alt="StackGen Paper" class="publication-image">
-                <div class="publication-content">
-                    <div class="publication-title">
-                        <a href="https://arxiv.org/abs/2409.18098">StackGen: Generating Stable Structures from Silhouettes via Diffusion</a>
+                <article class="publication-item">
+                    <img src="img/optimized/2026-what-are-we-actually-benchmarking.jpg" alt="Robot manipulation benchmark audit chart" class="publication-image" loading="lazy" decoding="async" width="154">
+                    <div>
+                        <h3 class="publication-title"><a href="https://arxiv.org/abs/2606.04233">What Are We Actually Benchmarking in Robot Manipulation?</a></h3>
+                        <div class="publication-authors">Tianchong Jiang, Xiangshan Tan*, Samuel Wheeler*, <b>Luzhe Sun*</b>, Tewodros W. Ayalew*, and Matthew Walter</div>
+                        <div class="publication-buttons">
+                            <a href="https://arxiv.org/abs/2606.04233" class="pill">arXiv</a>
+                            <a href="https://ripl.github.io/manipulation_benchmark_audit/" class="pill">Website</a>
+                            <a href="https://github.com/ripl/ManipulationBenchmarkAudit" class="pill">Code</a>
+                        </div>
                     </div>
-                    <div class="publication-authors">
-                        <b>Luzhe Sun*</b>, Takuma Yoneda*, Samuel W. Wheeler, Tianchong Jiang, Matthew R. Walter
-                    </div>
-                    <div class="publication-buttons">
-                        <a href="tmp-paper-pdf/StackGen-Final-v4.pdf" class="publication-btn venue">IROS 2025 [Oral]</a>
-                        <a href="https://arxiv.org/abs/2409.18098" class="publication-btn">arXiv</a>
-                        <a href="https://ripl.github.io/StackGen/" class="publication-btn">Website</a>
-                        <a href="https://zhuanlan.zhihu.com/p/1946751889225024585" class="publication-btn">Blog(知乎)</a>
-                    </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="publication-item">
-                <img src="img/publication/2-diff-sha.png" alt="Diffusion Shared Autonomy Paper" class="publication-image">
-                <div class="publication-content">
-                    <div class="publication-title">
-                        <a href="https://diffusion-for-shared-autonomy.github.io/">To the Noise and Back: Diffusion for Shared Autonomy</a>
+                <article class="publication-item">
+                    <img src="img/optimized/2026-detecting-hallucinations.jpg" alt="EACL 2026 hallucination paper thumbnail" class="publication-image" loading="lazy" decoding="async" width="154">
+                    <div>
+                        <h3 class="publication-title"><a href="https://arxiv.org/abs/2603.05465">Detecting Hallucinations in Vision-Language Models without Generating a Single Token</a></h3>
+                        <div class="publication-authors">Sai Akhil Kogilathota, Sripadha Vallabha E G, <b>Luzhe Sun</b>, Jiawei Zhou</div>
+                        <div class="publication-buttons">
+                            <a href="https://aclanthology.org/2026.eacl-long.287/" class="pill venue">EACL 2026 Main [Oral]</a>
+                            <a href="https://arxiv.org/abs/2603.05465" class="pill">arXiv</a>
+                            <a href="https://github.com/Zesearch/HALP" class="pill">Code</a>
+                        </div>
                     </div>
-                    <div class="publication-authors">
-                        Takuma Yoneda, <b>Luzhe Sun</b>, Ge Yang, Bradly Stadie, Matthew R. Walter
-                    </div>
-                    <div class="publication-buttons">
-                        <a href="https://roboticsconference.org/" class="publication-btn venue">RSS 2023 [Oral]</a>
-                        <a href="https://diffusion-for-shared-autonomy.github.io/" class="publication-btn">Website</a>
-                        <a href="https://arxiv.org/abs/2302.12244" class="publication-btn">arXiv</a>
-                        <a href="https://github.com/ripl/diffusion-for-shared-autonomy" class="publication-btn">Code</a>
-                    </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="publication-item">
-                <img src="img/publication/1-quant-compute.jpg" alt="Quantum GNN Paper" class="publication-image">
-                <div class="publication-content">
-                    <div class="publication-title">
-                        <a href="https://arxiv.org/abs/2201.05158">Decompositional Quantum Graph Neural Network</a>
+                <article class="publication-item">
+                    <img src="img/optimized/2022-decompositional-quantum-gnn.jpg" alt="Quantum GNN paper thumbnail" class="publication-image" loading="lazy" decoding="async" width="154">
+                    <div>
+                        <h3 class="publication-title"><a href="https://arxiv.org/abs/2201.05158">Decompositional Quantum Graph Neural Network</a></h3>
+                        <div class="publication-authors">Xing Ai, <b>Luzhe Sun</b>, Zhihong Zhang, Junchi Yan, Edwin Hancock</div>
+                        <div class="publication-buttons">
+                            <a href="https://arxiv.org/abs/2201.05158" class="pill">arXiv</a>
+                        </div>
                     </div>
-                    <div class="publication-authors">
-                        Xing Ai, <b>Luzhe Sun</b>, Zhihong Zhang, Junchi Yan, Edwin Hancock
-                    </div>
-                    <div class="publication-buttons">
-                        <a href="https://arxiv.org/abs/2201.05158" class="publication-btn">arXiv</a>
-                    </div>
-                </div>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Service and Volunteer Section -->
-    <section class="service-section" id="service">
-        <div class="section-container">
+        <section class="section" id="service">
             <h2 class="section-title">Service and Volunteer</h2>
-            
-            <div class="service-item">
-                <div class="service-role">Reviewer</div>
-                <div class="service-details">
-                    <a href="https://www.ieee-iros.org/">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</a>, 
-                    <a href="https://www.ieee-icra.org/">IEEE International Conference on Robotics and Automation (ICRA)</a>, 
-                    <a href="https://www.corl.org/">Conference on Robot Learning (CoRL)</a>,
-                    <a href="https://www.ieee-ras.org/publications/ra-l">IEEE Robotics and Automation Letters (RA-L)</a>
-                    <a href="https://icml.cc/">International Conference on Machine Learning (ICML)</a>
+            <div class="service-list">
+                <div class="service-item">
+                    <div class="service-role">Reviewer</div>
+                    <div class="service-details">
+                        <a href="https://www.ieee-iros.org/">IROS</a>, <a href="https://www.ieee-icra.org/">ICRA</a>, <a href="https://www.corl.org/">CoRL</a>, <a href="https://www.ieee-ras.org/publications/ra-l">RA-L</a>, <a href="https://icml.cc/">ICML</a>, <a href="https://neurips.cc/">NeurIPS</a>, <a href="https://www.aclweb.org/">ACL</a>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-role">Organizer</div>
+                    <div class="service-details"><a href="https://sites.google.com/view/multimodal-ai-ttic-2024/home">Multimodal Artificial Intelligence Workshop</a> at TTIC, Chicago, IL (2024)</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-role">Invited Demo</div>
+                    <div class="service-details"><a href="https://www.msichicago.org/explore/whats-here/events/robot-block-party">2024 Robot Block Party</a> at Griffin Museum of Science, Chicago, IL</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-role">Invited Demo</div>
+                    <div class="service-details"><a href="https://www.msichicago.org/explore/whats-here/events/robot-block-party">2023 Robot Block Party</a> at Griffin Museum of Science, Chicago, IL</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-role">Volunteer</div>
+                    <div class="service-details"><a href="https://ttic.edu/mwrw/">Midwest Robotics Workshop</a> at TTIC, Chicago, IL</div>
                 </div>
             </div>
-            
-            <div class="service-item">
-                <div class="service-role">Organizer</div>
-                <div class="service-details">
-                    <a href="https://sites.google.com/view/multimodal-ai-ttic-2024/home">Multimodal Artificial Intelligence Workshop</a> at TTIC, Chicago, IL (2024)
-                </div>
-            </div>
-            
-            <div class="service-item">
-                <div class="service-role">Invited Demo</div>
-                <div class="service-details">
-                    <a href="https://www.msichicago.org/explore/whats-here/events/robot-block-party">2024 Robot Block Party</a> at Griffin Museum of Science, Chicago, IL
-                </div>
-            </div>
-            
-            <div class="service-item">
-                <div class="service-role">Invited Demo</div>
-                <div class="service-details">
-                    <a href="https://www.msichicago.org/explore/whats-here/events/robot-block-party">2023 Robot Block Party</a> at Griffin Museum of Science, Chicago, IL
-                </div>
-            </div>
-            
-            <div class="service-item">
-                <div class="service-role">Volunteer</div>
-                <div class="service-details">
-                    <a href="https://ttic.edu/mwrw/">Midwest Robotics Workshop</a> at TTIC, Chicago, IL
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Awards Section -->
-    <section class="awards-section" id="awards">
-        <div class="section-container">
+        <section class="section" id="awards">
             <h2 class="section-title">Awards and Honors</h2>
+            <div class="awards-list">
+                <div class="award-item">
+                    <div class="award-title">Gold Reviewer</div>
+                    <div class="award-details">2026 - International Conference on Machine Learning (ICML)</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">China National Scholarship (Top 0.1%)</div>
+                    <div class="award-details">2020 - Chinese Ministry of Education, China</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">China National Scholarship (Top 0.1%)</div>
+                    <div class="award-details">2019 - Chinese Ministry of Education, China</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">Honored Graduate Student</div>
+                    <div class="award-details">2021 - Xiamen University, China</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">National 2nd Prize of Contemporary Undergraduate Mathematical Contest in Modeling</div>
+                    <div class="award-details">2019 - China Society for Industrial and Applied Mathematics, China</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">National 3rd Prize of China Students Service Outsourcing Competition</div>
+                    <div class="award-details">2018 - Ministry of Education &amp; Ministry of Commerce, China</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">Xiamen University "Xilie Huang" Annual Scholarship (2/200)</div>
+                    <div class="award-details">2018 - Xiamen University, China</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">Xiamen University Outstanding Student Worker Scholarship</div>
+                    <div class="award-details">2018 - Xiamen University, China</div>
+                </div>
+            </div>
+        </section>
 
-            <div class="award-item">
-                <div class="award-title">Gold Reviewer</div>
-                <div class="award-details">2026 • International Conference on Machine Learning (ICML)</div>
+        <section class="section" id="mentoring">
+            <h2 class="section-title">Mentoring</h2>
+            <div class="mentorship-list">
+                <div class="mentorship-item">
+                    <a href="https://xpenguchi.github.io/">Xiaopeng Zhang</a>, University of Chicago (Master) --&gt; Rutgers University (Ph.D. student)
+                </div>
             </div>
-            
-            <div class="award-item">
-                <div class="award-title">China National Scholarship (Top 0.1%)</div>
-                <div class="award-details">2020 • Chinese Ministry of Education, China</div>
-            </div>
-            
-            <div class="award-item">
-                <div class="award-title">China National Scholarship (Top 0.1%)</div>
-                <div class="award-details">2019 • Chinese Ministry of Education, China</div>
-            </div>
-            
-            <div class="award-item">
-                <div class="award-title">Honored Graduate Student</div>
-                <div class="award-details">2021 • Xiamen University, China</div>
-            </div>
-            
-            <div class="award-item">
-                <div class="award-title">National Second Prize of Contemporary Undergraduate Mathematical Contest in Modeling</div>
-                <div class="award-details">2019 • China Society for Industrial and Applied Mathematics, China</div>
-            </div>
-            
-            <div class="award-item">
-                <div class="award-title">National Third Prize of China Students Service Outsourcing Competition</div>
-                <div class="award-details">2018 • Ministry of Education & Ministry of Commerce, China</div>
-            </div>
-            
-            <div class="award-item">
-                <div class="award-title">Xiamen University "Xilie Huang" Annual Scholarship (2/200)</div>
-                <div class="award-details">2018 • Xiamen University, China</div>
-            </div>
-            
-            <div class="award-item">
-                <div class="award-title">Xiamen University Outstanding Student Worker Scholarship</div>
-                <div class="award-details">2018 • Xiamen University, China</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section class="projects-section" id="projects">
-        <div class="section-container">
+        <section class="section" id="projects" hidden>
             <h2 class="section-title">Projects</h2>
-            
-            <div class="project-item">
-                <iframe class="project-video" src="https://www.youtube.com/embed/ldNHdsU3KME"></iframe>
-                <div class="project-content">
-                    <div class="project-title">Embodied ChatGPT | Robot Block Party 2023</div>
-                    <div class="project-description">
-                        We implemented the Code as Policies algorithm on the UR5 robot. The robot is able to respond to 
-                        the user's voice command and execute the corresponding task. The project was presented during 
-                        the 2023 National Robotics Week at the Museum of Science and Industry in Chicago, and at the 
-                        University of Chicago for the 2023 South Side Science Festival.
+            <div class="project-grid">
+                <article class="project-card">
+                    <div class="video-shell">
+                        <button class="video-load" type="button" data-video-src="https://www.youtube.com/embed/ldNHdsU3KME" data-video-title="Embodied ChatGPT video">Load video</button>
                     </div>
-                </div>
-            </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Embodied ChatGPT | Robot Block Party 2023</h3>
+                        <p class="project-description">
+                            Implemented Code as Policies on a UR5 robot so it could respond to voice commands and execute tasks. Presented at the 2023 National Robotics Week at MSI Chicago and the 2023 South Side Science Festival.
+                        </p>
+                    </div>
+                </article>
 
-            <div class="project-item">
-                <iframe class="project-video" src="https://www.youtube.com/embed/UL26MJ7HQgY"></iframe>
-                <div class="project-content">
-                    <div class="project-title">AI Transnational Free Travel Assistant APP</div>
-                    <div class="project-description">
-                        An auxiliary application for tourists from China and Japan to travel independently. Using 
-                        modern AI technology to assist tourists, provide and recommend information on local attractions, 
-                        restaurants, accommodation, transportation, etc. The app addresses language barriers in 
-                        transnational free travel.
+                <article class="project-card">
+                    <div class="video-shell">
+                        <button class="video-load" type="button" data-video-src="https://www.youtube.com/embed/UL26MJ7HQgY" data-video-title="AI travel assistant app video">Load video</button>
                     </div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/Tllokn/AI-Transnational-Free-Travel-Assistant-APP" class="project-btn">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
+                    <div class="project-body">
+                        <h3 class="project-title">AI Transnational Free Travel Assistant APP</h3>
+                        <p class="project-description">
+                            AI travel assistant for independent tourists from China and Japan, covering attractions, restaurants, accommodation, transportation, and language barriers.
+                        </p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/Tllokn/AI-Transnational-Free-Travel-Assistant-APP" class="pill">GitHub</a>
+                        </div>
                     </div>
-                </div>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer with visitor map -->
-    <footer class="footer-section">
-        <div class="footer-container">
-            <div class="visitor-map">
-                <h3 class="visitor-title">Visitor Map</h3>
-                <div id="visitors">
-                    <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=n&d=A3FFiotK2kIM4c7kAXqyTf6QngKelQ_UKa3-v8D8RCg'></script>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                <p>&copy; 2024 Luzhe Sun. All rights reserved.</p>
-            </div>
+    <footer class="footer">
+        <div class="visitor-map">
+            <div class="visitor-title">Visitor Map</div>
+            <div id="visitors" aria-label="Visitor map"></div>
         </div>
+        <div>&copy; 2024 Luzhe Sun.</div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        const nav = document.getElementById("siteNav");
+        const menuButton = document.getElementById("menuButton");
+
+        menuButton.addEventListener("click", () => {
+            const isOpen = nav.classList.toggle("open");
+            menuButton.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        nav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("open");
+                menuButton.setAttribute("aria-expanded", "false");
             });
         });
 
-        // Education toggle functionality
-        document.getElementById('educationToggle').addEventListener('click', function() {
-            const moreSection = document.getElementById('educationMore');
-            const toggleBtn = document.getElementById('educationToggle');
-            const icon = toggleBtn.querySelector('i');
-            const text = toggleBtn.querySelector('span');
-            
-            if (moreSection.classList.contains('expanded')) {
-                moreSection.classList.remove('expanded');
-                icon.className = 'fas fa-chevron-down';
-                text.textContent = 'Show details';
-            } else {
-                moreSection.classList.add('expanded');
-                icon.className = 'fas fa-chevron-up';
-                text.textContent = 'Hide details';
-            }
+        const educationToggle = document.getElementById("educationToggle");
+        const educationMore = document.getElementById("educationMore");
+        const educationToggleText = educationToggle.querySelector(".education-toggle-text");
+
+        educationToggle.addEventListener("click", () => {
+            const expanded = educationMore.classList.toggle("expanded");
+            educationToggle.setAttribute("aria-expanded", String(expanded));
+            educationToggleText.textContent = expanded ? "Hide education" : "Show education";
         });
 
-
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileNavMenu = document.getElementById('mobileNavMenu');
-            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-            const mobileMenuClose = document.getElementById('mobileMenuClose');
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-            // Open mobile menu
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileNavMenu.classList.add('active');
-                mobileMenuOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-
-            // Close mobile menu
-            function closeMobileMenu() {
-                mobileNavMenu.classList.remove('active');
-                mobileMenuOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-
-            // Close menu when clicking close button
-            mobileMenuClose.addEventListener('click', closeMobileMenu);
-
-            // Close menu when clicking overlay
-            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-
-            // Close menu when clicking a navigation link
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    closeMobileMenu();
-                    
-                    // Update active state
-                    document.querySelectorAll('.nav-links a').forEach(navLink => {
-                        navLink.classList.remove('active');
-                    });
-                    
-                    const href = this.getAttribute('href');
-                    if (href.startsWith('#')) {
-                        const correspondingNavLink = document.querySelector(`.nav-links a[href="${href}"]`);
-                        if (correspondingNavLink) {
-                            correspondingNavLink.classList.add('active');
-                        }
-                    }
-                });
-            });
-
-            // Close menu on escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && mobileNavMenu.classList.contains('active')) {
-                    closeMobileMenu();
-                }
+        document.querySelectorAll(".video-load").forEach((button) => {
+            button.addEventListener("click", () => {
+                const iframe = document.createElement("iframe");
+                iframe.src = `${button.dataset.videoSrc}?autoplay=1`;
+                iframe.title = button.dataset.videoTitle;
+                iframe.loading = "lazy";
+                iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share";
+                iframe.allowFullscreen = true;
+                button.parentElement.replaceChildren(iframe);
             });
         });
 
-        // Load news from news.html
-        async function loadNewsFromArchive() {
-            try {
-                const response = await fetch('news.html');
-                const html = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                
-                // Get all news items (excluding "coming-soon")
-                const newsItems = doc.querySelectorAll('.news-archive-item');
-                const newsContainer = document.getElementById('news-container');
-                
-                if (!newsContainer) return;
-                
-                // Clear existing content
-                newsContainer.innerHTML = '';
-                
-                // Take first 5 news items
-                const maxItems = Math.min(5, newsItems.length);
-                
-                for (let i = 0; i < maxItems; i++) {
-                    const item = newsItems[i];
-                    const date = item.querySelector('.news-archive-date').textContent.trim();
-                    const content = item.querySelector('.news-archive-content').innerHTML;
-                    
-                    // Convert date format (e.g., "January 2026" -> "Jan 2026", "October 2025" -> "Oct 2025")
-                    const monthMap = {
-                        'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr',
-                        'May': 'May', 'June': 'Jun', 'July': 'Jul', 'August': 'Aug',
-                        'September': 'Sep', 'October': 'Oct', 'November': 'Nov', 'December': 'Dec'
-                    };
-                    
-                    let shortDate = date;
-                    const dateParts = date.split(' ');
-                    if (dateParts.length >= 2 && monthMap[dateParts[0]]) {
-                        shortDate = monthMap[dateParts[0]] + ' ' + dateParts[1];
-                    } else if (dateParts.length === 1) {
-                        // If it's already in short format, use as is
-                        shortDate = date;
-                    }
-                    
-                    // Create news item element
-                    const newsItem = document.createElement('div');
-                    newsItem.className = 'news-item';
-                    newsItem.innerHTML = `
-                        <div class="news-date">${shortDate}</div>
-                        <div class="news-content">${content}</div>
-                    `;
-                    
-                    newsContainer.appendChild(newsItem);
-                }
-            } catch (error) {
-                console.error('Error loading news:', error);
-                // Fallback: show a message if loading fails
-                const newsContainer = document.getElementById('news-container');
-                if (newsContainer) {
-                    newsContainer.innerHTML = '<div class="news-item"><div class="news-content">Unable to load news. Please visit <a href="news.html">news.html</a> for the latest updates.</div></div>';
-                }
-            }
+        const loadVisitorMap = () => {
+            const visitors = document.getElementById("visitors");
+            if (!visitors || visitors.querySelector("iframe")) return;
+
+            const frame = document.createElement("iframe");
+            frame.title = "Visitor map";
+            frame.loading = "lazy";
+            frame.src = "visitor-map.html";
+            visitors.appendChild(frame);
+        };
+
+        if ("requestIdleCallback" in window) {
+            requestIdleCallback(loadVisitorMap, { timeout: 2500 });
+        } else {
+            window.addEventListener("load", () => setTimeout(loadVisitorMap, 800));
         }
-
-        // Load news when page loads
-        document.addEventListener('DOMContentLoaded', loadNewsFromArchive);
     </script>
 </body>
 
 </html>
-
