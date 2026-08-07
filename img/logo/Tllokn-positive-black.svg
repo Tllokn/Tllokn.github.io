@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="360" viewBox="0 0 1040 360" role="img" aria-labelledby="title desc">
+  <title id="title">Tllok.n positive black logo</title>
+  <desc id="desc">Solid black geometric Tllok.n mark on a transparent background.</desc>
+  <g fill="#000000">
+    <rect x="55" y="65" width="46" height="230"/>
+    <rect x="135" y="65" width="46" height="230"/>
+    <rect x="215" y="65" width="46" height="230"/>
+    <path fill-rule="evenodd" d="M295 65H620L505 180L620 295H295ZM463 180A68 68 0 1 0 327 180A68 68 0 1 0 463 180Z"/>
+    <circle cx="662" cy="272" r="16"/>
+  </g>
+  <path d="M780 295V210C780 160 815 135 855 135C895 135 930 160 930 210V295" fill="none" stroke="#000000" stroke-width="42" stroke-linecap="butt" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="360" viewBox="0 0 1040 360" role="img" aria-labelledby="title desc">
+  <title id="title">Tllok.n incised white logo</title>
+  <desc id="desc">White plaque with the geometric Tllok.n mark cut out as transparent negative space.</desc>
+  <defs>
+    <mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="1040" height="360">
+      <rect width="1040" height="360" fill="white"/>
+      <g fill="black">
+        <rect x="55" y="65" width="46" height="230"/>
+        <rect x="135" y="65" width="46" height="230"/>
+        <rect x="215" y="65" width="46" height="230"/>
+        <path d="M295 65H620L505 180L620 295H295Z"/>
+        <circle cx="662" cy="272" r="16"/>
+      </g>
+      <circle cx="395" cy="180" r="68" fill="white"/>
+      <path d="M780 295V210C780 160 815 135 855 135C895 135 930 160 930 210V295" fill="none" stroke="black" stroke-width="42" stroke-linecap="butt" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+  <rect width="1040" height="360" fill="#ffffff" mask="url(#cut)"/>
+</svg>
