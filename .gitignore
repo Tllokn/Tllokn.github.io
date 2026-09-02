@@ -3,4 +3,10 @@
 index-test.html
 *.DS_Store
 old-index.html
-*.mp4
+
+# Keep only the WebM files referenced by the published site.
+video/*
+!video/2023-to-the-noise-and-back.webm
+!video/2025-flashback.webm
+!video/2025-stackgen.webm
+!video/2026-flow-based-policy-adaptation.webm
