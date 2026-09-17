@@ -379,6 +379,18 @@
             gap: 5px;
         }
 
+        .publication-tldr {
+            margin: 7px 0 0;
+            color: #4f5d6b;
+            font-size: 0.82rem;
+            line-height: 1.42;
+        }
+
+        .publication-tldr-label {
+            color: var(--accent-dark);
+            font-weight: 720;
+        }
+
         .pill {
             display: inline-flex;
             align-items: center;
@@ -880,6 +892,7 @@
                             <a href="https://ripl.github.io/GLOVES_web/" class="pill website">Website</a>
                             <a href="https://arxiv.org/abs/2606.06461" class="pill arxiv">arXiv</a>
                         </div>
+                        <p class="publication-tldr"><span class="publication-tldr-label">TL;DR:</span> GLOVES uses flow matching to selectively pull out-of-distribution actions from humans or pretrained policies toward expert behavior—without updating the underlying policy. With limited demonstrations, it improves imperfect imitation-learning and VLA agents across simulated and real-robot tasks.</p>
                     </div>
                 </article>
 
@@ -893,6 +906,7 @@
                             <a href="https://github.com/Zesearch/vlm-SABRE" class="pill code">Code</a>
                             <a href="https://arxiv.org/abs/2608.07435" class="pill arxiv">arXiv</a>
                         </div>
+                        <p class="publication-tldr"><span class="publication-tldr-label">TL;DR:</span> SABRE turns natural-language test specifications into automatically generated, filtered, and human-verified VLM stress tests that can evolve with the models. Its SABRE-Prior benchmark exposes heavy reliance on world priors: six frontier VLMs score only 17.8–31.3% macro accuracy.</p>
                     </div>
                 </article>
 
@@ -907,6 +921,7 @@
                             <a href="https://github.com/ripl/ManipulationBenchmarkAudit" class="pill code">Code</a>
                             <a href="https://arxiv.org/abs/2606.04233" class="pill arxiv">arXiv</a>
                         </div>
+                        <p class="publication-tldr"><span class="publication-tldr-label">TL;DR:</span> Auditing five popular robot-manipulation benchmarks with four diagnostics reveals shortcuts, statistically unresolved gains, overfitting, and training-data proximity effects—especially on LIBERO, CALVIN, and SimplerEnv. The results show why benchmark scores alone often do not establish general manipulation progress.</p>
                     </div>
                 </article>
 
@@ -921,6 +936,7 @@
                             <a href="https://github.com/Zesearch/vlm-seeing-without-looking" class="pill code">Code</a>
                             <a href="https://arxiv.org/abs/2605.22903" class="pill arxiv">arXiv</a>
                         </div>
+                        <p class="publication-tldr"><span class="publication-tldr-label">TL;DR:</span> Across seven open VLMs, benchmark accuracy often remains surprisingly high after fine-grained visual evidence is masked, corrupted, or replaced: removing 75% of image tokens reduces POPE accuracy by only about three percentage points for some models. These results reveal a gap between benchmark performance and genuine visual grounding, motivating evaluations that measure whether predictions respond appropriately to changes in visual evidence.</p>
                     </div>
                 </article>
 
@@ -939,6 +955,7 @@
                             <a href="https://zhuanlan.zhihu.com/p/1952228115234414777" class="pill">Blog(知乎)</a>
                             <a href="https://www.bilibili.com/video/BV1dqWSzCEZQ?t=4.1" class="pill">Livestream</a>
                         </div>
+                        <p class="publication-tldr"><span class="publication-tldr-label">TL;DR:</span> FlashBack distills diffusion into a one-step consistency-model copilot that corrects user actions in real time without knowing their goal, reward, or policy. It outperforms iterative diffusion assistance on demanding control tasks and raises real-robot peg-insertion success from 66.7% to 83.3%.</p>
                     </div>
                 </article>
 
@@ -955,6 +972,7 @@
                             <a href="https://arxiv.org/abs/2409.18098" class="pill arxiv">arXiv</a>
                             <a href="https://zhuanlan.zhihu.com/p/1946751889225024585" class="pill">Blog(知乎)</a>
                         </div>
+                        <p class="publication-tldr"><span class="publication-tldr-label">TL;DR:</span> StackGen learns to generate diverse 6-DoF block arrangements that are both stable and faithful to a user-provided silhouette, avoiding explicit physics models or combinatorial search. It achieves 85.2% simulated stability and successfully builds all eight tested structures with a UR5 robot.</p>
                     </div>
                 </article>
 
@@ -971,6 +989,7 @@
                             <a href="https://github.com/ripl/diffusion-for-shared-autonomy" class="pill code">Code</a>
                             <a href="https://arxiv.org/abs/2302.12244" class="pill arxiv">arXiv</a>
                         </div>
+                        <p class="publication-tldr"><span class="publication-tldr-label">TL;DR:</span> This work introduces partial diffusion for shared autonomy: noise and denoise a user's command toward demonstrated expert behavior, with a single knob trading off intent preservation and assistance. It needs no reward, dynamics, predefined goals, or user-policy data during training and improves both simulated and real-robot teleoperation.</p>
                     </div>
                 </article>
             </div>
@@ -988,6 +1007,7 @@
                             <a href="https://github.com/Zesearch/HALP" class="pill code">Code</a>
                             <a href="https://arxiv.org/abs/2603.05465" class="pill arxiv">arXiv</a>
                         </div>
+                        <p class="publication-tldr"><span class="publication-tldr-label">TL;DR:</span> HALP predicts whether a VLM will hallucinate before decoding by probing its visual and multimodal hidden states in one forward pass. Across eight VLMs, lightweight probes reach up to 0.93 AUROC while adding less than 1% overhead relative to full generation, enabling early abstention or selective routing.</p>
                     </div>
                 </article>
 
@@ -999,6 +1019,7 @@
                         <div class="publication-buttons">
                             <a href="https://arxiv.org/abs/2201.05158" class="pill arxiv">arXiv</a>
                         </div>
+                        <p class="publication-tldr"><span class="publication-tldr-label">TL;DR:</span> egoQGNN decomposes arbitrarily large graphs into ego-graphs that fit a fixed-size quantum device and uses a trainable Euclidean-to-Hilbert mapping to limit information loss. In simulation, it achieves competitive classification accuracy on six molecular and protein datasets with just 43 parameters—1.68% as many as the smallest classical GNN baseline.</p>
                     </div>
                 </article>
             </div>
