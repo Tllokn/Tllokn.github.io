@@ -1,189 +1,180 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>News Archive - Luzhe Sun</title>
+    <title>News Archive — Luzhe Sun</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="News and updates from Luzhe Sun: publications, presentations, awards, and research activities.">
+    <link rel="icon" type="image/svg+xml" href="img/logo/Tllokn-positive-black.svg" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/svg+xml" href="img/logo/Tllokn-positive-white.svg" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/simple-theme.css?v=20261006-soft-award">
     <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #1f2937;
-            background: #ffffff;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
+        .archive-header { padding: 26px 0 24px; }
+        .back-link { display: inline-block; margin-bottom: 16px; font-size: 12px; }
+        .back-link:hover { text-decoration: underline; }
+        .archive-header h1 { margin: 0 0 7px; font-family: var(--serif); font-size: 36px; font-weight: 500; line-height: 1.15; letter-spacing: -1px; }
+        .archive-header p { margin: 0; color: var(--muted); font-size: 13px; }
+        .archive-year { padding: 22px 0; border-top: 1px solid var(--rule); }
+        .archive-year h2 { margin: 0 0 12px; font-family: var(--serif); font-size: 21px; font-weight: 600; line-height: 1.2; }
+        .news-archive-item { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 20px; padding: 12px 0; border-bottom: 1px solid var(--soft-rule); }
+        .news-archive-item:last-child { padding-bottom: 0; border-bottom: 0; }
+        .news-archive-date { padding-top: 2px; color: var(--quiet); font-size: 12px; font-variant-numeric: tabular-nums; }
+        .news-archive-content { color: var(--muted); font-size: 13.5px; line-height: 1.5; }
+        .news-archive-content b { color: var(--ink); font-weight: 600; }
+        .footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 720px) {
+            .archive-header { padding: 24px 0 22px; }
+            .archive-year { padding: 20px 0; }
+            .archive-header h1 { font-size: 32px; }
         }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid #e5e7eb;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            color: #2563eb;
-            margin-bottom: 0.5rem;
-        }
-        
-        .header p {
-            color: #6b7280;
-            font-size: 1.1rem;
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #2563eb;
-            text-decoration: none;
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-        
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        
-        .news-archive-item {
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            background: #f8fafc;
-            border-radius: 12px;
-            border-left: 4px solid #2563eb;
-        }
-        
-        .news-archive-date {
-            font-size: 0.9rem;
-            color: #6b7280;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .news-archive-content {
-            font-size: 1rem;
-            color: #374151;
-            line-height: 1.6;
-        }
-        
-        .news-highlight {
-            color: #2563eb;
-            font-weight: 600;
-        }
-        
-        .coming-soon {
-            text-align: center;
-            padding: 3rem;
-            color: #6b7280;
-            font-style: italic;
+        @media (max-width: 480px) {
+            .nav-links { gap: 16px; }
+            .news-archive-item { grid-template-columns: 78px minmax(0, 1fr); gap: 14px; }
+            .news-archive-date { font-size: 11px; }
+            .news-archive-content { font-size: 13px; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>News Archive</h1>
-        <p>Complete timeline of updates and achievements</p>
-    </div>
-    
-    <a href="index.html" class="back-link">
-        ← Back to Homepage
-    </a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="nav-wrap">
+            <a href="index.html" class="brand">Luzhe Sun</a>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="index.html#publications">Publications</a>
+                <a href="news.html" aria-current="page">News</a>
+            </nav>
+        </div>
+    </header>
 
+    <main class="page" id="main-content">
+    <header class="archive-header">
+        <a href="index.html#news" class="back-link">← Back to homepage</a>
+        <h1>News Archive</h1>
+        <p>Publications, presentations, and other updates.</p>
+    </header>
+
+    <section class="archive-year" aria-labelledby="year-2026">
+    <h2 id="year-2026">2026</h2>
     <div class="news-archive-item">
-        <div class="news-archive-date">September 2026</div>
+        <time class="news-archive-date" datetime="2026-10">October 2026</time>
         <div class="news-archive-content">
-            <span class="news-highlight">Paper Accepted!</span> Our paper "What Are We Actually Benchmarking in Robot Manipulation?" has been accepted to <span class="news-highlight">CoRL 2026</span>.
+            <span class="news-highlight">Best Abstract Award!</span> Our paper "What Are We Actually Benchmarking in Robot Manipulation?" received the <a href="https://sites.google.com/view/rgmcw2026" class="news-highlight">Best Abstract Award at the IROS 2026 RGMCW workshop</a>.
         </div>
     </div>
 
     <div class="news-archive-item">
-        <div class="news-archive-date">May 2026</div>
+        <time class="news-archive-date" datetime="2026-09">September 2026</time>
+        <div class="news-archive-content">
+            <span class="news-highlight">Paper Accepted!</span> Our paper "What Are We Actually Benchmarking in Robot Manipulation?" has been accepted to <span class="news-highlight">CoRL 2026 <strong class="recognition">[Oral]</strong></span>.
+        </div>
+    </div>
+
+    <div class="news-archive-item">
+        <time class="news-archive-date" datetime="2026-05">May 2026</time>
         <div class="news-archive-content">
             <span class="news-highlight">Gold Reviewer!</span> I'm ranked as a Gold Reviewer for <span class="news-highlight">ICML 2026</span>.
         </div>
     </div>
 
     <div class="news-archive-item">
-        <div class="news-archive-date">Mar 2026</div>
+        <time class="news-archive-date" datetime="2026-03">March 2026</time>
         <div class="news-archive-content">
             <span class="news-highlight">Paper Accepted!</span> Our paper "Seeing without Looking: Do Vision-Language Benchmarks Really Test Vision?" has been accepted to <span class="news-highlight">CVPR 2026 GRAIL-V Workshop</span>.
         </div>
     </div>
 
     <div class="news-archive-item">
-        <div class="news-archive-date">Mar 2026</div>
+        <time class="news-archive-date" datetime="2026-03">March 2026</time>
         <div class="news-archive-content">
             <span class="news-highlight">Code Released!</span> We released the code for <span class="news-highlight">FlashBack</span> on CoRL 2025.
         </div>
     </div>
 
     <div class="news-archive-item">
-        <div class="news-archive-date">Jan 2026</div>
+        <time class="news-archive-date" datetime="2026-01">January 2026</time>
         <div class="news-archive-content">
-            <span class="news-highlight">Paper Accepted!</span> Our paper "Detecting Hallucinations in Vision-Language Models without Generating a Single Token" has been accepted to <span class="news-highlight">EACL 2026 Main (Oral)</span>.
+            <span class="news-highlight">Paper Accepted!</span> Our paper "Detecting Hallucinations in Vision-Language Models without Generating a Single Token" has been accepted to <span class="news-highlight">EACL 2026 Main <strong class="recognition">[Oral]</strong></span>.
         </div>
     </div>
+    </section>
 
+    <section class="archive-year" aria-labelledby="year-2025">
+    <h2 id="year-2025">2025</h2>
     <div class="news-archive-item">
-        <div class="news-archive-date">October 2025</div>
+        <time class="news-archive-date" datetime="2025-10">October 2025</time>
         <div class="news-archive-content">
-            <span class="news-highlight">Invited Livestream!</span> Our paper "FlashBack" has beeninvited livestream at <b>CVlife</b> and <b>3dcver</b>.
+            <span class="news-highlight">Invited Livestream!</span> Our paper "FlashBack" was invited for livestream presentation at <b>CVlife</b> and <b>3dcver</b>.
         </div>
     </div>
     
     <div class="news-archive-item">
-        <div class="news-archive-date">September 2025</div>
+        <time class="news-archive-date" datetime="2025-09">September 2025</time>
         <div class="news-archive-content">
             <span class="news-highlight">Paper Accepted!</span> Our paper "FlashBack: Consistency Model-Accelerated Shared Autonomy" has been accepted to <span class="news-highlight">CoRL 2025</span>.
         </div>
     </div>
     
-        <div class="news-archive-item">
-            <div class="news-archive-date">September 2025</div>
+    <div class="news-archive-item">
+        <time class="news-archive-date" datetime="2025-09">September 2025</time>
         <div class="news-archive-content">
-            <span class="news-highlight">Oral Presentation!</span> Our paper "StackGen: Generating Stable Structures from Silhouettes via Diffusion" will be presented as an oral at <span class="news-highlight">  IROS 2025</span>.
+            <span class="news-highlight">Oral Presentation!</span> Our paper "StackGen: Generating Stable Structures from Silhouettes via Diffusion" will be presented at <span class="news-highlight">IROS 2025 <strong class="recognition">[Oral]</strong></span>.
         </div>
     </div>
-    
+    </section>
+
+    <section class="archive-year" aria-labelledby="year-2024">
+    <h2 id="year-2024">2024</h2>
     <div class="news-archive-item">
-        <div class="news-archive-date">July 2024</div>
+        <time class="news-archive-date" datetime="2024-07">July 2024</time>
         <div class="news-archive-content">
             <span class="news-highlight">Workshop Organizer</span> Successfully organized the <span class="news-highlight">Multimodal Artificial Intelligence Workshop</span> at TTIC.
         </div>
     </div>
     
     <div class="news-archive-item">
-        <div class="news-archive-date">April 2024</div>
+        <time class="news-archive-date" datetime="2024-04">April 2024</time>
         <div class="news-archive-content">
             <span class="news-highlight">Demo Invitation</span> Invited to demonstrate our embodied AI system at the 2024 Robot Block Party at Museum of Science and Industry.
         </div>
     </div>
-    
+    </section>
+
+    <section class="archive-year" aria-labelledby="year-2023">
+    <h2 id="year-2023">2023</h2>
     <div class="news-archive-item">
-        <div class="news-archive-date">June 2023</div>
+        <time class="news-archive-date" datetime="2023-06">June 2023</time>
         <div class="news-archive-content">
-            <span class="news-highlight">RSS 2023 Oral</span> Our work "To the Noise and Back: Diffusion for Shared Autonomy" was accepted as an oral presentation at RSS 2023.
+            <span class="news-highlight">RSS 2023 <strong class="recognition">[Oral]</strong></span> Our work "To the Noise and Back: Diffusion for Shared Autonomy" was accepted as an oral presentation at RSS 2023.
         </div>
     </div>
     
     <div class="news-archive-item">
-        <div class="news-archive-date">March 2023</div>
+        <time class="news-archive-date" datetime="2023-03">March 2023</time>
         <div class="news-archive-content">
             <span class="news-highlight">Demo at MSI</span> Demonstrated our embodied ChatGPT system at the 2023 Robot Block Party.
         </div>
     </div>
-    
+    </section>
+
+    <section class="archive-year" aria-labelledby="year-2022">
+    <h2 id="year-2022">2022</h2>
     <div class="news-archive-item">
-        <div class="news-archive-date">January 2022</div>
+        <time class="news-archive-date" datetime="2022-01">January 2022</time>
         <div class="news-archive-content">
             <span class="news-highlight">Paper Published</span> Our work on "Decompositional Quantum Graph Neural Network" is now available on arXiv.
         </div>
     </div>
-    
-    <div class="coming-soon">
-        <p>More news items will be added as they happen...</p>
-    </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span>Luzhe Sun · News archive</span>
+            <a href="index.html">Back to homepage ↑</a>
+        </div>
+    </footer>
 </body>
 </html>

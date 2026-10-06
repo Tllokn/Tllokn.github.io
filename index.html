@@ -2,769 +2,276 @@
 <html lang="en">
 
 <head>
-    <title>Luzhe Sun</title>
+    <title>Luzhe Sun — Research</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
     <meta name="description" content="Luzhe Sun, Ph.D. candidate at TTIC. Robotics planning, diffusion models, publications, news, awards, service, and projects.">
     <link rel="icon" type="image/svg+xml" href="img/logo/Tllokn-positive-black.svg" media="(prefers-color-scheme: light)">
     <link rel="icon" type="image/svg+xml" href="img/logo/Tllokn-positive-white.svg" media="(prefers-color-scheme: dark)">
     <link rel="shortcut icon" type="image/svg+xml" href="img/logo/Tllokn-positive-black.svg">
     <link rel="preload" as="image" href="img/optimized/profile-360.jpg" fetchpriority="high">
+    <link rel="stylesheet" href="css/simple-theme.css?v=20261006-soft-award">
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        :root {
-            --accent: #4f86bd;
-            --accent-dark: #356695;
-            --accent-soft: #eaf4ff;
-            --accent-blue-2: #6f98c7;
-            --accent-blue-soft: #f0f7ff;
-            --text: #202733;
-            --muted: #5f6b7a;
-            --quiet: #8b96a5;
-            --line: #d9e2e7;
-            --surface: #f8fafc;
-            --background: #ffffff;
-            --radius: 6px;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            color: var(--text);
-            background: var(--background);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-size: 15px;
-            line-height: 1.45;
-        }
-
-        a {
-            color: var(--accent-dark);
-            text-decoration-thickness: 1px;
-            text-underline-offset: 2px;
-        }
-
-        a:hover {
-            color: #1d3850;
-        }
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            background: rgba(255, 255, 255, 0.97);
-            border-bottom: 1px solid var(--line);
-            box-shadow: 0 2px 14px rgba(32, 39, 51, 0.04);
-        }
-
-        .nav-wrap {
-            max-width: 1120px;
-            min-height: 52px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .brand {
-            flex: 0 0 auto;
-            color: var(--text);
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2px;
-            margin-left: auto;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-size: 0.86rem;
-            font-weight: 520;
-            text-decoration: none;
-            padding: 0.32rem 0.56rem;
-            border-radius: var(--radius);
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover,
-        .nav-links a:focus-visible {
-            color: var(--accent-dark);
-            background: var(--accent-soft);
-        }
-
-        .menu-button {
-            display: none;
-            margin-left: auto;
-            width: 38px;
-            height: 34px;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            background: var(--background);
-            color: var(--text);
-            cursor: pointer;
-        }
-
-        .menu-button span {
-            display: block;
-            width: 16px;
-            height: 2px;
-            margin: 4px auto;
-            background: currentColor;
-        }
-
-        .page {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 18px 24px 32px;
-        }
-
         .hero {
             display: grid;
-            grid-template-columns: 156px minmax(0, 1fr);
-            gap: 18px;
+            grid-template-columns: 154px minmax(0, 1fr);
+            gap: 24px;
             align-items: start;
-            padding: 16px 0 18px;
-            background: var(--background);
+            padding: 28px 0 26px;
         }
 
         .profile-photo {
-            width: 156px;
-            height: 156px;
+            width: 154px;
+            height: 154px;
+            margin-top: 5px;
             object-fit: cover;
-            border-radius: 50%;
-            border: 1px solid var(--line);
-            background: var(--surface);
+            border-radius: 3px;
         }
 
         .hero h1 {
-            margin: 0 0 2px;
-            color: var(--text);
-            font-size: clamp(1.45rem, 2.4vw, 2rem);
-            line-height: 1.1;
-            letter-spacing: 0;
+            margin: 0 0 4px;
+            font-family: var(--serif);
+            font-size: clamp(30px, 3.5vw, 36px);
+            font-weight: 500;
+            line-height: 1.12;
+            letter-spacing: -1.4px;
         }
 
-        .hero-subtitle {
-            margin: 0 0 8px;
-            color: var(--muted);
-            font-size: 0.92rem;
-            font-weight: 600;
-        }
-
-        .hero p {
-            margin: 0 0 7px;
-        }
-
-        .hero-copy {
-            color: var(--muted);
-            font-size: 0.93rem;
-        }
-
-        .hero-copy strong {
-            color: var(--text);
-        }
-
-        .notice {
+        .name-chinese {
             display: inline-block;
-            margin: 3px 0 9px;
-            padding: 5px 8px;
-            border: 1px solid #d4e2ef;
-            border-radius: var(--radius);
-            background: var(--accent-blue-soft);
-            color: var(--text);
-            font-size: 0.88rem;
-            font-weight: 560;
+            margin-left: 10px;
+            color: var(--muted);
+            font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+            font-size: 0.46em;
+            font-weight: 400;
+            letter-spacing: 2px;
+            vertical-align: middle;
         }
 
-        .action-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 8px;
-        }
+        .hero-subtitle { margin: 0 0 12px; color: var(--muted); font-size: 13px; letter-spacing: 0.1px; }
+        .hero-copy { margin: 0 0 9px; color: var(--copy); font-size: 14px; line-height: 1.5; }
+        .hero-copy strong { color: var(--ink); font-weight: 600; }
+        .hero-copy .hero-emphasis { color: var(--emphasis); font-weight: 650; text-decoration-color: currentColor; }
+        .notice { margin: 2px 0 9px; color: var(--emphasis); font-size: 13px; font-weight: 700; }
 
-        .button {
+        .action-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 20px; margin-top: 10px; }
+
+        .button, .education-toggle {
             display: inline-flex;
             align-items: center;
-            gap: 0.35rem;
+            gap: 7px;
             min-height: 30px;
-            padding: 0.28rem 0.58rem;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            background: var(--background);
-            color: var(--muted);
-            font-size: 0.82rem;
-            font-weight: 600;
-            text-decoration: none;
+            margin: 0;
+            padding: 2px 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            color: var(--accent);
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: underline;
+            text-decoration-color: var(--link-rule);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+            cursor: pointer;
         }
 
-        .button.primary {
-            border-color: #cbddec;
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-        }
-
-        .button:hover {
-            border-color: #bcc7d1;
-            color: var(--text);
-            background: var(--surface);
-        }
-
-        .button-icon {
-            width: 13px;
-            height: 13px;
-            flex: 0 0 auto;
-            display: inline-block;
-        }
+        .button:hover, .education-toggle:hover { color: var(--ink); text-decoration-color: currentColor; }
+        .button-icon { display: none; }
+        .education-toggle::after { content: "+"; color: var(--quiet); font-size: 16px; font-weight: 400; }
+        .education-toggle[aria-expanded="true"]::after { content: "−"; }
+        .education-more { display: none; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--soft-rule); }
+        .education-more.expanded { display: grid; }
+        .edu-degree { font-size: 12px; font-weight: 600; }
+        .edu-school, .edu-year { color: var(--muted); font-size: 12px; line-height: 1.5; }
+        .edu-year { margin-top: 3px; font-variant-numeric: tabular-nums; }
 
         .section {
-            padding: 12px 0 14px;
-            border-top: 1px solid var(--line);
-        }
-
-        .section:first-of-type {
-            border-top: 0;
+            padding: 22px 0;
+            border-top: 1px solid var(--rule);
         }
 
         .section-title {
-            display: flex;
-            align-items: center;
-            margin: 0 0 8px;
-            color: var(--text);
-            font-size: 1.04rem;
-            font-weight: 700;
+            margin: 0 0 12px;
+            font-family: var(--serif);
+            font-size: 21px;
+            font-weight: 600;
             line-height: 1.2;
+            letter-spacing: -0.3px;
         }
 
-        .news-list,
-        .awards-list,
-        .mentorship-list,
-        .service-list {
-            display: grid;
-            gap: 0;
-        }
+        .news-list { display: grid; gap: 7px; }
+        .news-item { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 14px; }
+        .news-date { padding-top: 1px; color: var(--quiet); font-size: 11px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+        .news-content { color: var(--muted); font-size: 12.5px; line-height: 1.45; }
+        .news-content strong { color: var(--ink); font-weight: 600; }
+        .view-all-news { margin-top: 10px; margin-left: 84px; }
+        .view-all-news a { font-size: 12px; }
+        .view-all-news a::after { content: " →"; }
+        .view-all-news a:hover { text-decoration: underline; }
 
-        .news-item {
-            display: grid;
-            grid-template-columns: 76px minmax(0, 1fr);
-            gap: 10px;
-            padding: 6px 0;
-            border-bottom: 1px solid #edf0f3;
-            border-radius: var(--radius);
-        }
-
-        .news-item:last-child {
-            border-bottom: 0;
-        }
-
-        .news-item:hover {
-            background: var(--accent-blue-soft);
-        }
-
-        .news-date {
+        .publication-group + .publication-group { margin-top: 22px; }
+        .publication-group-title {
+            margin: 2px 0 0;
             color: var(--quiet);
-            font-size: 0.76rem;
-            font-weight: 650;
-            text-align: right;
-            white-space: nowrap;
-        }
-
-        .news-content {
-            color: var(--muted);
-            font-size: 0.82rem;
-            line-height: 1.44;
-        }
-
-        .news-highlight {
-            color: var(--accent-dark);
-            font-weight: 700;
-        }
-
-        .view-all-news {
-            margin-top: 7px;
-        }
-
-        .view-all-news a {
-            color: var(--accent-dark);
-            font-size: 0.82rem;
-            font-weight: 650;
-            text-decoration: none;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 1.35;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
         }
 
         .publication-item {
             display: grid;
             grid-template-columns: 154px minmax(0, 1fr);
-            gap: 14px;
+            gap: 20px;
             align-items: start;
-            padding: 10px 8px 10px 0;
-            border-bottom: 1px solid #edf0f3;
-            border-radius: var(--radius);
+            padding: 14px 0;
+            border-bottom: 1px solid var(--soft-rule);
         }
 
-        .publication-item:last-child {
-            border-bottom: 0;
-        }
-
-        .publication-item:hover {
-            background: #f7faff;
-        }
-
-        .publication-group {
-            margin-top: 8px;
-        }
-
-        .publication-group + .publication-group {
-            margin-top: 14px;
-        }
-
-        .publication-group-title {
-            margin: 0 0 2px;
-            color: var(--accent-dark);
-            font-size: 0.9rem;
-            font-weight: 720;
-            line-height: 1.25;
-        }
-
-        .publication-image {
-            display: block;
-            width: 154px;
-            height: auto;
-            border: 1px solid var(--line);
-            border-radius: 4px;
-            background: var(--surface);
-            object-fit: contain;
-        }
-
-        .publication-title {
-            margin: 0 0 3px;
-            color: var(--text);
-            font-size: 0.98rem;
-            font-weight: 700;
-            line-height: 1.28;
-        }
-
-        .publication-title a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .publication-title a:hover {
-            color: var(--accent-dark);
-            text-decoration: underline;
-        }
-
-        .publication-authors {
-            margin-bottom: 6px;
-            color: var(--muted);
-            font-size: 0.84rem;
-            line-height: 1.35;
-        }
-
-        .publication-buttons,
-        .project-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-
-        .publication-tldr {
-            margin: 7px 0 0;
-            color: #4f5d6b;
-            font-size: 0.82rem;
-            line-height: 1.42;
-        }
-
-        .publication-tldr-label {
-            color: var(--accent-dark);
-            font-weight: 720;
-        }
-
-        .pill {
-            display: inline-flex;
-            align-items: center;
-            min-height: 24px;
-            padding: 0.18rem 0.48rem;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            background: var(--background);
-            color: var(--muted);
-            font-size: 0.76rem;
-            font-weight: 640;
-            text-decoration: none;
-        }
-
+        .publication-item:last-child { padding-bottom: 0; border-bottom: 0; }
+        .publication-image { display: block; width: 154px; height: auto; margin-top: 3px; border-radius: 2px; object-fit: contain; background: #fff; }
+        .publication-title { margin: 0 0 4px; font-size: 16px; font-weight: 650; line-height: 1.3; letter-spacing: -0.15px; }
+        .publication-title a { color: var(--ink); text-decoration: none; }
+        .publication-title a:hover { color: var(--accent); text-decoration: underline; }
+        .publication-authors { margin-bottom: 4px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+        .publication-authors b { color: var(--ink); font-weight: 600; }
+        .publication-buttons, .project-buttons { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 15px; }
+        .pill { display: inline-block; padding: 1px 0; color: var(--accent); font-size: 11.5px; font-weight: 500; line-height: 1.5; }
         .pill.venue {
-            border-color: #cbddec;
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-        }
-
-        .pill.website {
-            border-color: #cfe6d4;
-            background: #f0faf2;
-            color: #347347;
-        }
-
-        .pill.code {
-            border-color: #eadfbd;
-            background: #fff8df;
-            color: #7a6420;
-        }
-
-        .pill.arxiv {
-            border-color: #efd1cc;
-            background: #fff1ef;
-            color: #8a4f47;
-        }
-
-        .pill:hover {
-            border-color: #bcc7d1;
-            color: var(--text);
-            background: var(--surface);
-        }
-
-        .service-list {
-            grid-template-columns: 1fr;
-        }
-
-        .service-item {
-            display: grid;
-            grid-template-columns: 96px minmax(0, 1fr);
-            gap: 12px;
-            padding: 7px 0;
-            border-bottom: 1px solid #edf0f3;
-            border-radius: var(--radius);
-        }
-
-        .service-item:hover {
-            background: #f6fafc;
-        }
-
-        .service-role {
-            color: #426f8f;
-            font-size: 0.82rem;
-            font-weight: 700;
-        }
-
-        .service-details {
-            color: var(--muted);
-            font-size: 0.82rem;
-            line-height: 1.44;
-        }
-
-        .service-details a {
+            margin-right: 6px;
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 750;
             text-decoration: none;
         }
+        .pill.venue .recognition { font-size: 11.5px; }
+        .pill.award { padding: 0 6px; border: 1px solid var(--award-border); border-radius: 2px; background: var(--award-bg); color: var(--award-ink); font-weight: 600; text-decoration: none; }
+        .pill:hover { color: var(--ink); text-decoration: underline; }
+        .publication-tldr { margin: 6px 0 0; color: var(--copy); font-size: 13px; line-height: 1.5; }
+        .publication-tldr-label { color: var(--ink); font-size: 11px; font-weight: 600; letter-spacing: 0.2px; }
 
-        .service-details a:hover {
-            text-decoration: underline;
-        }
-
-        .awards-list {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            column-gap: 24px;
-        }
-
-        .award-item {
-            padding: 5px 0;
-            border-bottom: 1px solid #edf0f3;
-            border-radius: var(--radius);
-        }
-
-        .award-item:hover {
-            background: var(--accent-blue-soft);
-        }
-
-        .award-title {
-            margin: 0 0 1px;
-            color: var(--accent-dark);
-            font-size: 0.84rem;
-            font-weight: 700;
-            line-height: 1.28;
-        }
-
-        .award-details {
-            color: var(--muted);
-            font-size: 0.76rem;
-            line-height: 1.3;
-        }
-
-        .mentorship-item {
-            padding: 6px 0;
-            border-bottom: 1px solid #edf0f3;
-            color: var(--muted);
-            font-size: 0.84rem;
-            line-height: 1.44;
-        }
-
-        .mentorship-item:last-child {
-            border-bottom: 0;
-        }
-
-        .mentorship-item a {
-            color: var(--accent-dark);
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .mentorship-item a:hover {
-            text-decoration: underline;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-        }
-
-        .project-card {
-            display: grid;
-            grid-template-rows: auto 1fr;
-            border: 1px solid var(--line);
-            border-top: 3px solid var(--accent-blue-2);
-            border-radius: var(--radius);
-            background: var(--background);
-            overflow: hidden;
-        }
-
-        .video-shell {
-            position: relative;
-            aspect-ratio: 16 / 9;
-            background: linear-gradient(135deg, #eef4fb, #f8fbfe);
+        .publication-media { position: relative; width: 154px; margin-top: 3px; }
+        .publication-media .publication-image { margin-top: 0; }
+        .preview-toggle {
+            position: absolute;
+            left: 6px;
+            bottom: 6px;
             display: grid;
             place-items: center;
-            color: var(--accent-dark);
-        }
-
-        .video-shell iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .video-load {
-            border: 1px solid #cbddec;
-            border-radius: var(--radius);
-            background: var(--accent-soft);
-            color: var(--accent-dark);
+            width: 28px;
+            height: 28px;
+            padding: 0;
+            border: 1px solid var(--rule);
+            border-radius: 3px;
+            background: var(--paper);
+            color: var(--ink);
             cursor: pointer;
-            font-size: 0.82rem;
-            font-weight: 700;
-            padding: 0.42rem 0.68rem;
+            opacity: 0;
+        }
+        .publication-media:hover .preview-toggle, .publication-media:focus-within .preview-toggle { opacity: 1; }
+        @media (hover: none) { .preview-toggle { opacity: 1; } }
+        .preview-toggle:hover { background: var(--surface); border-color: var(--muted); }
+        .preview-toggle svg { width: 12px; height: 12px; }
+        .preview-toggle .pause-icon { display: none; }
+        .preview-toggle[aria-pressed="true"] .play-icon { display: none; }
+        .preview-toggle[aria-pressed="true"] .pause-icon { display: block; }
+
+        .service-list { display: grid; gap: 9px; }
+        .service-item { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 15px; }
+        .service-role { color: var(--ink); font-size: 12px; font-weight: 500; }
+        .service-details { color: var(--muted); font-size: 12px; }
+        .service-details a:hover { text-decoration: underline; }
+        .awards-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 28px; }
+        .award-title { margin-bottom: 3px; font-size: 12px; font-weight: 500; line-height: 1.45; }
+        .award-title a { color: inherit; font-weight: inherit; text-decoration: none; }
+        .award-title a:hover { text-decoration: underline; }
+        .award-details { color: var(--quiet); font-size: 11.5px; line-height: 1.5; font-variant-numeric: tabular-nums; }
+        .mentorship-item { color: var(--muted); font-size: 12px; }
+        .mentorship-item a { font-weight: 500; }
+        .mentorship-item a:hover { text-decoration: underline; }
+
+        .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+        .video-shell { display: grid; place-items: center; aspect-ratio: 16 / 9; background: var(--surface); }
+        .video-shell iframe { width: 100%; height: 100%; border: 0; }
+        .video-load { border: 1px solid var(--rule); background: var(--paper); color: var(--accent); padding: 6px 12px; font-size: 12px; cursor: pointer; }
+        .project-body { padding-top: 12px; }
+        .project-title { margin: 0 0 5px; font-size: 14px; font-weight: 600; }
+        .project-description { margin: 0 0 8px; color: var(--muted); font-size: 12px; }
+
+        .visitor-map { text-align: right; }
+        .visitor-map summary { color: var(--quiet); cursor: pointer; }
+        #visitors { margin-top: 10px; width: 150px; min-height: 100px; }
+        #visitors iframe { display: block; width: 150px; height: 100px; border: 0; }
+
+        @media (max-width: 900px) {
+            .nav-links { gap: 17px; }
+            .hero { grid-template-columns: 112px minmax(0, 1fr); column-gap: 20px; }
+            .profile-photo { width: 112px; height: 112px; }
+            .section-title { font-size: 19px; }
+            .publication-item { grid-template-columns: 116px minmax(0, 1fr); gap: 16px; }
+            .publication-image, .publication-media { width: 116px; }
         }
 
-        .video-load:hover {
-            background: #e4eef8;
+        @media (max-width: 720px) {
+            .menu-button { display: block; width: 36px; height: 36px; padding: 6px; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+            .menu-button span { display: block; width: 18px; height: 1px; margin: 5px auto; background: currentColor; }
+            .nav-links { display: none; position: absolute; top: 100%; right: 0; left: 0; z-index: 20; padding: 8px 20px 12px; border-bottom: 1px solid var(--rule); background: var(--paper); }
+            .nav-links.open { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 12px; }
+            .nav-links a { padding: 9px 0; }
+            .hero { grid-template-columns: 92px minmax(0, 1fr); gap: 18px; padding: 24px 0 22px; }
+            .profile-photo { width: 92px; height: 92px; }
+            .hero h1 { font-size: 32px; }
+            .hero-subtitle { font-size: 12px; }
+            .hero-copy { font-size: 13px; }
+            .section { padding: 20px 0; }
+            .section-title { font-size: 21px; }
+            .publication-group + .publication-group { margin-top: 16px; }
+            .publication-title { font-size: 15px; }
+            .publication-item { grid-template-columns: 116px minmax(0, 1fr); gap: 15px; }
+            .awards-list { gap: 14px 20px; }
+            .education-more { grid-template-columns: 1fr; gap: 14px; }
+            .action-row { gap: 6px 18px; }
         }
 
-        .project-body {
-            padding: 9px 10px 10px;
+        @media (max-width: 480px) {
+            .hero { display: block; position: relative; }
+            .profile-photo { float: right; width: 68px; height: 68px; margin: 0 0 12px 14px; }
+            .hero h1 { font-size: 32px; padding-top: 1px; }
+            .name-chinese { display: block; margin: 5px 0 0; font-size: 16px; line-height: 1.4; letter-spacing: 1.5px; }
+            .hero-subtitle { clear: both; margin-top: 12px; margin-bottom: 10px; max-width: 290px; }
+            .hero-copy { overflow-wrap: anywhere; }
+            .notice { font-size: 12px; }
+            .action-row { gap: 6px 16px; }
+            .button, .education-toggle { font-size: 12px; }
+            .news-item { grid-template-columns: 60px minmax(0, 1fr); gap: 12px; }
+            .news-content { font-size: 12px; }
+            .news-date { font-size: 10px; }
+            .view-all-news { margin-left: 72px; }
+            .publication-item { display: block; padding: 14px 0; }
+            .publication-item::after { content: ""; display: block; clear: both; }
+            .publication-item > .publication-image, .publication-media { float: right; width: 92px; max-width: 100%; margin: 2px 0 8px 12px; }
+            .publication-media .publication-image { width: 100%; }
+            .publication-title { font-size: 15px; }
+            .publication-buttons, .publication-tldr { clear: both; }
+            .publication-tldr { font-size: 13px; }
+            .publication-buttons { gap: 3px 14px; }
+            .pill { min-height: 28px; display: inline-flex; align-items: center; }
+            .service-item { grid-template-columns: 80px minmax(0, 1fr); gap: 12px; }
+            .awards-list, .project-grid { grid-template-columns: 1fr; }
         }
 
-        .project-title {
-            margin: 0 0 4px;
-            color: var(--text);
-            font-size: 0.92rem;
-            font-weight: 750;
-            line-height: 1.25;
-        }
-
-        .project-description {
-            margin: 0 0 8px;
-            color: var(--muted);
-            font-size: 0.8rem;
-            line-height: 1.36;
-        }
-
-        .education-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            min-height: 28px;
-            margin-top: 2px;
-            padding: 0.2rem 0.5rem;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            background: var(--background);
-            color: var(--muted);
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: 650;
-        }
-
-        .education-toggle:hover {
-            color: var(--text);
-            background: var(--surface);
-        }
-
-        .education-more {
-            display: none;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .education-more.expanded {
-            display: grid;
-        }
-
-        .education-item {
-            padding: 6px 8px;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            background: var(--surface);
-        }
-
-        .edu-degree {
-            color: var(--text);
-            font-size: 0.78rem;
-            font-weight: 700;
-            line-height: 1.25;
-        }
-
-        .edu-school,
-        .edu-year {
-            color: var(--muted);
-            font-size: 0.75rem;
-            line-height: 1.3;
-        }
-
-        .footer {
-            border-top: 1px solid var(--line);
-            color: var(--quiet);
-            font-size: 0.78rem;
-            padding: 16px 24px 24px;
-            text-align: center;
-        }
-
-        .visitor-map {
-            margin: 0 auto 10px;
-        }
-
-        .visitor-title {
-            margin: 0 0 6px;
-            color: var(--muted);
-            font-size: 0.78rem;
-            font-weight: 700;
-        }
-
-        #visitors {
-            width: 150px;
-            min-height: 100px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: var(--radius);
-        }
-
-        #visitors iframe {
-            width: 150px;
-            height: 100px;
-            border: 0;
-            display: block;
-        }
-
-        @media (max-width: 860px) {
-            .nav-wrap {
-                padding: 0 16px;
-            }
-
-            .menu-button {
-                display: block;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 52px;
-                left: 0;
-                right: 0;
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0;
-                padding: 6px 16px 12px;
-                background: var(--background);
-                border-bottom: 1px solid var(--line);
-            }
-
-            .nav-links.open {
-                display: flex;
-            }
-
-            .nav-links a {
-                padding: 0.58rem 0.62rem;
-            }
-
-            .page {
-                padding: 14px 16px 28px;
-            }
-
-            .hero {
-                grid-template-columns: 118px minmax(0, 1fr);
-                gap: 14px;
-            }
-
-            .profile-photo {
-                width: 118px;
-                height: 118px;
-            }
-
-            .service-list,
-            .awards-list,
-            .mentorship-list,
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 620px) {
-            body {
-                font-size: 14px;
-            }
-
-            .hero,
-            .publication-item,
-            .news-item,
-            .service-item {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-photo {
-                width: 112px;
-                height: 112px;
-            }
-
-            .publication-image {
-                width: 100%;
-                height: auto;
-            }
-
-            .news-date {
-                text-align: left;
-            }
-
-            .education-more {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
         <div class="nav-wrap">
-            <a href="#overview" class="brand">Luzhe Sun 孙鲁喆</a>
+            <a href="#overview" class="brand">Luzhe Sun</a>
             <button class="menu-button" id="menuButton" type="button" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false">
                 <span></span>
                 <span></span>
@@ -781,19 +288,20 @@
         </div>
     </header>
 
-    <main class="page">
+    <main class="page" id="main-content">
         <section class="hero" id="overview">
             <img src="img/optimized/profile-360.jpg" alt="Luzhe Sun" class="profile-photo" width="156" height="156" decoding="async" fetchpriority="high">
             <div>
-                <h1>Luzhe Sun</h1>
-                <p class="hero-subtitle">Ph.D. Candidate @ TTIC - Robotics Planning and Diffusion Models</p>
+                <h1>Luzhe Sun <span class="name-chinese" lang="zh">孙鲁喆</span></h1>
+                <p class="hero-subtitle">Ph.D. Candidate, TTIC · Robotics Planning and Diffusion Models</p>
                 <p class="hero-copy">
                     I'm a Ph.D. candidate at TTIC advised by Professor <a href="https://home.ttic.edu/~mwalter/">Matthew R. Walter</a> in the <a href="https://ttic.edu/ripl/">Robot Intelligence through Perception Lab (RIPL)</a>.
                     Before TTIC, I completed my master's in Computer Science at the <a href="https://masters.cs.uchicago.edu/">University of Chicago</a> and my undergraduate studies at <a href="https://informatics.xmu.edu.cn/en/index.htm">Xiamen University</a>.
                 </p>
                 <p class="hero-copy">
-                    Research interests: robotics planning, shared autonomy, diffusion/consistency models, and embodied AI. I also enjoy photography, Chinese painting, and playing the Erhu.
+                    <strong class="hero-emphasis">Research interests:</strong> My research focuses on robot learning and human–robot collaboration, with the goal of building robots that can adapt to unfamiliar situations and work reliably alongside people. I develop generative methods for shared autonomy and policy adaptation, using diffusion, consistency, and flow models to refine robot actions while preserving human intent or task goals. I also study visual grounding and hallucination in vision-language models, with an emphasis on understanding and detecting failures in multimodal perception.
                 </p>
+                <p class="hero-copy">I also enjoy photography, Chinese painting, and playing the Erhu.</p>
                 <div class="notice">Open to collaborations - seeking a Summer 2027 internship</div>
                 <p class="hero-copy"><strong>Email:</strong> luzhesun@ttic.edu | luzhesun@uchicago.edu</p>
                 <div class="action-row">
@@ -848,8 +356,12 @@
             <h2 class="section-title">Latest News</h2>
             <div class="news-list">
                 <div class="news-item">
+                    <div class="news-date">Oct 2026</div>
+                    <div class="news-content"><span class="news-highlight">Best Abstract Award!</span> Our paper "What Are We Actually Benchmarking in Robot Manipulation?" received the <a href="https://sites.google.com/view/rgmcw2026" class="news-highlight">Best Abstract Award at the IROS 2026 RGMCW workshop</a>.</div>
+                </div>
+                <div class="news-item">
                     <div class="news-date">Sep 2026</div>
-                    <div class="news-content"><span class="news-highlight">Paper Accepted!</span> Our paper "What Are We Actually Benchmarking in Robot Manipulation?" has been accepted to <span class="news-highlight">CoRL 2026</span>.</div>
+                    <div class="news-content"><span class="news-highlight">Paper Accepted!</span> Our paper "What Are We Actually Benchmarking in Robot Manipulation?" has been accepted to <span class="news-highlight">CoRL 2026 [Oral]</span>.</div>
                 </div>
                 <div class="news-item">
                     <div class="news-date">May 2026</div>
@@ -863,14 +375,6 @@
                     <div class="news-date">Mar 2026</div>
                     <div class="news-content"><span class="news-highlight">Code Released!</span> We released the code for <span class="news-highlight">FlashBack</span> on CoRL 2025.</div>
                 </div>
-                <div class="news-item">
-                    <div class="news-date">Jan 2026</div>
-                    <div class="news-content"><span class="news-highlight">Paper Accepted!</span> Our paper "Detecting Hallucinations in Vision-Language Models without Generating a Single Token" has been accepted to <span class="news-highlight">EACL 2026 Main (Oral)</span>.</div>
-                </div>
-                <div class="news-item">
-                    <div class="news-date">Oct 2025</div>
-                    <div class="news-content"><span class="news-highlight">Invited Livestream!</span> Our paper "FlashBack" was invited for livestream presentation at <strong>CVlife</strong> and <strong>3dcver</strong>.</div>
-                </div>
             </div>
             <div class="view-all-news"><a href="news.html">View all news</a></div>
         </section>
@@ -882,9 +386,15 @@
                 <h3 class="publication-group-title">Selected Publications</h3>
 
                 <article class="publication-item">
-                    <video class="publication-image" width="154" autoplay muted loop playsinline preload="metadata" poster="img/optimized/2026-flow-based-policy-adaptation.jpg" aria-label="Flow-based Policy Adaptation video preview">
-                        <source src="video/2026-flow-based-policy-adaptation.webm" type="video/webm">
-                    </video>
+                    <div class="publication-media">
+                        <video class="publication-image" width="154" autoplay muted loop playsinline preload="metadata" poster="img/optimized/2026-flow-based-policy-adaptation.jpg" aria-label="Flow-based Policy Adaptation video preview">
+                            <source src="video/2026-flow-based-policy-adaptation.webm" type="video/webm">
+                        </video>
+                        <button class="preview-toggle" type="button" aria-label="Play Flow-based Policy Adaptation video preview" aria-pressed="false">
+                            <svg class="play-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5 10 6 3 10.5z" fill="currentColor"></path></svg>
+                            <svg class="pause-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2v8M9 2v8" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+                        </button>
+                    </div>
                     <div>
                         <h3 class="publication-title"><a href="https://arxiv.org/abs/2606.06461">Flow-based Policy Adaptation without Policy Updates</a></h3>
                         <div class="publication-authors"><b>Luzhe Sun*</b>, Jingtian Ji*, Haoran Chen, Jiawei Zhou, Matthew R. Walter</div>
@@ -916,7 +426,8 @@
                         <h3 class="publication-title"><a href="https://arxiv.org/abs/2606.04233">What Are We Actually Benchmarking in Robot Manipulation?</a></h3>
                         <div class="publication-authors">Tianchong Jiang, Xiangshan Tan*, Samuel Wheeler*, <b>Luzhe Sun*</b>, Tewodros W. Ayalew*, and Matthew Walter</div>
                         <div class="publication-buttons">
-                            <a href="https://www.corl.org/" class="pill venue">CoRL 2026</a>
+                            <a href="https://www.corl.org/" class="pill venue">CoRL 2026 <strong class="recognition">[Oral]</strong></a>
+                            <a href="https://sites.google.com/view/rgmcw2026" class="pill award">Best Abstract · IROS 2026 RGMCW</a>
                             <a href="https://ripl.github.io/manipulation_benchmark_audit/" class="pill website">Website</a>
                             <a href="https://github.com/ripl/ManipulationBenchmarkAudit" class="pill code">Code</a>
                             <a href="https://arxiv.org/abs/2606.04233" class="pill arxiv">arXiv</a>
@@ -941,14 +452,20 @@
                 </article>
 
                 <article class="publication-item">
-                    <video class="publication-image" width="154" autoplay muted loop playsinline preload="metadata" poster="img/optimized/2025-flashback.jpg" aria-label="FlashBack video preview">
-                        <source src="video/2025-flashback.webm" type="video/webm">
-                    </video>
+                    <div class="publication-media">
+                        <video class="publication-image" width="154" autoplay muted loop playsinline preload="metadata" poster="img/optimized/2025-flashback.jpg" aria-label="FlashBack video preview">
+                            <source src="video/2025-flashback.webm" type="video/webm">
+                        </video>
+                        <button class="preview-toggle" type="button" aria-label="Play FlashBack video preview" aria-pressed="false">
+                            <svg class="play-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5 10 6 3 10.5z" fill="currentColor"></path></svg>
+                            <svg class="pause-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2v8M9 2v8" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+                        </button>
+                    </div>
                     <div>
                         <h3 class="publication-title"><a href="https://arxiv.org/abs/2505.16892">FlashBack: Consistency Model-Accelerated Shared Autonomy</a></h3>
                         <div class="publication-authors"><b>Luzhe Sun</b>, Jingtian Ji, Xiangshan(Vincent) Tan, Matthew R. Walter</div>
                         <div class="publication-buttons">
-                            <a href="https://openreview.net/forum?id=zk4fRmHF0Q" class="pill venue">CoRL 2025 [Spotlight]</a>
+                            <a href="https://openreview.net/forum?id=zk4fRmHF0Q" class="pill venue">CoRL 2025 <strong class="recognition">[Spotlight]</strong></a>
                             <a href="https://ripl.github.io/CSA-website/" class="pill website">Website</a>
                             <a href="https://github.com/ripl/FlashBackSharedAutonomy" class="pill code">Code</a>
                             <a href="https://arxiv.org/abs/2505.16892" class="pill arxiv">arXiv</a>
@@ -960,14 +477,20 @@
                 </article>
 
                 <article class="publication-item">
-                    <video class="publication-image" width="154" autoplay muted loop playsinline preload="metadata" poster="img/optimized/2025-stackgen.jpg" aria-label="StackGen video preview">
-                        <source src="video/2025-stackgen.webm" type="video/webm">
-                    </video>
+                    <div class="publication-media">
+                        <video class="publication-image" width="154" autoplay muted loop playsinline preload="metadata" poster="img/optimized/2025-stackgen.jpg" aria-label="StackGen video preview">
+                            <source src="video/2025-stackgen.webm" type="video/webm">
+                        </video>
+                        <button class="preview-toggle" type="button" aria-label="Play StackGen video preview" aria-pressed="false">
+                            <svg class="play-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5 10 6 3 10.5z" fill="currentColor"></path></svg>
+                            <svg class="pause-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2v8M9 2v8" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+                        </button>
+                    </div>
                     <div>
                         <h3 class="publication-title"><a href="https://arxiv.org/abs/2409.18098">StackGen: Generating Stable Structures from Silhouettes via Diffusion</a></h3>
                         <div class="publication-authors"><b>Luzhe Sun*</b>, Takuma Yoneda*, Samuel W. Wheeler, Tianchong Jiang, Matthew R. Walter</div>
                         <div class="publication-buttons">
-                            <a href="https://doi.org/10.1109/IROS60139.2025.11247239" class="pill venue">IROS 2025 [Oral]</a>
+                            <a href="https://doi.org/10.1109/IROS60139.2025.11247239" class="pill venue">IROS 2025 <strong class="recognition">[Oral]</strong></a>
                             <a href="https://ripl.github.io/StackGen/" class="pill website">Website</a>
                             <a href="https://arxiv.org/abs/2409.18098" class="pill arxiv">arXiv</a>
                             <a href="https://zhuanlan.zhihu.com/p/1946751889225024585" class="pill">Blog(知乎)</a>
@@ -977,14 +500,20 @@
                 </article>
 
                 <article class="publication-item">
-                    <video class="publication-image" width="154" autoplay muted loop playsinline preload="metadata" poster="img/optimized/2023-to-the-noise-and-back.jpg" aria-label="To the Noise and Back video preview">
-                        <source src="video/2023-to-the-noise-and-back.webm" type="video/webm">
-                    </video>
+                    <div class="publication-media">
+                        <video class="publication-image" width="154" autoplay muted loop playsinline preload="metadata" poster="img/optimized/2023-to-the-noise-and-back.jpg" aria-label="To the Noise and Back video preview">
+                            <source src="video/2023-to-the-noise-and-back.webm" type="video/webm">
+                        </video>
+                        <button class="preview-toggle" type="button" aria-label="Play To the Noise and Back video preview" aria-pressed="false">
+                            <svg class="play-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5 10 6 3 10.5z" fill="currentColor"></path></svg>
+                            <svg class="pause-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2v8M9 2v8" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+                        </button>
+                    </div>
                     <div>
                         <h3 class="publication-title"><a href="https://arxiv.org/abs/2302.12244">To the Noise and Back: Diffusion for Shared Autonomy</a></h3>
                         <div class="publication-authors">Takuma Yoneda, <b>Luzhe Sun</b>, Ge Yang, Bradly Stadie, Matthew R. Walter</div>
                         <div class="publication-buttons">
-                            <a href="https://roboticsconference.org/2023/program/papers/014/" class="pill venue">RSS 2023 [Oral]</a>
+                            <a href="https://roboticsconference.org/2023/program/papers/014/" class="pill venue">RSS 2023 <strong class="recognition">[Oral]</strong></a>
                             <a href="https://diffusion-for-shared-autonomy.github.io/" class="pill website">Website</a>
                             <a href="https://github.com/ripl/diffusion-for-shared-autonomy" class="pill code">Code</a>
                             <a href="https://arxiv.org/abs/2302.12244" class="pill arxiv">arXiv</a>
@@ -1003,7 +532,7 @@
                         <h3 class="publication-title"><a href="https://arxiv.org/abs/2603.05465">Detecting Hallucinations in Vision-Language Models without Generating a Single Token</a></h3>
                         <div class="publication-authors">Sai Akhil Kogilathota, Sripadha Vallabha E G, <b>Luzhe Sun</b>, Jiawei Zhou</div>
                         <div class="publication-buttons">
-                            <a href="https://aclanthology.org/2026.eacl-long.287/" class="pill venue">EACL 2026 Main [Oral]</a>
+                            <a href="https://aclanthology.org/2026.eacl-long.287/" class="pill venue">EACL 2026 Main <strong class="recognition">[Oral]</strong></a>
                             <a href="https://github.com/Zesearch/HALP" class="pill code">Code</a>
                             <a href="https://arxiv.org/abs/2603.05465" class="pill arxiv">arXiv</a>
                         </div>
@@ -1057,6 +586,10 @@
             <h2 class="section-title">Awards and Honors</h2>
             <div class="awards-list">
                 <div class="award-item">
+                    <div class="award-title"><a href="https://sites.google.com/view/rgmcw2026">Best Abstract Award — IROS 2026 RGMCW</a></div>
+                    <div class="award-details">2026 - What Are We Actually Benchmarking in Robot Manipulation?</div>
+                </div>
+                <div class="award-item">
                     <div class="award-title">Gold Reviewer</div>
                     <div class="award-details">2026 - International Conference on Machine Learning (ICML)</div>
                 </div>
@@ -1095,7 +628,7 @@
             <h2 class="section-title">Mentoring</h2>
             <div class="mentorship-list">
                 <div class="mentorship-item">
-                    <a href="https://xpenguchi.github.io/">Xiaopeng Zhang</a>, University of Chicago (Master) --&gt; Rutgers University (Ph.D. student)
+                    <a href="https://xpengzxp.github.io/">Xiaopeng Zhang</a>, University of Chicago (Master) --&gt; Rutgers University (Ph.D. student)
                 </div>
             </div>
         </section>
@@ -1134,11 +667,13 @@
     </main>
 
     <footer class="footer">
-        <div class="visitor-map">
-            <div class="visitor-title">Visitor Map</div>
-            <div id="visitors" aria-label="Visitor map"></div>
+        <div class="footer-inner">
+            <div>&copy; 2024 Luzhe Sun.</div>
+            <details class="visitor-map" id="visitorMap">
+                <summary>Visitor map</summary>
+                <div id="visitors" aria-label="Visitor map"></div>
+            </details>
         </div>
-        <div>&copy; 2024 Luzhe Sun.</div>
     </footer>
 
     <script>
@@ -1190,11 +725,34 @@
             visitors.appendChild(frame);
         };
 
-        if ("requestIdleCallback" in window) {
-            requestIdleCallback(loadVisitorMap, { timeout: 2500 });
-        } else {
-            window.addEventListener("load", () => setTimeout(loadVisitorMap, 800));
-        }
+        document.getElementById("visitorMap").addEventListener("toggle", (event) => {
+            if (event.currentTarget.open) loadVisitorMap();
+        });
+
+        document.querySelectorAll(".publication-media").forEach((media) => {
+            const video = media.querySelector("video");
+            const button = media.querySelector(".preview-toggle");
+            const label = video.getAttribute("aria-label");
+            const updateButton = () => {
+                button.setAttribute("aria-pressed", String(!video.paused));
+                button.setAttribute("aria-label", (video.paused ? "Play " : "Pause ") + label);
+            };
+
+            button.addEventListener("click", async () => {
+                if (video.paused) {
+                    try {
+                        await video.play();
+                    } catch {
+                        updateButton();
+                    }
+                } else {
+                    video.pause();
+                }
+            });
+            video.addEventListener("play", updateButton);
+            video.addEventListener("pause", updateButton);
+            updateButton();
+        });
     </script>
 </body>
 
