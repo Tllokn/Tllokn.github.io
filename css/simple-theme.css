@@ -6,6 +6,7 @@
     --quiet: #707070;
     --copy: #4a4a4a;
     --accent: #202020;
+    --section-heading: #173b67;
     --emphasis: #175cd3;
     --emphasis-hover: #124aa8;
     --link-rule: #878787;
@@ -30,6 +31,7 @@
         --quiet: #a0a0a0;
         --copy: #c8c8c8;
         --accent: #f0f0f0;
+        --section-heading: #a8c7f0;
         --emphasis: #8ab4ff;
         --emphasis-hover: #b4cfff;
         --link-rule: #8b8b8b;
@@ -104,6 +106,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .nav-links a[aria-current="page"] { color: var(--ink); font-weight: 600; }
 .menu-button { display: none; }
 .page { padding-bottom: 24px; }
+
+.section-title, .archive-year h2 { color: var(--section-heading); }
 
 .news-highlight { color: var(--ink); font-weight: 600; }
 .recognition {
