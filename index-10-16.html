@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Luzhe Sun · 孙鲁喆 — TTIC</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#fbfbf8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#101217" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="Luzhe Sun, Ph.D. candidate at TTIC working on robot learning, shared autonomy, generative models, and vision-language grounding.">
+    <link rel="icon" type="image/svg+xml" href="img/logo/Tllokn-positive-black.svg" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/svg+xml" href="img/logo/Tllokn-positive-white.svg" media="(prefers-color-scheme: dark)">
+    <link rel="shortcut icon" type="image/svg+xml" href="img/logo/Tllokn-positive-black.svg">
+    <link rel="preload" as="image" href="img/optimized/profile-360.jpg" fetchpriority="high">
+    <style>
+        /* ---------- Tokens (light default, dark follows system) ---------- */
+        :root {
+            --bg: #fbfbf8;
+            --surface: #ffffff;
+            --surface-2: #f3f3ef;
+            --ink: #16191f;
+            --text: #353b45;
+            --muted: #646b76;
+            --faint: #959ba5;
+            --rule: #e5e4de;
+            --rule-soft: #efeee9;
+            --accent: #2457a6;
+            --accent-hover: #163d7a;
+            --accent-soft: #eaf0fa;
+            --accent-line: #c9d7ef;
+            --gold: #94600a;
+            --gold-soft: #fbf2df;
+            --gold-line: #ecd6a8;
+            --green: #1f8a52;
+            --thumb-bg: #ffffff;
+            --shadow: 0 1px 2px rgba(20, 24, 31, .04), 0 6px 20px rgba(20, 24, 31, .05);
+            --serif: "Source Serif 4", "Source Serif Pro", "Iowan Old Style", Charter, "Palatino Linotype", Georgia, "Songti SC", serif;
+            --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+            --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+            --radius: 10px;
+            --max: 1000px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #101217;
+                --surface: #161920;
+                --surface-2: #1c2029;
+                --ink: #eef0f4;
+                --text: #c9ced7;
+                --muted: #98a0ad;
+                --faint: #6d7582;
+                --rule: #272b35;
+                --rule-soft: #20242d;
+                --accent: #8db6ff;
+                --accent-hover: #b7d0ff;
+                --accent-soft: rgba(141, 182, 255, .11);
+                --accent-line: rgba(141, 182, 255, .28);
+                --gold: #e7bd6a;
+                --gold-soft: rgba(231, 189, 106, .11);
+                --gold-line: rgba(231, 189, 106, .32);
+                --green: #4fd08a;
+                --thumb-bg: #e9eaed;
+                --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+            }
+        }
+
+        /* ---------- Base ---------- */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { background: var(--bg); scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 15.5px;
+            line-height: 1.62;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        a { color: var(--accent); text-decoration: none; transition: color .15s ease; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        b, strong { color: var(--ink); font-weight: 600; }
+        img, video { display: block; max-width: 100%; }
+        svg.i { width: 14px; height: 14px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        svg.i.solid { fill: currentColor; stroke: none; }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+        .skip-link { position: absolute; left: -999px; top: 8px; z-index: 100; padding: 6px 10px; background: var(--surface); border: 1px solid var(--rule); }
+        .skip-link:focus { left: 8px; }
+        .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+        /* ---------- Header ---------- */
+        .site-header {
+            position: sticky; top: 0; z-index: 30;
+            background: color-mix(in srgb, var(--bg) 82%, transparent);
+            -webkit-backdrop-filter: saturate(160%) blur(12px);
+            backdrop-filter: saturate(160%) blur(12px);
+            border-bottom: 1px solid transparent;
+            transition: border-color .2s ease;
+        }
+        .site-header.scrolled { border-bottom-color: var(--rule); }
+        .nav { display: flex; align-items: center; gap: 20px; height: 58px; }
+        .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 650; font-size: 15px; letter-spacing: -.1px; }
+        .brand:hover { color: var(--ink); text-decoration: none; }
+        .brand img { height: 15px; width: auto; }
+        .nav-links { display: flex; gap: 4px; margin-left: auto; }
+        .nav-links a {
+            position: relative; padding: 6px 10px; border-radius: 6px;
+            color: var(--muted); font-size: 13.5px; font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--ink); background: var(--surface-2); text-decoration: none; }
+        .nav-links a.active { color: var(--ink); }
+        .nav-links a.active::after {
+            content: ""; position: absolute; left: 10px; right: 10px; bottom: 1px;
+            height: 2px; border-radius: 2px; background: var(--accent);
+        }
+        .menu-button { display: none; margin-left: auto; width: 38px; height: 38px; padding: 0; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); color: var(--ink); cursor: pointer; }
+        .menu-button span { display: block; width: 16px; height: 1.5px; margin: 4px auto; background: currentColor; border-radius: 1px; }
+
+        /* ---------- Hero ---------- */
+        .hero { display: grid; grid-template-columns: minmax(0, 1fr) 224px; gap: 52px; padding: 52px 0 16px; }
+        .kicker {
+            display: inline-flex; align-items: center; gap: 10px; margin: 0 0 14px;
+            color: var(--accent); font-size: 11.5px; font-weight: 650; letter-spacing: 1.6px; text-transform: uppercase;
+        }
+        .kicker::before { content: ""; width: 22px; height: 1.5px; background: currentColor; }
+        .hero h1 {
+            margin: 0; color: var(--ink);
+            font-family: var(--serif); font-size: clamp(36px, 5vw, 48px); font-weight: 600; line-height: 1.05; letter-spacing: -1.2px;
+        }
+        .hero h1 .zh { margin-left: 12px; color: var(--faint); font-family: "Songti SC", "STSong", "Noto Serif CJK SC", var(--serif); font-size: .5em; font-weight: 400; letter-spacing: 3px; vertical-align: .32em; }
+        .role { margin: 12px 0 22px; color: var(--muted); font-size: 15px; }
+        .role b { color: var(--ink); font-weight: 600; }
+        .role .sep { margin: 0 8px; color: var(--faint); }
+        .bio p { margin: 0 0 12px; }
+        .bio .key { color: var(--ink); font-weight: 600; background: linear-gradient(transparent 62%, var(--accent-soft) 62%); }
+        .bio .aside { color: var(--muted); font-size: 14.5px; }
+
+        .status {
+            display: inline-flex; align-items: center; gap: 10px; margin: 8px 0 20px; padding: 7px 14px 7px 12px;
+            border: 1px solid var(--rule); border-radius: 999px; background: var(--surface);
+            color: var(--ink); font-size: 13.5px; font-weight: 550; box-shadow: var(--shadow);
+        }
+        .status .dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+        .status .dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--green); opacity: 0; animation: ping 2.4s ease-out infinite; }
+        .status .muted { color: var(--muted); font-weight: 400; }
+        @keyframes ping { 0% { transform: scale(.5); opacity: .7; } 80%, 100% { transform: scale(1.5); opacity: 0; } }
+
+        .links { display: flex; flex-wrap: wrap; gap: 8px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 13px;
+            border: 1px solid var(--rule); border-radius: 8px; background: var(--surface);
+            color: var(--ink); font-size: 13.5px; font-weight: 550; transition: border-color .15s, background .15s, transform .15s;
+        }
+        .btn:hover { border-color: var(--accent-line); background: var(--accent-soft); color: var(--accent); text-decoration: none; transform: translateY(-1px); }
+        .btn.primary { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+        .btn.primary:hover { border-color: var(--accent); background: var(--accent); color: #fff; }
+        @media (prefers-color-scheme: dark) { .btn.primary:hover { color: #0b1220; } }
+        .email-line { margin: 14px 0 0; color: var(--muted); font-size: 13.5px; }
+        .email-line a { font-family: var(--mono); font-size: 12.5px; }
+
+        .side .photo {
+            width: 224px; height: 224px; object-fit: cover; border-radius: 16px;
+            box-shadow: var(--shadow); border: 1px solid var(--rule);
+        }
+        .label, .edu-box summary {
+            margin: 0 0 10px; color: var(--faint); font-size: 11px; font-weight: 650; letter-spacing: 1.4px; text-transform: uppercase;
+        }
+        .edu-box { margin-top: 20px; }
+        .edu-box summary {
+            display: flex; align-items: center; justify-content: space-between; margin: 0; padding: 8px 12px;
+            border: 1px solid var(--rule); border-radius: 8px; background: var(--surface);
+            color: var(--muted); cursor: pointer; list-style: none; user-select: none; transition: border-color .15s, color .15s;
+        }
+        .edu-box summary::-webkit-details-marker { display: none; }
+        .edu-box summary:hover { border-color: var(--accent-line); color: var(--accent); }
+        .edu-box .chev { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease; }
+        .edu-box[open] summary { margin-bottom: 14px; }
+        .edu-box[open] .chev { transform: rotate(180deg); }
+        .edu { margin: 0; padding: 0; list-style: none; position: relative; }
+        .edu::before { content: ""; position: absolute; left: 3.5px; top: 12px; bottom: 22px; width: 1px; background: var(--rule); }
+        .edu li { position: relative; padding: 0 0 14px 20px; }
+        .edu li::before { content: ""; position: absolute; left: 0; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--faint); }
+        .edu li:first-of-type::before { border-color: var(--accent); background: var(--accent); }
+        .edu .deg { color: var(--ink); font-size: 13px; font-weight: 600; line-height: 1.35; }
+        .edu .sch { color: var(--muted); font-size: 12.5px; line-height: 1.4; }
+        .edu .yr { color: var(--faint); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+
+        /* ---------- Sections ---------- */
+        .section { padding: 40px 0 8px; }
+        .section-head { display: flex; align-items: baseline; gap: 16px; margin: 0 0 22px; }
+        .section-head h2 { margin: 0; color: var(--ink); font-family: var(--serif); font-size: 26px; font-weight: 600; letter-spacing: -.4px; white-space: nowrap; }
+        .section-head .line { flex: 1; height: 1px; background: var(--rule); transform: translateY(-6px); }
+        .section-head .meta { color: var(--faint); font-size: 12.5px; white-space: nowrap; }
+        .section-head .meta a { color: var(--muted); }
+        .section-head .meta a:hover { color: var(--accent); }
+
+        /* ---------- News ---------- */
+        .news { margin: 0; padding: 0; list-style: none; }
+        .news li { display: grid; grid-template-columns: 82px 74px minmax(0, 1fr); gap: 14px; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed var(--rule-soft); }
+        .news li:last-child { border-bottom: 0; }
+        .news time { color: var(--faint); font-size: 12.5px; font-variant-numeric: tabular-nums; font-weight: 500; }
+        .tag {
+            display: inline-flex; justify-content: center; padding: 1px 8px; border-radius: 5px;
+            background: var(--surface-2); color: var(--muted); font-size: 11px; font-weight: 650; letter-spacing: .3px; text-transform: uppercase; white-space: nowrap;
+        }
+        .tag.paper { background: var(--accent-soft); color: var(--accent); }
+        .tag.award { background: var(--gold-soft); color: var(--gold); }
+        .news .txt { font-size: 14.5px; }
+        .news .txt em { font-style: normal; color: var(--ink); }
+
+        /* ---------- Publications ---------- */
+        .pub-group + .pub-group { margin-top: 34px; }
+        .pub-group-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+        .pub-group-head .label { margin: 0; }
+        .pub-group-head .note { color: var(--faint); font-size: 12px; }
+        .pub {
+            display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 26px; align-items: start;
+            margin: 0 -16px; padding: 18px 16px; border-radius: 14px; transition: background .2s ease;
+        }
+        .pub + .pub { border-top: 1px solid var(--rule-soft); }
+        .pub:hover { background: var(--surface); box-shadow: var(--shadow); border-top-color: transparent; }
+        .pub:hover + .pub { border-top-color: transparent; }
+        .pub.featured .thumb { border-color: var(--gold-line); }
+        .thumb {
+            position: relative; display: grid; place-items: center; overflow: hidden;
+            aspect-ratio: 16 / 10; border: 1px solid var(--rule); border-radius: 9px; background: var(--thumb-bg);
+        }
+        .thumb img, .thumb video { width: 100%; height: 100%; object-fit: contain; transition: transform .35s ease; }
+        .pub:hover .thumb img, .pub:hover .thumb video { transform: scale(1.025); }
+        @media (prefers-color-scheme: dark) { .thumb img, .thumb video { opacity: .94; } }
+        .play {
+            position: absolute; right: 7px; bottom: 7px; display: grid; place-items: center; width: 26px; height: 26px; padding: 0;
+            border: 0; border-radius: 50%; background: rgba(15, 18, 24, .62); color: #fff; cursor: pointer; opacity: 0; transition: opacity .2s;
+        }
+        .thumb:hover .play, .play:focus-visible { opacity: 1; }
+        @media (hover: none) { .play { opacity: .9; } }
+        .play svg { width: 10px; height: 10px; }
+        .play .pause-i { display: none; }
+        .play[aria-pressed="true"] .play-i { display: none; }
+        .play[aria-pressed="true"] .pause-i { display: block; }
+
+        .venue-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-bottom: 7px; }
+        .venue {
+            display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 8px;
+            border: 1px solid var(--accent-line); border-radius: 6px; background: var(--accent-soft);
+            color: var(--accent); font-size: 11.5px; font-weight: 700; letter-spacing: .2px;
+        }
+        a.venue:hover { text-decoration: none; color: var(--accent-hover); }
+        .venue .hl { padding: 0 5px; border-radius: 4px; background: var(--accent); color: var(--surface); font-size: 10px; line-height: 15px; letter-spacing: .5px; text-transform: uppercase; }
+        .venue.pre { border-color: var(--rule); background: transparent; color: var(--muted); font-weight: 600; }
+        .badge-award {
+            display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 8px;
+            border: 1px solid var(--gold-line); border-radius: 6px; background: var(--gold-soft); color: var(--gold); font-size: 11.5px; font-weight: 650;
+        }
+        .badge-award:hover { color: var(--gold); text-decoration: none; filter: brightness(.95); }
+        .badge-award svg { width: 12px; height: 12px; }
+        .pub h3 { margin: 0 0 5px; font-size: 16.5px; font-weight: 650; line-height: 1.35; letter-spacing: -.15px; }
+        .pub h3 a { color: var(--ink); }
+        .pub h3 a:hover { color: var(--accent); }
+        .authors { color: var(--muted); font-size: 13.5px; line-height: 1.5; }
+        .authors b { color: var(--ink); font-weight: 650; border-bottom: 1.5px solid var(--accent-line); }
+        .tldr { margin: 9px 0 10px; color: var(--text); font-size: 14px; line-height: 1.58; }
+        .pub-links { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+        .pub-links a { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); font-size: 13px; font-weight: 550; }
+        .pub-links a:hover { color: var(--accent); text-decoration: none; }
+        .pub-links svg.i { width: 13px; height: 13px; }
+
+        /* ---------- Service / Awards / Mentoring ---------- */
+        .rows { margin: 0; padding: 0; list-style: none; }
+        .rows li { display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 18px; padding: 10px 0; border-bottom: 1px solid var(--rule-soft); font-size: 14.5px; }
+        .rows li:last-child { border-bottom: 0; }
+        .rows .k { color: var(--ink); font-weight: 600; font-size: 13.5px; }
+        .rows .v { color: var(--text); }
+        .rows .v .where { color: var(--muted); }
+        .venues-inline { display: flex; flex-wrap: wrap; gap: 6px; }
+        .venues-inline a { padding: 1px 9px; border: 1px solid var(--rule); border-radius: 999px; color: var(--text); font-size: 12.5px; font-weight: 550; background: var(--surface); }
+        .venues-inline a:hover { border-color: var(--accent-line); color: var(--accent); text-decoration: none; }
+
+        .awards { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }
+        .awards li { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--rule-soft); }
+        .awards .yr { color: var(--faint); font-size: 12.5px; font-weight: 600; font-variant-numeric: tabular-nums; padding-top: 1px; }
+        .awards .t { color: var(--ink); font-size: 14px; font-weight: 600; line-height: 1.4; }
+        .awards .t a { color: inherit; }
+        .awards .t a:hover { color: var(--accent); }
+        .awards .o { color: var(--muted); font-size: 12.5px; line-height: 1.45; margin-top: 2px; }
+        .awards li.top .yr { color: var(--gold); }
+        .awards li.top .t::before { content: "★"; margin-right: 6px; color: var(--gold); font-size: 12px; }
+
+        .mentee { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; font-size: 14.5px; }
+        .mentee .arrow { color: var(--faint); }
+        .mentee .where { color: var(--muted); }
+
+        /* hidden projects (kept for future use) */
+        .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+        .project-card { border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+        .video-shell { display: grid; place-items: center; aspect-ratio: 16 / 9; background: var(--surface-2); }
+        .video-shell iframe { width: 100%; height: 100%; border: 0; }
+        .video-load { border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); color: var(--accent); padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+        .project-body { padding: 14px 16px 16px; }
+        .project-title { margin: 0 0 6px; font-size: 15px; color: var(--ink); }
+        .project-description { margin: 0 0 8px; color: var(--muted); font-size: 13.5px; }
+
+        /* ---------- Footer ---------- */
+        .footer { margin-top: 56px; border-top: 1px solid var(--rule); color: var(--faint); font-size: 12.5px; }
+        .footer .wrap { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-top: 22px; padding-bottom: 36px; }
+        .footer img { height: 12px; width: auto; opacity: .55; margin-bottom: 8px; }
+        .visitor-map { text-align: right; }
+        .visitor-map summary { cursor: pointer; color: var(--muted); list-style: none; }
+        .visitor-map summary::-webkit-details-marker { display: none; }
+        .visitor-map summary::after { content: " +"; }
+        .visitor-map[open] summary::after { content: " −"; }
+        #visitors { margin-top: 10px; width: 150px; min-height: 100px; border-radius: 8px; overflow: hidden; }
+        #visitors iframe { display: block; width: 150px; height: 100px; border: 0; }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 860px) {
+            .hero { grid-template-columns: minmax(0, 1fr) 180px; gap: 32px; padding-top: 40px; }
+            .side .photo { width: 180px; height: 180px; }
+            .pub { grid-template-columns: 170px minmax(0, 1fr); gap: 20px; }
+            .awards { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 720px) {
+            .wrap { padding: 0 20px; }
+            .menu-button { display: block; }
+            .nav-links {
+                display: none; position: absolute; top: 58px; left: 0; right: 0; padding: 8px 14px 14px;
+                flex-direction: column; gap: 2px; background: var(--bg); border-bottom: 1px solid var(--rule); box-shadow: var(--shadow);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 10px 10px; font-size: 15px; }
+            .nav-links a.active::after { display: none; }
+            .nav-links a.active { background: var(--surface-2); }
+            .hero { display: flex; flex-direction: column; gap: 0; padding: 28px 0 8px; }
+            .side { display: contents; }
+            .side .photo { order: -1; width: 92px; height: 92px; border-radius: 14px; margin-bottom: 22px; }
+            .side > .edu-box { order: 1; margin-top: 22px; }
+            .edu li { padding-bottom: 10px; }
+            .hero h1 .zh { display: block; margin: 8px 0 0; font-size: 18px; vertical-align: 0; }
+            .role .sep { margin: 0 5px; }
+            .section { padding-top: 32px; }
+            .section-head h2 { font-size: 23px; }
+            .news li { grid-template-columns: 64px minmax(0, 1fr); gap: 4px 12px; }
+            .news .tag { grid-column: 2; justify-self: start; }
+            .news time { grid-row: 1 / span 2; }
+            .news .txt { grid-column: 2; }
+            .pub { grid-template-columns: 1fr; gap: 14px; margin: 0; padding: 18px 0; }
+            .pub:hover { background: transparent; box-shadow: none; }
+            .thumb { max-width: 420px; }
+            .rows li { grid-template-columns: 1fr; gap: 4px; }
+            .project-grid { grid-template-columns: 1fr; }
+            .footer .wrap { flex-direction: column; }
+            .visitor-map { text-align: left; }
+        }
+        @media (max-width: 520px) {
+            .status { font-size: 13px; }
+            .status .muted { display: none; }
+            .btn { height: 32px; padding: 0 11px; font-size: 13px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Icon sprite -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 7 8.5-7"/></symbol>
+        <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M2.5 9.5 12 4.5l9.5 5-9.5 5z"/><path d="M6.5 11.8V16c0 1.5 2.5 3 5.5 3s5.5-1.5 5.5-3v-4.2"/><path d="M21.5 9.5v5"/></symbol>
+        <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2.5A9.5 9.5 0 0 0 9 21c.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.1-3.4-1.1-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.7-1.4-2.2-.3-4.6-1.1-4.6-5A3.9 3.9 0 0 1 7 8.3c-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1a9.7 9.7 0 0 1 5.2 0c2-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1.1 2.8c0 3.8-2.3 4.7-4.6 5 .4.3.7 1 .7 2v2.4c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5z"/></symbol>
+        <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3.5h7l4.5 4.5v12.5H7z"/><path d="M14 3.5V8h4.5M10 12.5h5.5M10 16h5.5"/></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.5 5.3 3.5 8.5s-1.1 6.1-3.5 8.5c-2.4-2.4-3.5-5.3-3.5-8.5s1.1-6.1 3.5-8.5z"/></symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><path d="m8.5 7.5-5 4.5 5 4.5M15.5 7.5l5 4.5-5 4.5M13.5 5l-3 14"/></symbol>
+        <symbol id="i-paper" viewBox="0 0 24 24"><path d="M6 3.5h9l3.5 3.5v13.5H6z"/><path d="M9 10h6M9 13.5h6M9 17h3.5"/></symbol>
+        <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></symbol>
+        <symbol id="i-live" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m10 9.5 5 2.5-5 2.5z"/></symbol>
+        <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7.5 4h9v5a4.5 4.5 0 0 1-9 0z"/><path d="M7.5 6H4.5a3 3 0 0 0 3 4M16.5 6h3a3 3 0 0 1-3 4M12 13.5V17M8.5 20h7M9.5 17h5"/></symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="siteHeader">
+        <div class="wrap nav">
+            <a href="#overview" class="brand" aria-label="Luzhe Sun — home">
+                <picture>
+                    <source srcset="img/logo/Tllokn-positive-white.svg" media="(prefers-color-scheme: dark)">
+                    <img src="img/logo/Tllokn-positive-black.svg" alt="" width="43" height="15">
+                </picture>
+                <span>Luzhe Sun</span>
+            </a>
+            <button class="menu-button" id="menuButton" type="button" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav-links" id="siteNav" aria-label="Primary">
+                <a href="#overview">About</a>
+                <a href="#news">News</a>
+                <a href="#publications">Publications</a>
+                <a href="#service">Service</a>
+                <a href="#awards">Awards</a>
+                <a href="#mentoring">Mentoring</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="wrap">
+        <!-- ================= HERO ================= -->
+        <section class="hero" id="overview">
+            <div class="intro">
+                <p class="kicker">Robot Learning · Human–Robot Collaboration</p>
+                <h1>Luzhe Sun<span class="zh" lang="zh">孙鲁喆</span></h1>
+                <p class="role"><b>Ph.D. Candidate</b><span class="sep">/</span><a href="https://www.ttic.edu/">TTIC</a><span class="sep">/</span><a href="https://ttic.edu/ripl/">RIPL</a></p>
+
+                <div class="bio">
+                    <p>
+                        I'm a Ph.D. candidate at TTIC advised by Professor <a href="https://home.ttic.edu/~mwalter/">Matthew R. Walter</a> in the <a href="https://ttic.edu/ripl/">Robot Intelligence through Perception Lab (RIPL)</a>.
+                        Before TTIC, I completed my master's in Computer Science at the <a href="https://masters.cs.uchicago.edu/">University of Chicago</a> and my undergraduate studies at <a href="https://informatics.xmu.edu.cn/en/index.htm">Xiamen University</a>.
+                    </p>
+                    <p>
+                        My research focuses on <span class="key">robot learning and human–robot collaboration</span>, with the goal of building robots that can adapt to unfamiliar situations and work reliably alongside people.
+                        I develop generative methods for <span class="key">shared autonomy and policy adaptation</span>, using diffusion, consistency, and flow models to refine robot actions while preserving human intent or task goals.
+                        I also study <span class="key">visual grounding and hallucination in vision-language models</span>, with an emphasis on understanding and detecting failures in multimodal perception.
+                    </p>
+                    <p class="aside">Outside research, I enjoy photography, Chinese painting, and playing the Erhu.</p>
+                </div>
+
+                <div class="status"><span class="dot" aria-hidden="true"></span>Seeking a Summer 2027 internship <span class="muted">· open to collaborations</span></div>
+
+                <div class="links">
+                    <a class="btn primary" href="mailto:luzhesun@ttic.edu"><svg class="i"><use href="#i-mail"/></svg>Email</a>
+                    <a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=UH_AxUQAAAAJ" target="_blank" rel="noopener"><svg class="i"><use href="#i-scholar"/></svg>Google Scholar</a>
+                    <a class="btn" href="https://github.com/Tllokn" target="_blank" rel="noopener"><svg class="i solid"><use href="#i-github"/></svg>GitHub</a>
+                    <a class="btn" href="#publications"><svg class="i"><use href="#i-doc"/></svg>Publications</a>
+                </div>
+                <p class="email-line"><a href="mailto:luzhesun@ttic.edu">luzhesun@ttic.edu</a> &nbsp;·&nbsp; <a href="mailto:luzhesun@uchicago.edu">luzhesun@uchicago.edu</a></p>
+            </div>
+
+            <aside class="side">
+                <img src="img/optimized/profile-360.jpg" alt="Portrait of Luzhe Sun" class="photo" width="224" height="224" decoding="async" fetchpriority="high">
+                <details class="edu-box">
+                    <summary><span>Education</span><svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></summary>
+                    <ul class="edu">
+                        <li>
+                            <div class="deg">Ph.D., Computer Science</div>
+                            <div class="sch">Toyota Technological Institute at Chicago</div>
+                            <div class="yr">2023 – Present</div>
+                        </li>
+                        <li>
+                            <div class="deg">M.S., Computer Science</div>
+                            <div class="sch">University of Chicago</div>
+                            <div class="yr">2021 – 2023</div>
+                        </li>
+                        <li>
+                            <div class="deg">B.Eng., Information Science</div>
+                            <div class="sch">Xiamen University · with Honors</div>
+                            <div class="yr">2017 – 2021</div>
+                        </li>
+                    </ul>
+                </details>
+            </aside>
+        </section>
+
+        <!-- ================= NEWS ================= -->
+        <section class="section" id="news">
+            <div class="section-head">
+                <h2>News</h2><span class="line"></span><span class="meta"><a href="news.html">All news →</a></span>
+            </div>
+            <ul class="news">
+                <li>
+                    <time>Oct 2026</time><span class="tag">Talk</span>
+                    <div class="txt">I gave a research talk at the <a href="https://slurm-lab-usc.github.io/">USC SLURM Lab</a>.</div>
+                </li>
+                <li>
+                    <time>Oct 2026</time><span class="tag award">Award</span>
+                    <div class="txt"><em>“What Are We Actually Benchmarking in Robot Manipulation?”</em> received the <a href="https://sites.google.com/view/rgmcw2026">Best Abstract Award at the IROS 2026 RGMCW workshop</a>.</div>
+                </li>
+                <li>
+                    <time>Sep 2026</time><span class="tag paper">Paper</span>
+                    <div class="txt"><em>“What Are We Actually Benchmarking in Robot Manipulation?”</em> accepted to <b>CoRL 2026</b> as an <b>Oral</b>.</div>
+                </li>
+                <li>
+                    <time>May 2026</time><span class="tag award">Honor</span>
+                    <div class="txt">Recognized as a <b>Gold Reviewer</b> for ICML 2026.</div>
+                </li>
+                <li>
+                    <time>Mar 2026</time><span class="tag paper">Paper</span>
+                    <div class="txt"><em>“Seeing without Looking: Do Vision-Language Benchmarks Really Test Vision?”</em> accepted to the <b>CVPR 2026 GRAIL-V Workshop</b>.</div>
+                </li>
+                <li>
+                    <time>Mar 2026</time><span class="tag">Code</span>
+                    <div class="txt">Released the code for <a href="https://github.com/ripl/FlashBackSharedAutonomy">FlashBack</a> (CoRL 2025).</div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ================= PUBLICATIONS ================= -->
+        <section class="section" id="publications">
+            <div class="section-head">
+                <h2>Publications</h2><span class="line"></span><span class="meta"><a href="https://scholar.google.com/citations?hl=en&amp;user=UH_AxUQAAAAJ" target="_blank" rel="noopener">Google Scholar →</a></span>
+            </div>
+
+            <div class="pub-group">
+                <div class="pub-group-head"><h3 class="label">Selected</h3><span class="note">* equal contribution</span></div>
+
+                <article class="pub">
+                    <div class="thumb">
+                        <video autoplay muted loop playsinline preload="metadata" poster="img/optimized/2026-flow-based-policy-adaptation.jpg" aria-label="GLOVES video preview">
+                            <source src="video/2026-flow-based-policy-adaptation.webm" type="video/webm">
+                        </video>
+                        <button class="play" type="button" aria-pressed="false"><svg class="play-i" viewBox="0 0 12 12"><path d="M3 1.5 10 6 3 10.5z" fill="currentColor"/></svg><svg class="pause-i" viewBox="0 0 12 12"><path d="M3.5 2v8M8.5 2v8" stroke="currentColor" stroke-width="2"/></svg></button>
+                    </div>
+                    <div>
+                        <div class="venue-row"><span class="venue pre">Preprint · 2026</span></div>
+                        <h3><a href="https://arxiv.org/abs/2606.06461">Flow-based Policy Adaptation without Policy Updates</a></h3>
+                        <div class="authors"><b>Luzhe Sun*</b>, Jingtian Ji*, Haoran Chen, Jiawei Zhou, Matthew R. Walter</div>
+                        <p class="tldr">GLOVES uses flow matching to selectively pull out-of-distribution actions from humans or pretrained policies toward expert behavior—without updating the underlying policy. With limited demonstrations, it improves imperfect imitation-learning and VLA agents across simulated and real-robot tasks.</p>
+                        <div class="pub-links">
+                            <a href="https://ripl.github.io/GLOVES_web/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://arxiv.org/abs/2606.06461"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pub">
+                    <div class="thumb"><img src="img/optimized/2026-sabre.jpg" alt="SABRE VLM benchmarking pipeline" loading="lazy" decoding="async"></div>
+                    <div>
+                        <div class="venue-row"><span class="venue pre">Preprint · 2026</span></div>
+                        <h3><a href="https://arxiv.org/abs/2608.07435">SABRE: Scalable and Automated Benchmarking of VLMs under Stress</a></h3>
+                        <div class="authors">Zixuan Lan*, <b>Luzhe Sun*</b>, Matthew R. Walter, Jiawei Zhou</div>
+                        <p class="tldr">SABRE turns natural-language test specifications into automatically generated, filtered, and human-verified VLM stress tests that can evolve with the models. Its SABRE-Prior benchmark exposes heavy reliance on world priors: six frontier VLMs score only 17.8–31.3% macro accuracy.</p>
+                        <div class="pub-links">
+                            <a href="https://zesearch.github.io/vlm-SABRE/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://github.com/Zesearch/vlm-SABRE"><svg class="i"><use href="#i-code"/></svg>Code</a>
+                            <a href="https://arxiv.org/abs/2608.07435"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pub featured">
+                    <div class="thumb"><img src="img/optimized/2026-what-are-we-actually-benchmarking.jpg" alt="Robot manipulation benchmark audit chart" loading="lazy" decoding="async"></div>
+                    <div>
+                        <div class="venue-row">
+                            <a class="venue" href="https://www.corl.org/">CoRL 2026 <span class="hl">Oral</span></a>
+                            <a class="badge-award" href="https://sites.google.com/view/rgmcw2026"><svg class="i"><use href="#i-trophy"/></svg>Best Abstract · IROS 2026 RGMCW</a>
+                        </div>
+                        <h3><a href="https://arxiv.org/abs/2606.04233">What Are We Actually Benchmarking in Robot Manipulation?</a></h3>
+                        <div class="authors">Tianchong Jiang, Xiangshan Tan*, Samuel Wheeler*, <b>Luzhe Sun*</b>, Tewodros W. Ayalew*, Matthew R. Walter</div>
+                        <p class="tldr">Auditing five popular robot-manipulation benchmarks with four diagnostics reveals shortcuts, statistically unresolved gains, overfitting, and training-data proximity effects—especially on LIBERO, CALVIN, and SimplerEnv. The results show why benchmark scores alone often do not establish general manipulation progress.</p>
+                        <div class="pub-links">
+                            <a href="https://ripl.github.io/manipulation_benchmark_audit/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://github.com/ripl/ManipulationBenchmarkAudit"><svg class="i"><use href="#i-code"/></svg>Code</a>
+                            <a href="https://arxiv.org/abs/2606.04233"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pub">
+                    <div class="thumb"><img src="img/optimized/2026-seeing-without-looking.jpg" alt="Seeing without Looking paper figure" loading="lazy" decoding="async"></div>
+                    <div>
+                        <div class="venue-row"><a class="venue" href="https://openreview.net/forum?id=BBnoQFzIQi">CVPR 2026 · GRAIL-V Workshop</a></div>
+                        <h3><a href="https://arxiv.org/abs/2605.22903">Seeing without Looking: Do Vision-Language Benchmarks Really Test Vision?</a></h3>
+                        <div class="authors">Zixuan Lan*, <b>Luzhe Sun*</b>, Matthew R. Walter, Jiawei Zhou</div>
+                        <p class="tldr">Across seven open VLMs, benchmark accuracy often remains surprisingly high after fine-grained visual evidence is masked, corrupted, or replaced: removing 75% of image tokens reduces POPE accuracy by only about three percentage points for some models. These results reveal a gap between benchmark performance and genuine visual grounding.</p>
+                        <div class="pub-links">
+                            <a href="https://zesearch.github.io/vlm-seeing-without-looking/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://github.com/Zesearch/vlm-seeing-without-looking"><svg class="i"><use href="#i-code"/></svg>Code</a>
+                            <a href="https://arxiv.org/abs/2605.22903"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pub">
+                    <div class="thumb">
+                        <video autoplay muted loop playsinline preload="metadata" poster="img/optimized/2025-flashback.jpg" aria-label="FlashBack video preview">
+                            <source src="video/2025-flashback.webm" type="video/webm">
+                        </video>
+                        <button class="play" type="button" aria-pressed="false"><svg class="play-i" viewBox="0 0 12 12"><path d="M3 1.5 10 6 3 10.5z" fill="currentColor"/></svg><svg class="pause-i" viewBox="0 0 12 12"><path d="M3.5 2v8M8.5 2v8" stroke="currentColor" stroke-width="2"/></svg></button>
+                    </div>
+                    <div>
+                        <div class="venue-row"><a class="venue" href="https://openreview.net/forum?id=zk4fRmHF0Q">CoRL 2025 <span class="hl">Spotlight</span></a></div>
+                        <h3><a href="https://arxiv.org/abs/2505.16892">FlashBack: Consistency Model-Accelerated Shared Autonomy</a></h3>
+                        <div class="authors"><b>Luzhe Sun</b>, Jingtian Ji, Xiangshan (Vincent) Tan, Matthew R. Walter</div>
+                        <p class="tldr">FlashBack distills diffusion into a one-step consistency-model copilot that corrects user actions in real time without knowing their goal, reward, or policy. It outperforms iterative diffusion assistance on demanding control tasks and raises real-robot peg-insertion success from 66.7% to 83.3%.</p>
+                        <div class="pub-links">
+                            <a href="https://ripl.github.io/CSA-website/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://github.com/ripl/FlashBackSharedAutonomy"><svg class="i"><use href="#i-code"/></svg>Code</a>
+                            <a href="https://arxiv.org/abs/2505.16892"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                            <a href="https://zhuanlan.zhihu.com/p/1952228115234414777"><svg class="i"><use href="#i-pen"/></svg>Blog (知乎)</a>
+                            <a href="https://www.bilibili.com/video/BV1dqWSzCEZQ?t=4.1"><svg class="i"><use href="#i-live"/></svg>Livestream</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pub">
+                    <div class="thumb">
+                        <video autoplay muted loop playsinline preload="metadata" poster="img/optimized/2025-stackgen.jpg" aria-label="StackGen video preview">
+                            <source src="video/2025-stackgen.webm" type="video/webm">
+                        </video>
+                        <button class="play" type="button" aria-pressed="false"><svg class="play-i" viewBox="0 0 12 12"><path d="M3 1.5 10 6 3 10.5z" fill="currentColor"/></svg><svg class="pause-i" viewBox="0 0 12 12"><path d="M3.5 2v8M8.5 2v8" stroke="currentColor" stroke-width="2"/></svg></button>
+                    </div>
+                    <div>
+                        <div class="venue-row"><a class="venue" href="https://doi.org/10.1109/IROS60139.2025.11247239">IROS 2025 <span class="hl">Oral</span></a></div>
+                        <h3><a href="https://arxiv.org/abs/2409.18098">StackGen: Generating Stable Structures from Silhouettes via Diffusion</a></h3>
+                        <div class="authors"><b>Luzhe Sun*</b>, Takuma Yoneda*, Samuel W. Wheeler, Tianchong Jiang, Matthew R. Walter</div>
+                        <p class="tldr">StackGen learns to generate diverse 6-DoF block arrangements that are both stable and faithful to a user-provided silhouette, avoiding explicit physics models or combinatorial search. It achieves 85.2% simulated stability and successfully builds all eight tested structures with a UR5 robot.</p>
+                        <div class="pub-links">
+                            <a href="https://ripl.github.io/StackGen/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://arxiv.org/abs/2409.18098"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                            <a href="https://zhuanlan.zhihu.com/p/1946751889225024585"><svg class="i"><use href="#i-pen"/></svg>Blog (知乎)</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pub">
+                    <div class="thumb">
+                        <video autoplay muted loop playsinline preload="metadata" poster="img/optimized/2023-to-the-noise-and-back.jpg" aria-label="To the Noise and Back video preview">
+                            <source src="video/2023-to-the-noise-and-back.webm" type="video/webm">
+                        </video>
+                        <button class="play" type="button" aria-pressed="false"><svg class="play-i" viewBox="0 0 12 12"><path d="M3 1.5 10 6 3 10.5z" fill="currentColor"/></svg><svg class="pause-i" viewBox="0 0 12 12"><path d="M3.5 2v8M8.5 2v8" stroke="currentColor" stroke-width="2"/></svg></button>
+                    </div>
+                    <div>
+                        <div class="venue-row"><a class="venue" href="https://roboticsconference.org/2023/program/papers/014/">RSS 2023 <span class="hl">Oral</span></a></div>
+                        <h3><a href="https://arxiv.org/abs/2302.12244">To the Noise and Back: Diffusion for Shared Autonomy</a></h3>
+                        <div class="authors">Takuma Yoneda, <b>Luzhe Sun</b>, Ge Yang, Bradly Stadie, Matthew R. Walter</div>
+                        <p class="tldr">Partial diffusion for shared autonomy: noise and denoise a user's command toward demonstrated expert behavior, with a single knob trading off intent preservation and assistance. It needs no reward, dynamics, predefined goals, or user-policy data during training and improves both simulated and real-robot teleoperation.</p>
+                        <div class="pub-links">
+                            <a href="https://diffusion-for-shared-autonomy.github.io/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://github.com/ripl/diffusion-for-shared-autonomy"><svg class="i"><use href="#i-code"/></svg>Code</a>
+                            <a href="https://arxiv.org/abs/2302.12244"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="pub-group">
+                <div class="pub-group-head"><h3 class="label">Other</h3></div>
+
+                <article class="pub">
+                    <div class="thumb"><img src="img/optimized/2026-detecting-hallucinations.jpg" alt="HALP paper figure" loading="lazy" decoding="async"></div>
+                    <div>
+                        <div class="venue-row"><a class="venue" href="https://aclanthology.org/2026.eacl-long.287/">EACL 2026 Main <span class="hl">Oral</span></a></div>
+                        <h3><a href="https://arxiv.org/abs/2603.05465">Detecting Hallucinations in Vision-Language Models without Generating a Single Token</a></h3>
+                        <div class="authors">Sai Akhil Kogilathota, Sripadha Vallabha E G, <b>Luzhe Sun</b>, Jiawei Zhou</div>
+                        <p class="tldr">HALP predicts whether a VLM will hallucinate before decoding by probing its visual and multimodal hidden states in one forward pass. Across eight VLMs, lightweight probes reach up to 0.93 AUROC while adding less than 1% overhead relative to full generation.</p>
+                        <div class="pub-links">
+                            <a href="https://github.com/Zesearch/HALP"><svg class="i"><use href="#i-code"/></svg>Code</a>
+                            <a href="https://arxiv.org/abs/2603.05465"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pub">
+                    <div class="thumb"><img src="img/optimized/2022-decompositional-quantum-gnn.jpg" alt="egoQGNN paper figure" loading="lazy" decoding="async"></div>
+                    <div>
+                        <div class="venue-row"><span class="venue pre">Preprint · 2022</span></div>
+                        <h3><a href="https://arxiv.org/abs/2201.05158">Decompositional Quantum Graph Neural Network</a></h3>
+                        <div class="authors">Xing Ai, <b>Luzhe Sun</b>, Zhihong Zhang, Junchi Yan, Edwin Hancock</div>
+                        <p class="tldr">egoQGNN decomposes arbitrarily large graphs into ego-graphs that fit a fixed-size quantum device and uses a trainable Euclidean-to-Hilbert mapping to limit information loss, reaching competitive accuracy on six molecular and protein datasets with just 43 parameters.</p>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2201.05158"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ================= SERVICE ================= -->
+        <section class="section" id="service">
+            <div class="section-head"><h2>Service</h2><span class="line"></span></div>
+            <ul class="rows">
+                <li>
+                    <div class="k">Reviewer</div>
+                    <div class="v venues-inline">
+                        <a href="https://www.ieee-iros.org/">IROS</a><a href="https://www.ieee-icra.org/">ICRA</a><a href="https://www.corl.org/">CoRL</a><a href="https://www.ieee-ras.org/publications/ra-l">RA-L</a><a href="https://icml.cc/">ICML</a><a href="https://neurips.cc/">NeurIPS</a><a href="https://www.aclweb.org/">ACL</a><a href="https://aaai.org/">AAAI</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="k">Organizer</div>
+                    <div class="v"><a href="https://sites.google.com/view/multimodal-ai-ttic-2024/home">Multimodal Artificial Intelligence Workshop</a> <span class="where">· TTIC, Chicago, 2024</span></div>
+                </li>
+                <li>
+                    <div class="k">Invited Demo</div>
+                    <div class="v"><a href="https://www.msichicago.org/explore/whats-here/events/robot-block-party">Robot Block Party</a> <span class="where">· Griffin Museum of Science and Industry, Chicago, 2023 &amp; 2024</span></div>
+                </li>
+                <li>
+                    <div class="k">Volunteer</div>
+                    <div class="v"><a href="https://ttic.edu/mwrw/">Midwest Robotics Workshop</a> <span class="where">· TTIC, Chicago</span></div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ================= AWARDS ================= -->
+        <section class="section" id="awards">
+            <div class="section-head"><h2>Awards &amp; Honors</h2><span class="line"></span></div>
+            <ul class="awards">
+                <li class="top"><span class="yr">2026</span><div><div class="t"><a href="https://sites.google.com/view/rgmcw2026">Best Abstract Award, IROS 2026 RGMCW</a></div><div class="o">What Are We Actually Benchmarking in Robot Manipulation?</div></div></li>
+                <li class="top"><span class="yr">2026</span><div><div class="t">Gold Reviewer</div><div class="o">International Conference on Machine Learning (ICML)</div></div></li>
+                <li><span class="yr">2021</span><div><div class="t">Honored Graduate Student</div><div class="o">Xiamen University</div></div></li>
+                <li><span class="yr">2020</span><div><div class="t">China National Scholarship (Top 0.1%)</div><div class="o">Chinese Ministry of Education</div></div></li>
+                <li><span class="yr">2019</span><div><div class="t">China National Scholarship (Top 0.1%)</div><div class="o">Chinese Ministry of Education</div></div></li>
+                <li><span class="yr">2019</span><div><div class="t">National 2nd Prize, Contemporary Undergraduate Mathematical Contest in Modeling</div><div class="o">China Society for Industrial and Applied Mathematics</div></div></li>
+                <li><span class="yr">2018</span><div><div class="t">National 3rd Prize, China Students Service Outsourcing Competition</div><div class="o">Ministry of Education &amp; Ministry of Commerce</div></div></li>
+                <li><span class="yr">2018</span><div><div class="t">“Xilie Huang” Annual Scholarship (2/200)</div><div class="o">Xiamen University</div></div></li>
+                <li><span class="yr">2018</span><div><div class="t">Outstanding Student Worker Scholarship</div><div class="o">Xiamen University</div></div></li>
+            </ul>
+        </section>
+
+        <!-- ================= MENTORING ================= -->
+        <section class="section" id="mentoring">
+            <div class="section-head"><h2>Mentoring</h2><span class="line"></span></div>
+            <div class="mentee">
+                <a href="https://xpengzxp.github.io/"><b style="color:inherit">Xiaopeng Zhang</b></a>
+                <span class="where">M.S., University of Chicago</span>
+                <span class="arrow">→</span>
+                <span class="where">Ph.D. student, Rutgers University</span>
+            </div>
+        </section>
+
+        <!-- ================= PROJECTS (hidden) ================= -->
+        <section class="section" id="projects" hidden>
+            <div class="section-head"><h2>Projects</h2><span class="line"></span></div>
+            <div class="project-grid">
+                <article class="project-card">
+                    <div class="video-shell"><button class="video-load" type="button" data-video-src="https://www.youtube.com/embed/ldNHdsU3KME" data-video-title="Embodied ChatGPT video">Load video</button></div>
+                    <div class="project-body">
+                        <h3 class="project-title">Embodied ChatGPT | Robot Block Party 2023</h3>
+                        <p class="project-description">Implemented Code as Policies on a UR5 robot so it could respond to voice commands and execute tasks. Presented at the 2023 National Robotics Week at MSI Chicago and the 2023 South Side Science Festival.</p>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="video-shell"><button class="video-load" type="button" data-video-src="https://www.youtube.com/embed/UL26MJ7HQgY" data-video-title="AI travel assistant app video">Load video</button></div>
+                    <div class="project-body">
+                        <h3 class="project-title">AI Transnational Free Travel Assistant APP</h3>
+                        <p class="project-description">AI travel assistant for independent tourists from China and Japan, covering attractions, restaurants, accommodation, transportation, and language barriers.</p>
+                        <div class="pub-links"><a href="https://github.com/Tllokn/AI-Transnational-Free-Travel-Assistant-APP"><svg class="i solid"><use href="#i-github"/></svg>GitHub</a></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap">
+            <div>
+                <picture>
+                    <source srcset="img/logo/Tllokn-positive-white.svg" media="(prefers-color-scheme: dark)">
+                    <img src="img/logo/Tllokn-positive-black.svg" alt="" width="35" height="12">
+                </picture>
+                <div>&copy; 2026 Luzhe Sun · Last updated Oct 2026</div>
+            </div>
+            <details class="visitor-map" id="visitorMap">
+                <summary>Visitor map</summary>
+                <div id="visitors" aria-label="Visitor map"></div>
+            </details>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav
+        const nav = document.getElementById("siteNav");
+        const menuButton = document.getElementById("menuButton");
+        menuButton.addEventListener("click", () => {
+            const open = nav.classList.toggle("open");
+            menuButton.setAttribute("aria-expanded", String(open));
+        });
+        nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {
+            nav.classList.remove("open");
+            menuButton.setAttribute("aria-expanded", "false");
+        }));
+
+        // Header border on scroll
+        const header = document.getElementById("siteHeader");
+        const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+
+        // Active section in nav
+        const links = [...nav.querySelectorAll("a")];
+        const sections = links.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+        if ("IntersectionObserver" in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((e) => {
+                    if (!e.isIntersecting) return;
+                    links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
+                });
+            }, { rootMargin: "-45% 0px -50% 0px" });
+            sections.forEach((s) => io.observe(s));
+        }
+
+        // Video previews: play/pause + respect reduced motion
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        document.querySelectorAll(".thumb").forEach((thumb) => {
+            const video = thumb.querySelector("video");
+            const btn = thumb.querySelector(".play");
+            if (!video || !btn) return;
+            const label = video.getAttribute("aria-label");
+            const sync = () => {
+                btn.setAttribute("aria-pressed", String(!video.paused));
+                btn.setAttribute("aria-label", (video.paused ? "Play " : "Pause ") + label);
+            };
+            if (reduceMotion) { video.removeAttribute("autoplay"); video.pause(); }
+            btn.addEventListener("click", () => { video.paused ? video.play().catch(sync) : video.pause(); });
+            video.addEventListener("play", sync);
+            video.addEventListener("pause", sync);
+            sync();
+        });
+
+        // Lazy YouTube embeds (hidden projects)
+        document.querySelectorAll(".video-load").forEach((button) => {
+            button.addEventListener("click", () => {
+                const iframe = document.createElement("iframe");
+                iframe.src = `${button.dataset.videoSrc}?autoplay=1`;
+                iframe.title = button.dataset.videoTitle;
+                iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share";
+                iframe.allowFullscreen = true;
+                button.parentElement.replaceChildren(iframe);
+            });
+        });
+
+        // Visitor map on demand
+        document.getElementById("visitorMap").addEventListener("toggle", (e) => {
+            const box = document.getElementById("visitors");
+            if (!e.currentTarget.open || box.querySelector("iframe")) return;
+            const frame = document.createElement("iframe");
+            frame.title = "Visitor map";
+            frame.loading = "lazy";
+            frame.src = "visitor-map.html";
+            box.appendChild(frame);
+        });
+    </script>
+</body>
+
+</html>
