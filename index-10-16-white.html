@@ -229,6 +229,13 @@
         }
         /* full-size media: fixed width, height follows the original aspect ratio */
         .thumb img, .thumb video { display: block; width: 100%; height: auto; }
+        .thumb.missing video, .thumb.missing .play { display: none; }
+        .thumb.missing::before {
+            content: attr(data-fallback); display: grid; place-items: center; aspect-ratio: 16 / 10;
+            color: var(--faint); font-family: var(--serif); font-size: 19px; letter-spacing: -.2px;
+            background-image: linear-gradient(var(--rule-soft) 1px, transparent 1px), linear-gradient(90deg, var(--rule-soft) 1px, transparent 1px);
+            background-size: 14px 14px;
+        }
         @media (prefers-color-scheme: dark) { .pub:hover { background: var(--surface); } }
         @media (prefers-color-scheme: dark) { .thumb img, .thumb video { opacity: .94; } }
         .play {
@@ -503,7 +510,7 @@
             </div>
 
             <div class="pub-group">
-                <div class="pub-group-head"><h3 class="label">Selected</h3><span class="note">* equal contribution</span></div>
+                <div class="pub-group-head"><h3 class="label">Shared Control &amp; Policy Adaptation</h3><span class="note">* equal contribution</span></div>
 
                 <article class="pub">
                     <div class="thumb">
@@ -520,54 +527,6 @@
                         <div class="pub-links">
                             <a href="https://ripl.github.io/GLOVES_web/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
                             <a href="https://arxiv.org/abs/2606.06461"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="pub">
-                    <div class="thumb"><img src="img/optimized/2026-sabre.jpg" alt="SABRE VLM benchmarking pipeline" loading="lazy" decoding="async"></div>
-                    <div>
-                        <div class="venue-row"><span class="venue pre">Preprint · 2026</span></div>
-                        <h3><a href="https://arxiv.org/abs/2608.07435">SABRE: Scalable and Automated Benchmarking of VLMs under Stress</a></h3>
-                        <div class="authors">Zixuan Lan*, <b>Luzhe Sun*</b>, Matthew R. Walter, Jiawei Zhou</div>
-                        <p class="tldr">SABRE turns natural-language test specifications into automatically generated, filtered, and human-verified VLM stress tests that can evolve with the models. Its SABRE-Prior benchmark exposes heavy reliance on world priors: six frontier VLMs score only 17.8–31.3% macro accuracy.</p>
-                        <div class="pub-links">
-                            <a href="https://zesearch.github.io/vlm-SABRE/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
-                            <a href="https://github.com/Zesearch/vlm-SABRE"><svg class="i"><use href="#i-code"/></svg>Code</a>
-                            <a href="https://arxiv.org/abs/2608.07435"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="pub featured">
-                    <div class="thumb"><img src="img/optimized/2026-what-are-we-actually-benchmarking.jpg" alt="Robot manipulation benchmark audit chart" loading="lazy" decoding="async"></div>
-                    <div>
-                        <div class="venue-row">
-                            <a class="venue" href="https://www.corl.org/">CoRL 2026 <span class="hl">Oral</span></a>
-                            <a class="badge-award" href="https://sites.google.com/view/rgmcw2026"><svg class="i"><use href="#i-trophy"/></svg>Best Abstract · IROS 2026 RGMCW</a>
-                        </div>
-                        <h3><a href="https://arxiv.org/abs/2606.04233">What Are We Actually Benchmarking in Robot Manipulation?</a></h3>
-                        <div class="authors">Tianchong Jiang, Xiangshan Tan*, Samuel Wheeler*, <b>Luzhe Sun*</b>, Tewodros W. Ayalew*, Matthew R. Walter</div>
-                        <p class="tldr">Auditing five popular robot-manipulation benchmarks with four diagnostics reveals shortcuts, statistically unresolved gains, overfitting, and training-data proximity effects—especially on LIBERO, CALVIN, and SimplerEnv. The results show why benchmark scores alone often do not establish general manipulation progress.</p>
-                        <div class="pub-links">
-                            <a href="https://ripl.github.io/manipulation_benchmark_audit/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
-                            <a href="https://github.com/ripl/ManipulationBenchmarkAudit"><svg class="i"><use href="#i-code"/></svg>Code</a>
-                            <a href="https://arxiv.org/abs/2606.04233"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="pub">
-                    <div class="thumb"><img src="img/optimized/2026-seeing-without-looking.jpg" alt="Seeing without Looking paper figure" loading="lazy" decoding="async"></div>
-                    <div>
-                        <div class="venue-row"><a class="venue" href="https://openreview.net/forum?id=BBnoQFzIQi">CVPR 2026 · GRAIL-V Workshop</a></div>
-                        <h3><a href="https://arxiv.org/abs/2605.22903">Seeing without Looking: Do Vision-Language Benchmarks Really Test Vision?</a></h3>
-                        <div class="authors">Zixuan Lan*, <b>Luzhe Sun*</b>, Matthew R. Walter, Jiawei Zhou</div>
-                        <p class="tldr">Across seven open VLMs, benchmark accuracy often remains surprisingly high after fine-grained visual evidence is masked, corrupted, or replaced: removing 75% of image tokens reduces POPE accuracy by only about three percentage points for some models. These results reveal a gap between benchmark performance and genuine visual grounding.</p>
-                        <div class="pub-links">
-                            <a href="https://zesearch.github.io/vlm-seeing-without-looking/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
-                            <a href="https://github.com/Zesearch/vlm-seeing-without-looking"><svg class="i"><use href="#i-code"/></svg>Code</a>
-                            <a href="https://arxiv.org/abs/2605.22903"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
                         </div>
                     </div>
                 </article>
@@ -596,26 +555,6 @@
 
                 <article class="pub">
                     <div class="thumb">
-                        <video autoplay muted loop playsinline preload="metadata" poster="img/optimized/2025-stackgen.jpg" aria-label="StackGen video preview">
-                            <source src="video/2025-stackgen.webm" type="video/webm">
-                        </video>
-                        <button class="play" type="button" aria-pressed="false"><svg class="play-i" viewBox="0 0 12 12"><path d="M3 1.5 10 6 3 10.5z" fill="currentColor"/></svg><svg class="pause-i" viewBox="0 0 12 12"><path d="M3.5 2v8M8.5 2v8" stroke="currentColor" stroke-width="2"/></svg></button>
-                    </div>
-                    <div>
-                        <div class="venue-row"><a class="venue" href="https://doi.org/10.1109/IROS60139.2025.11247239">IROS 2025 <span class="hl">Oral</span></a></div>
-                        <h3><a href="https://arxiv.org/abs/2409.18098">StackGen: Generating Stable Structures from Silhouettes via Diffusion</a></h3>
-                        <div class="authors"><b>Luzhe Sun*</b>, Takuma Yoneda*, Samuel W. Wheeler, Tianchong Jiang, Matthew R. Walter</div>
-                        <p class="tldr">StackGen learns to generate diverse 6-DoF block arrangements that are both stable and faithful to a user-provided silhouette, avoiding explicit physics models or combinatorial search. It achieves 85.2% simulated stability and successfully builds all eight tested structures with a UR5 robot.</p>
-                        <div class="pub-links">
-                            <a href="https://ripl.github.io/StackGen/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
-                            <a href="https://arxiv.org/abs/2409.18098"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
-                            <a href="https://zhuanlan.zhihu.com/p/1946751889225024585"><svg class="i"><use href="#i-pen"/></svg>Blog (知乎)</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="pub">
-                    <div class="thumb">
                         <video autoplay muted loop playsinline preload="metadata" poster="img/optimized/2023-to-the-noise-and-back.jpg" aria-label="To the Noise and Back video preview">
                             <source src="video/2023-to-the-noise-and-back.webm" type="video/webm">
                         </video>
@@ -636,7 +575,102 @@
             </div>
 
             <div class="pub-group">
-                <div class="pub-group-head"><h3 class="label">Other</h3></div>
+                <div class="pub-group-head"><h3 class="label">Learning Physical Laws</h3></div>
+
+                <article class="pub">
+                    <div class="thumb">
+                        <video autoplay muted loop playsinline preload="metadata" poster="img/optimized/2025-stackgen.jpg" aria-label="StackGen video preview">
+                            <source src="video/2025-stackgen.webm" type="video/webm">
+                        </video>
+                        <button class="play" type="button" aria-pressed="false"><svg class="play-i" viewBox="0 0 12 12"><path d="M3 1.5 10 6 3 10.5z" fill="currentColor"/></svg><svg class="pause-i" viewBox="0 0 12 12"><path d="M3.5 2v8M8.5 2v8" stroke="currentColor" stroke-width="2"/></svg></button>
+                    </div>
+                    <div>
+                        <div class="venue-row"><a class="venue" href="https://doi.org/10.1109/IROS60139.2025.11247239">IROS 2025 <span class="hl">Oral</span></a></div>
+                        <h3><a href="https://arxiv.org/abs/2409.18098">StackGen: Generating Stable Structures from Silhouettes via Diffusion</a></h3>
+                        <div class="authors"><b>Luzhe Sun*</b>, Takuma Yoneda*, Samuel W. Wheeler, Tianchong Jiang, Matthew R. Walter</div>
+                        <p class="tldr">StackGen learns to generate diverse 6-DoF block arrangements that are both stable and faithful to a user-provided silhouette, avoiding explicit physics models or combinatorial search. It achieves 85.2% simulated stability and successfully builds all eight tested structures with a UR5 robot.</p>
+                        <div class="pub-links">
+                            <a href="https://ripl.github.io/StackGen/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://arxiv.org/abs/2409.18098"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                            <a href="https://zhuanlan.zhihu.com/p/1946751889225024585"><svg class="i"><use href="#i-pen"/></svg>Blog (知乎)</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pub">
+                    <div class="thumb" data-fallback="StackGen3D">
+                        <video autoplay muted loop playsinline preload="metadata" poster="img/optimized/2026-stackgen3d.jpg" aria-label="StackGen3D video preview">
+                            <source src="video/2026-stackgen3d.webm" type="video/webm">
+                        </video>
+                        <button class="play" type="button" aria-pressed="false"><svg class="play-i" viewBox="0 0 12 12"><path d="M3 1.5 10 6 3 10.5z" fill="currentColor"/></svg><svg class="pause-i" viewBox="0 0 12 12"><path d="M3.5 2v8M8.5 2v8" stroke="currentColor" stroke-width="2"/></svg></button>
+                    </div>
+                    <div>
+                        <div class="venue-row"><a class="venue" href="https://ripl.github.io/StackGen3D-web/">IROS 2026 · Creativity in Assembly Workshop</a></div>
+                        <h3><a href="https://arxiv.org/abs/2610.31803">StackGen3D: Stable 3D Block Stack Generation from Multiview Silhouettes</a></h3>
+                        <div class="authors">Xiaopeng Zhang*, <b>Luzhe Sun*</b>, Yiqing Xu, Matthew R. Walter</div>
+                        <p class="tldr">StackGen3D extends StackGen to 3D: given a fixed block inventory and three orthographic silhouettes, it generates a physically stable structure that matches every view. A physics-informed GNN screens a dataset of ~50k stable structures, a conditional flow-matching model generates block poses, and simple Best-of-10 selection raises post-hoc stability from 45.3% to 72.4%.</p>
+                        <div class="pub-links">
+                            <a href="https://ripl.github.io/StackGen3D-web/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://arxiv.org/abs/2610.31803"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="pub-group">
+                <div class="pub-group-head"><h3 class="label">Benchmarking</h3></div>
+
+                <article class="pub featured">
+                    <div class="thumb"><img src="img/optimized/2026-what-are-we-actually-benchmarking.jpg" alt="Robot manipulation benchmark audit chart" loading="lazy" decoding="async"></div>
+                    <div>
+                        <div class="venue-row">
+                            <a class="venue" href="https://www.corl.org/">CoRL 2026 <span class="hl">Oral</span></a>
+                            <a class="badge-award" href="https://sites.google.com/view/rgmcw2026"><svg class="i"><use href="#i-trophy"/></svg>Best Abstract · IROS 2026 RGMCW</a>
+                        </div>
+                        <h3><a href="https://arxiv.org/abs/2606.04233">What Are We Actually Benchmarking in Robot Manipulation?</a></h3>
+                        <div class="authors">Tianchong Jiang, Xiangshan Tan*, Samuel Wheeler*, <b>Luzhe Sun*</b>, Tewodros W. Ayalew*, Matthew R. Walter</div>
+                        <p class="tldr">Auditing five popular robot-manipulation benchmarks with four diagnostics reveals shortcuts, statistically unresolved gains, overfitting, and training-data proximity effects—especially on LIBERO, CALVIN, and SimplerEnv. The results show why benchmark scores alone often do not establish general manipulation progress.</p>
+                        <div class="pub-links">
+                            <a href="https://ripl.github.io/manipulation_benchmark_audit/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://github.com/ripl/ManipulationBenchmarkAudit"><svg class="i"><use href="#i-code"/></svg>Code</a>
+                            <a href="https://arxiv.org/abs/2606.04233"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pub">
+                    <div class="thumb"><img src="img/optimized/2026-sabre.jpg" alt="SABRE VLM benchmarking pipeline" loading="lazy" decoding="async"></div>
+                    <div>
+                        <div class="venue-row"><span class="venue pre">Preprint · 2026</span></div>
+                        <h3><a href="https://arxiv.org/abs/2608.07435">SABRE: Scalable and Automated Benchmarking of VLMs under Stress</a></h3>
+                        <div class="authors">Zixuan Lan*, <b>Luzhe Sun*</b>, Matthew R. Walter, Jiawei Zhou</div>
+                        <p class="tldr">SABRE turns natural-language test specifications into automatically generated, filtered, and human-verified VLM stress tests that can evolve with the models. Its SABRE-Prior benchmark exposes heavy reliance on world priors: six frontier VLMs score only 17.8–31.3% macro accuracy.</p>
+                        <div class="pub-links">
+                            <a href="https://zesearch.github.io/vlm-SABRE/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://github.com/Zesearch/vlm-SABRE"><svg class="i"><use href="#i-code"/></svg>Code</a>
+                            <a href="https://arxiv.org/abs/2608.07435"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pub">
+                    <div class="thumb"><img src="img/optimized/2026-seeing-without-looking.jpg" alt="Seeing without Looking paper figure" loading="lazy" decoding="async"></div>
+                    <div>
+                        <div class="venue-row"><a class="venue" href="https://openreview.net/forum?id=BBnoQFzIQi">CVPR 2026 · GRAIL-V Workshop</a></div>
+                        <h3><a href="https://arxiv.org/abs/2605.22903">Seeing without Looking: Do Vision-Language Benchmarks Really Test Vision?</a></h3>
+                        <div class="authors">Zixuan Lan*, <b>Luzhe Sun*</b>, Matthew R. Walter, Jiawei Zhou</div>
+                        <p class="tldr">Across seven open VLMs, benchmark accuracy often remains surprisingly high after fine-grained visual evidence is masked, corrupted, or replaced: removing 75% of image tokens reduces POPE accuracy by only about three percentage points for some models. These results reveal a gap between benchmark performance and genuine visual grounding.</p>
+                        <div class="pub-links">
+                            <a href="https://zesearch.github.io/vlm-seeing-without-looking/"><svg class="i"><use href="#i-globe"/></svg>Website</a>
+                            <a href="https://github.com/Zesearch/vlm-seeing-without-looking"><svg class="i"><use href="#i-code"/></svg>Code</a>
+                            <a href="https://arxiv.org/abs/2605.22903"><svg class="i"><use href="#i-paper"/></svg>arXiv</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="pub-group">
+                <div class="pub-group-head"><h3 class="label">Hallucination</h3></div>
 
                 <article class="pub">
                     <div class="thumb"><img src="img/optimized/2026-detecting-hallucinations.jpg" alt="HALP paper figure" loading="lazy" decoding="async"></div>
@@ -651,6 +685,10 @@
                         </div>
                     </div>
                 </article>
+            </div>
+
+            <div class="pub-group">
+                <div class="pub-group-head"><h3 class="label">Other</h3></div>
 
                 <article class="pub">
                     <div class="thumb"><img src="img/optimized/2022-decompositional-quantum-gnn.jpg" alt="egoQGNN paper figure" loading="lazy" decoding="async"></div>
@@ -796,6 +834,10 @@
             const video = thumb.querySelector("video");
             const btn = thumb.querySelector(".play");
             if (!video || !btn) return;
+            const sources = video.querySelectorAll("source");
+            const markMissing = () => thumb.classList.add("missing");
+            if (sources.length) sources[sources.length - 1].addEventListener("error", markMissing);
+            video.addEventListener("error", markMissing);
             const label = video.getAttribute("aria-label");
             const sync = () => {
                 btn.setAttribute("aria-pressed", String(!video.paused));
